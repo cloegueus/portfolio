@@ -53,21 +53,22 @@
 
   <section class="tuile l-12" id="simulateur">
     <h2>La page Simulateur</h2>
-    <p class="sous">Cliquez sur la capture pour l'agrandir</p>
-    <div class="schema">
-      <div class="bulles gauche">
-        <div class="bulle" data-cible="26.5,28"><strong>Le bulletin d'analyse</strong><p>On y saisit les mesures du lot, du pH à la population de levures. Toute la page se met à jour aussitôt.</p></div>
-        <div class="bulle" data-cible="13,78"><strong>Le contenant</strong><p>Une barrique ancienne abrite plus facilement la levure qu'une cuve inox. Un clic suffit pour comparer.</p></div>
-        <div class="bulle" data-cible="40,76"><strong>Le niveau de risque</strong><p>Faible, modéré ou élevé. La couleur suit, du vert au rouge.</p></div>
+    <p class="sous">Survolez une zone pour la mettre en lumière, cliquez sur la capture pour l'agrandir</p>
+    <div class="schema" id="schema-simulateur">
+      <div class="notes-zone gauche">
+        <div class="zone-note" data-zone="1.5,13,24.5,52"><strong>Le bulletin d'analyse</strong><p>On y saisit les mesures du lot, du pH à la population de levures. Toute la page se met à jour aussitôt.</p></div>
+        <div class="zone-note" data-zone="2,65,22.5,11"><strong>Le contenant</strong><p>Une barrique ancienne abrite plus facilement la levure qu'une cuve inox. Un clic suffit pour comparer.</p></div>
       </div>
       <div class="capture"><img src="../img/brett_simulateur.png" width="1339" height="753" alt="Page Simulateur du rapport. À gauche, le bulletin d'analyse du lot. Au centre, une jauge à 24 % de risque. À droite, le SO₂ actif, le SO₂ libre à viser et deux conseils."></div>
-      <div class="bulles droite">
-        <div class="bulle" data-cible="75,26.5"><strong>Le SO₂ actif</strong><p>La part du SO₂ qui protège vraiment le vin. Le petit trait marque le seuil à atteindre.</p></div>
-        <div class="bulle" data-cible="73,45"><strong>Le SO₂ à viser</strong><p>La dose qui suffirait à protéger ce lot, compte tenu de son acidité.</p></div>
-        <div class="bulle" data-cible="95.5,56"><strong>Que faire ?</strong><p>Des conseils concrets pour la cave, qui changent selon l'analyse.</p></div>
-        <div class="bulle" data-cible="57.5,59"><strong>La jauge</strong><p>La probabilité que la levure se développe d'ici le prochain contrôle, estimée par un modèle statistique.</p></div>
+      <div class="notes-zone droite">
+        <div class="zone-note" data-zone="66.5,18,30,13.5"><strong>Le SO₂ actif</strong><p>La part du SO₂ qui protège vraiment le vin. Le petit trait marque le seuil à atteindre.</p></div>
+        <div class="zone-note" data-zone="66.5,35,13,8.5"><strong>Le SO₂ à viser</strong><p>La dose qui suffirait à protéger ce lot, compte tenu de son acidité.</p></div>
+        <div class="zone-note" data-zone="66.5,46.5,30,16"><strong>Que faire ?</strong><p>Des conseils concrets pour la cave, qui changent selon l'analyse.</p></div>
       </div>
-      <svg class="fleches" aria-hidden="true"></svg>
+      <div class="notes-zone bas">
+        <div class="zone-note" data-zone="33,24,30,56"><strong>Le verdict</strong><p>La jauge donne la probabilité que la levure se développe d'ici le prochain contrôle. Juste dessous, le risque est classé faible, modéré ou élevé, et la couleur suit.</p></div>
+      </div>
+      <svg class="traits" aria-hidden="true"></svg>
     </div>
   </section>
 
