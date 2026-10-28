@@ -48,87 +48,26 @@
   <section class="tuile l-12" id="objectif">
     <h2>Objectif</h2>
     <p class="sous">Agir avant que le vin ne soit marqué</p>
-    <p>Brettanomyces est une levure qui donne au vin des odeurs animales, de cuir ou d'écurie. Une fois qu'elle s'est développée, on ne peut plus revenir en arrière. Le maître de chai a donc besoin de savoir, lot par lot, si le risque est réel et ce qu'il peut corriger tout de suite, en général le SO₂ libre.</p>
+    <p>Brettanomyces est une levure qui donne au vin des odeurs animales, de cuir ou d'écurie. Une fois qu'elle s'est développée, on ne peut plus revenir en arrière. Ce simulateur aide le maître de chai à savoir, lot par lot, si le risque est réel et ce qu'il peut corriger tout de suite.</p>
   </section>
 
   <section class="tuile l-12" id="simulateur">
-    <div class="tuile-tete seul">
-      <button class="agrandir" type="button">Agrandir</button>
-    </div>
-    <div class="capture"><img src="../img/brett_simulateur.png" width="1339" height="753" alt="Page Simulateur du rapport. À gauche, le bulletin d'analyse du lot avec le pH, le SO₂ libre, la température de cave, les sucres résiduels, la population de levures et le contenant. À droite, une jauge à 24 % de risque, le SO₂ actif à 0,41 mg/L, le SO₂ libre à viser d'environ 35 mg/L et deux conseils."></div>
-    <p class="legende">On saisit l'analyse du lot à gauche. La jauge donne la probabilité que la population augmente au prochain contrôle, en vert sous 30&#8239;%, en orange jusqu'à 60&#8239;% et en rouge au-delà. À droite, le SO₂ actif est comparé au seuil de protection de 0,5&#8239;mg/L, puis le rapport indique le SO₂ libre à viser à ce pH.</p>
-  </section>
-
-  <section class="tuile l-7" id="donnees">
-    <h2>Les données</h2>
-    <p class="sous">120 lots fictifs</p>
-    <p>Les lots et les huit domaines sont inventés, générés en Python. Les valeurs restent proches de ce qu'on mesure vraiment dans un chai, et le lien entre l'analyse et l'évolution de la levure suit ce que décrit la littérature œnologique.</p>
-    <table class="donnees">
-      <thead><tr><th scope="col">Variable</th><th scope="col">Ce qu'elle mesure</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">pH</th><td>L'acidité du vin. Plus il est haut, moins le SO₂ protège</td></tr>
-        <tr><th scope="row">SO₂ moléculaire</th><td>La part active du SO₂, calculée à partir du SO₂ libre et du pH</td></tr>
-        <tr><th scope="row">Température de cave</th><td>La levure se développe plus vite au chaud</td></tr>
-        <tr><th scope="row">Sucres résiduels</th><td>Ce qui reste à manger pour la levure</td></tr>
-        <tr><th scope="row">Contenant</th><td>Barrique ancienne, barrique neuve ou cuve inox</td></tr>
-        <tr><th scope="row">Population initiale</th><td>La quantité de levures au premier contrôle, en log UFC/mL</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="tuile l-5" id="modele">
-    <h2>Le modèle</h2>
-    <p class="sous">Une régression logistique en Python</p>
-    <p>Le modèle apprend, sur les 120 lots, quelles analyses précèdent une hausse de la population. Ses coefficients sont exportés dans une table que Power BI lit. Le calcul du risque se fait ensuite en DAX, ce qui permet au simulateur de répondre dès qu'on change une valeur.</p>
-    <table class="comparaison">
-      <thead><tr><th scope="col">Validation croisée 5 × 20</th><th scope="col">Valeur</th></tr></thead>
-      <tbody>
-        <tr><td>AUC</td><td class="meilleur">0,83</td></tr>
-        <tr><td>Bonnes prédictions</td><td>76&#8239;%</td></tr>
-        <tr><td>Part de lots qui évoluent</td><td>41&#8239;%</td></tr>
-      </tbody>
-    </table>
-    <p class="remarque">Le pH et le SO₂ moléculaire sont les deux variables qui pèsent vraiment. Avec seulement 120 lots, les autres effets restent incertains, et un vrai suivi de cave demanderait plus de lots avant de s'y fier.</p>
-  </section>
-
-  <section class="tuile l-12" id="mesures">
-    <h2>Les mesures DAX</h2>
-    <p class="sous">Elles sont rangées dans une table <code>_Mesures</code>. Voici celles qui font tourner le simulateur.</p>
-    <div class="mesures">
-      <article class="mesure">
-        <h3>SO2 moleculaire simule</h3>
-        <p>La part active du SO₂ libre. Elle baisse vite quand le pH monte, c'est pour ça qu'un même dosage protège moins un vin peu acide.</p>
-        <pre><code>DIVIDE ( [SO2 libre choisi], 1 + POWER ( 10, [pH choisi] - 1.81 ) )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>Risque simule</h3>
-        <p>La formule de la régression logistique, réécrite en DAX. Elle va chercher chaque coefficient dans la table exportée par Python, puis applique la fonction logistique.</p>
-        <pre><code>VAR b0  = LOOKUPVALUE ( coefficient[Coefficient], coefficient[Variable], "Constante" )
-VAR bPH = LOOKUPVALUE ( coefficient[Coefficient], coefficient[Variable], "pH" )
--- même chose pour les cinq autres variables
-VAR z = b0 + bPH * [pH choisi] + bSO * [SO2 moleculaire simule]
-    + bT * [Temperature choisie] + bS * [Sucres choisis]
-    + bB * [Barrique choisie] + bL * [Population choisie]
-RETURN DIVIDE ( 1, 1 + EXP ( -z ) )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>Niveau simule</h3>
-        <p>Le risque traduit en trois niveaux, qui donnent aussi la couleur de la jauge.</p>
-        <pre><code>SWITCH ( TRUE (),
-    [Risque simule] &gt;= 0.6, "Élevé",
-    [Risque simule] &gt;= 0.3, "Modéré",
-    "Faible" )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>SO2 libre conseille</h3>
-        <p>Le SO₂ libre qu'il faut atteindre pour avoir 0,5&#8239;mg/L de SO₂ actif au pH du lot.</p>
-        <pre><code>0.5 * ( 1 + POWER ( 10, [pH choisi] - 1.81 ) )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>pH choisi</h3>
-        <p>La valeur saisie dans le bulletin. Les autres variables suivent le même principe, avec une valeur par défaut si rien n'est choisi.</p>
-        <pre><code>SELECTEDVALUE ( 'Sim pH'[Sim pH], 3.65 )</code></pre>
-      </article>
+    <h2>La page Simulateur</h2>
+    <p class="sous">Cliquez sur la capture pour l'agrandir</p>
+    <div class="schema">
+      <div class="bulles gauche">
+        <div class="bulle" data-cible="24,30"><strong>Le bulletin d'analyse</strong><p>On y saisit les mesures du lot, du pH à la population de levures. Toute la page se met à jour aussitôt.</p></div>
+        <div class="bulle" data-cible="13,72"><strong>Le contenant</strong><p>Une barrique ancienne abrite plus facilement la levure qu'une cuve inox. Un clic suffit pour comparer.</p></div>
+        <div class="bulle" data-cible="42,76"><strong>Le niveau de risque</strong><p>Faible, modéré ou élevé. La couleur suit, du vert au rouge.</p></div>
+      </div>
+      <div class="capture"><img src="../img/brett_simulateur.png" width="1339" height="753" alt="Page Simulateur du rapport. À gauche, le bulletin d'analyse du lot. Au centre, une jauge à 24 % de risque. À droite, le SO₂ actif, le SO₂ libre à viser et deux conseils."></div>
+      <div class="bulles droite">
+        <div class="bulle" data-cible="81,26.5"><strong>Le SO₂ actif</strong><p>La part du SO₂ qui protège vraiment le vin. Le petit trait marque le seuil à atteindre.</p></div>
+        <div class="bulle" data-cible="74,40"><strong>Le SO₂ à viser</strong><p>La dose qui suffirait à protéger ce lot, compte tenu de son acidité.</p></div>
+        <div class="bulle" data-cible="82,56"><strong>Que faire ?</strong><p>Des conseils concrets pour la cave, qui changent selon l'analyse.</p></div>
+        <div class="bulle" data-cible="55,58"><strong>La jauge</strong><p>La probabilité que la levure se développe d'ici le prochain contrôle, estimée par un modèle statistique.</p></div>
+      </div>
+      <svg class="fleches" aria-hidden="true"></svg>
     </div>
   </section>
 

@@ -234,3 +234,24 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .tuile .mesures { display: block; columns: 3 300px; column-gap: 14px; }
 .tuile .mesure { break-inside: avoid; margin: 0 0 14px; }
 .tuile .mesure pre { margin: 4px 0 0; }
+
+/* --- Capture annotée : bulles de part et d'autre, reliées par des flèches -- */
+.schema { position: relative; display: grid; grid-template-columns: minmax(170px, 210px) minmax(0, 1fr) minmax(170px, 210px); gap: 0 44px; align-items: stretch; }
+.bulles { display: flex; flex-direction: column; justify-content: space-around; gap: 14px; }
+.bulle { position: relative; z-index: 1; background: var(--fond); border: 1px solid var(--trait); border-radius: 6px; padding: 10px 12px; }
+.bulle strong { display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 1.3; color: var(--ardoise); }
+.bulle strong::before { content: attr(data-num); flex: none; width: 20px; height: 20px; border-radius: 50%; background: var(--ardoise); color: var(--blanc); font-size: 11.5px; display: grid; place-items: center; }
+.tuile .bulle p { margin: 4px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--texte-2); }
+.schema .capture { align-self: center; }
+.fleches { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.fleches line { stroke: var(--ardoise); stroke-width: 1.5; }
+.fleches .point { fill: var(--blanc); stroke: var(--ardoise); stroke-width: 2; }
+.fleches text { fill: var(--blanc); font: 700 11px var(--police); text-anchor: middle; dominant-baseline: central; }
+.fleches .pastille { fill: var(--ardoise); stroke: var(--blanc); stroke-width: 2; }
+
+/* Écran plus étroit : la capture passe au-dessus, les bulles dessous, reliées par leur numéro. */
+@media (max-width: 1100px) {
+  .schema { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+  .schema .capture { grid-column: 1 / -1; grid-row: 1; }
+  .bulles { justify-content: flex-start; }
+}

@@ -65,3 +65,45 @@ if (fenetre) {
   fenetre.querySelector(".fermer").addEventListener("click", () => fenetre.close());
   fenetre.addEventListener("click", (e) => { if (e.target === fenetre) fenetre.close(); });
 }
+
+// Capture annotée : chaque bulle pointe vers un endroit de la capture (data-cible="x,y" en %).
+document.querySelectorAll(".schema").forEach((schema) => {
+  const svg = schema.querySelector(".fleches");
+  const image = schema.querySelector(".capture img");
+  const bulles = [...schema.querySelectorAll(".bulle")];
+  const ns = "http://www.w3.org/2000/svg";
+  const creer = (nom, attributs) => {
+    const el = document.createElementNS(ns, nom);
+    Object.entries(attributs).forEach(([cle, valeur]) => el.setAttribute(cle, valeur));
+    return svg.appendChild(el);
+  };
+  bulles.forEach((bulle, i) => bulle.querySelector("strong").dataset.num = i + 1);
+
+  const tracer = () => {
+    svg.replaceChildren();
+    const cadre = schema.getBoundingClientRect();
+    const img = image.getBoundingClientRect();
+    const empile = matchMedia("(max-width: 1100px)").matches;
+    bulles.forEach((bulle, i) => {
+      const [x, y] = bulle.dataset.cible.split(",").map(Number);
+      const cx = img.left - cadre.left + img.width * x / 100;
+      const cy = img.top - cadre.top + img.height * y / 100;
+      if (empile) {
+        creer("circle", { class: "pastille", cx, cy, r: 10 });
+        creer("text", { x: cx, y: cy }).textContent = i + 1;
+        return;
+      }
+      const b = bulle.getBoundingClientRect();
+      const gauche = bulle.closest(".gauche");
+      const bx = (gauche ? b.right : b.left) - cadre.left;
+      const by = b.top + b.height / 2 - cadre.top;
+      creer("line", { x1: bx, y1: by, x2: cx, y2: cy });
+      creer("circle", { class: "point", cx: bx, cy: by, r: 3 });
+      creer("circle", { class: "pastille", cx, cy, r: 10 });
+      creer("text", { x: cx, y: cy }).textContent = i + 1;
+    });
+  };
+  new ResizeObserver(tracer).observe(schema);
+  image.addEventListener("load", tracer);
+  tracer();
+});
