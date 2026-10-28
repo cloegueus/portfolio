@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risque Brettanomyces · Cloé Gueusquin</title>
+<meta name="description" content="Simulateur Power BI qui estime le risque de développement de Brettanomyces dans un lot de vin, à partir d'une régression logistique sur des données fictives.">
+<link rel="stylesheet" href="../commun.css">
+<link rel="stylesheet" href="../projet.css">
+</head>
+<body>
+
+<div class="pivoter" role="status">
+  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+    <rect x="20" y="6" width="24" height="44" rx="4"/><line x1="29" y1="43" x2="35" y2="43"/>
+    <path d="M50 30a18 18 0 0 1-18 18" stroke-dasharray="3 4"/>
+  </svg>
+  <strong>Tournez votre téléphone</strong>
+  <p>Ce portfolio se consulte à l'horizontale, pour bien voir les tableaux de bord.</p>
+</div>
+
+<div class="app">
+  <aside class="lateral" aria-label="Menu">
+    <a class="profil-lateral" href="../index.html"><span class="avatar"><img src="../img/photo.jpg" alt="Photo de Cloé Gueusquin" onerror="this.remove()">CG</span><strong>Cloé Gueusquin</strong><small>Data Analyst · Business Analytics</small></a>
+    <p class="rubrique">CV</p>
+    <a class="lien" href="../index.html" title="Mon CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Mon CV</span></a>
+    <p class="rubrique">Dashboards</p>
+    <a class="lien" href="../projets/pilotage-des-ventes.html" title="Pilotage des ventes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-5M11 16V6M16 16v-8"/></svg><span>Pilotage des ventes</span></a>
+    <a class="lien" href="../projets/risque-brettanomyces.html" aria-current="page" title="Risque Brettanomyces"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 0 1 16 0"/><path d="m12 18 4-5"/></svg><span>Risque Brettanomyces</span></a>
+    <div class="bas">
+      <a class="lien" href="mailto:cloegueus1@gmail.com" title="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>E-mail</span></a>
+      <a class="lien" href="https://www.linkedin.com/in/clo%C3%A9-gueusquin" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><span>LinkedIn</span></a>
+    </div>
+  </aside>
+
+  <div class="principal">
+    <header class="barre-haut">
+      <div>
+        <p class="fil">Dashboards</p>
+        <h1>Risque Brettanomyces</h1>
+        <p class="sous-titre">Un simulateur Power BI pour les vins de la vallée du Rhône, sur des données fictives. On saisit l'analyse d'un lot et le rapport estime le risque que la levure se développe, puis indique la correction à faire en cave.</p>
+      </div>
+    </header>
+
+
+<main class="tableau">
+
+  <section class="tuile l-12" id="objectif">
+    <h2>Objectif</h2>
+    <p class="sous">Agir avant que le vin ne soit marqué</p>
+    <p>Brettanomyces est une levure qui donne au vin des odeurs animales, de cuir ou d'écurie. Une fois qu'elle s'est développée, on ne peut plus revenir en arrière. Le maître de chai a donc besoin de savoir, lot par lot, si le risque est réel et ce qu'il peut corriger tout de suite, en général le SO₂ libre.</p>
+  </section>
+
+  <section class="tuile l-12" id="simulateur">
+    <div class="tuile-tete seul">
+      <button class="agrandir" type="button">Agrandir</button>
+    </div>
+    <div class="capture"><img src="../img/brett_simulateur.png" width="1339" height="753" alt="Page Simulateur du rapport. À gauche, le bulletin d'analyse du lot avec le pH, le SO₂ libre, la température de cave, les sucres résiduels, la population de levures et le contenant. À droite, une jauge à 24 % de risque, le SO₂ actif à 0,41 mg/L, le SO₂ libre à viser d'environ 35 mg/L et deux conseils."></div>
+    <p class="legende">On saisit l'analyse du lot à gauche. La jauge donne la probabilité que la population augmente au prochain contrôle, en vert sous 30&#8239;%, en orange jusqu'à 60&#8239;% et en rouge au-delà. À droite, le SO₂ actif est comparé au seuil de protection de 0,5&#8239;mg/L, puis le rapport indique le SO₂ libre à viser à ce pH.</p>
+  </section>
+
+  <section class="tuile l-7" id="donnees">
+    <h2>Les données</h2>
+    <p class="sous">120 lots fictifs</p>
+    <p>Les lots et les huit domaines sont inventés, générés en Python. Les valeurs restent proches de ce qu'on mesure vraiment dans un chai, et le lien entre l'analyse et l'évolution de la levure suit ce que décrit la littérature œnologique.</p>
+    <table class="donnees">
+      <thead><tr><th scope="col">Variable</th><th scope="col">Ce qu'elle mesure</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">pH</th><td>L'acidité du vin. Plus il est haut, moins le SO₂ protège</td></tr>
+        <tr><th scope="row">SO₂ moléculaire</th><td>La part active du SO₂, calculée à partir du SO₂ libre et du pH</td></tr>
+        <tr><th scope="row">Température de cave</th><td>La levure se développe plus vite au chaud</td></tr>
+        <tr><th scope="row">Sucres résiduels</th><td>Ce qui reste à manger pour la levure</td></tr>
+        <tr><th scope="row">Contenant</th><td>Barrique ancienne, barrique neuve ou cuve inox</td></tr>
+        <tr><th scope="row">Population initiale</th><td>La quantité de levures au premier contrôle, en log UFC/mL</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="tuile l-5" id="modele">
+    <h2>Le modèle</h2>
+    <p class="sous">Une régression logistique en Python</p>
+    <p>Le modèle apprend, sur les 120 lots, quelles analyses précèdent une hausse de la population. Ses coefficients sont exportés dans une table que Power BI lit. Le calcul du risque se fait ensuite en DAX, ce qui permet au simulateur de répondre dès qu'on change une valeur.</p>
+    <table class="comparaison">
+      <thead><tr><th scope="col">Validation croisée 5 × 20</th><th scope="col">Valeur</th></tr></thead>
+      <tbody>
+        <tr><td>AUC</td><td class="meilleur">0,83</td></tr>
+        <tr><td>Bonnes prédictions</td><td>76&#8239;%</td></tr>
+        <tr><td>Part de lots qui évoluent</td><td>41&#8239;%</td></tr>
+      </tbody>
+    </table>
+    <p class="remarque">Le pH et le SO₂ moléculaire sont les deux variables qui pèsent vraiment. Avec seulement 120 lots, les autres effets restent incertains, et un vrai suivi de cave demanderait plus de lots avant de s'y fier.</p>
+  </section>
+
+  <section class="tuile l-12" id="mesures">
+    <h2>Les mesures DAX</h2>
+    <p class="sous">Elles sont rangées dans une table <code>_Mesures</code>. Voici celles qui font tourner le simulateur.</p>
+    <div class="mesures">
+      <article class="mesure">
+        <h3>SO2 moleculaire simule</h3>
+        <p>La part active du SO₂ libre. Elle baisse vite quand le pH monte, c'est pour ça qu'un même dosage protège moins un vin peu acide.</p>
+        <pre><code>DIVIDE ( [SO2 libre choisi], 1 + POWER ( 10, [pH choisi] - 1.81 ) )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>Risque simule</h3>
+        <p>La formule de la régression logistique, réécrite en DAX. Elle va chercher chaque coefficient dans la table exportée par Python, puis applique la fonction logistique.</p>
+        <pre><code>VAR b0  = LOOKUPVALUE ( coefficient[Coefficient], coefficient[Variable], "Constante" )
+VAR bPH = LOOKUPVALUE ( coefficient[Coefficient], coefficient[Variable], "pH" )
+-- même chose pour les cinq autres variables
+VAR z = b0 + bPH * [pH choisi] + bSO * [SO2 moleculaire simule]
+    + bT * [Temperature choisie] + bS * [Sucres choisis]
+    + bB * [Barrique choisie] + bL * [Population choisie]
+RETURN DIVIDE ( 1, 1 + EXP ( -z ) )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>Niveau simule</h3>
+        <p>Le risque traduit en trois niveaux, qui donnent aussi la couleur de la jauge.</p>
+        <pre><code>SWITCH ( TRUE (),
+    [Risque simule] &gt;= 0.6, "Élevé",
+    [Risque simule] &gt;= 0.3, "Modéré",
+    "Faible" )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>SO2 libre conseille</h3>
+        <p>Le SO₂ libre qu'il faut atteindre pour avoir 0,5&#8239;mg/L de SO₂ actif au pH du lot.</p>
+        <pre><code>0.5 * ( 1 + POWER ( 10, [pH choisi] - 1.81 ) )</code></pre>
+      </article>
+      <article class="mesure">
+        <h3>pH choisi</h3>
+        <p>La valeur saisie dans le bulletin. Les autres variables suivent le même principe, avec une valeur par défaut si rien n'est choisi.</p>
+        <pre><code>SELECTEDVALUE ( 'Sim pH'[Sim pH], 3.65 )</code></pre>
+      </article>
+    </div>
+  </section>
+
+</main>
+  </div>
+</div>
+
+<dialog id="agrandissement" aria-label="Capture agrandie">
+  <button class="fermer" type="button" aria-label="Fermer">×</button>
+  <img alt="">
+</dialog>
+
+<script src="../projet.js"></script>
+</body>
+</html>

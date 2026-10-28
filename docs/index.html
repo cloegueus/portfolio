@@ -30,6 +30,7 @@
   .groupe .etiquettes li { font-size: 13.5px; }
 
   .dashboard { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; border: 1px solid var(--trait); border-radius: 10px; padding: 12px; }
+  .dashboard + .dashboard { margin-top: 10px; }
   .dashboard:hover { border-color: var(--teal); background: var(--teal-clair); }
   .dashboard img { flex: none; width: 150px; border-radius: 6px; border: 1px solid var(--trait); }
   .dashboard strong { display: block; font-size: 16px; }
@@ -61,6 +62,7 @@
     <a class="lien" href="index.html" aria-current="page" title="Mon CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Mon CV</span></a>
     <p class="rubrique">Dashboards</p>
     <a class="lien" href="projets/pilotage-des-ventes.html" title="Pilotage des ventes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-5M11 16V6M16 16v-8"/></svg><span>Pilotage des ventes</span></a>
+    <a class="lien" href="projets/risque-brettanomyces.html" title="Risque Brettanomyces"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 0 1 16 0"/><path d="m12 18 4-5"/></svg><span>Risque Brettanomyces</span></a>
     <div class="bas">
       <a class="lien" href="mailto:cloegueus1@gmail.com" title="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>E-mail</span></a>
       <a class="lien" href="https://www.linkedin.com/in/clo%C3%A9-gueusquin" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><span>LinkedIn</span></a>
@@ -161,6 +163,10 @@
           <a class="dashboard" href="projets/pilotage-des-ventes.html">
             <img src="img/demo_rapport.png" width="1804" height="1034" alt="">
             <div><strong>Pilotage des ventes</strong><span>Prévision des ventes et risque de perte client, deux modèles Python intégrés à Power BI</span></div>
+          </a>
+          <a class="dashboard" href="projets/risque-brettanomyces.html">
+            <img src="img/brett_simulateur.png" width="1339" height="753" alt="">
+            <div><strong>Risque Brettanomyces</strong><span>Simulateur de risque pour un lot de vin, une régression logistique Python calculée en DAX</span></div>
           </a>
         </section>
       </div>
