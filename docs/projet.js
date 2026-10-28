@@ -89,7 +89,7 @@ document.querySelectorAll(".schema").forEach((schema) => {
       const cx = img.left - cadre.left + img.width * x / 100;
       const cy = img.top - cadre.top + img.height * y / 100;
       if (empile) {
-        creer("circle", { class: "pastille", cx, cy, r: 10 });
+        creer("circle", { class: "pastille", cx, cy, r: 9 });
         creer("text", { x: cx, y: cy }).textContent = i + 1;
         return;
       }
@@ -99,7 +99,7 @@ document.querySelectorAll(".schema").forEach((schema) => {
       const by = b.top + b.height / 2 - cadre.top;
       creer("line", { x1: bx, y1: by, x2: cx, y2: cy });
       creer("circle", { class: "point", cx: bx, cy: by, r: 3 });
-      creer("circle", { class: "pastille", cx, cy, r: 10 });
+      creer("circle", { class: "pastille", cx, cy, r: 9 });
       creer("text", { x: cx, y: cy }).textContent = i + 1;
     });
   };
