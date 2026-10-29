@@ -36,6 +36,15 @@
   .dashboard strong { display: block; font-size: 16px; }
   .dashboard span { color: var(--texte-2); font-size: 14.5px; }
 
+  /* Logo de l'entreprise : dans la marge à gauche de la carte sur grand écran, sous la date sinon. */
+  .etape { position: relative; }
+  .logo { display: grid; place-items: center; width: 84px; height: 84px; margin-top: 12px; padding: 7px; background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon); }
+  .logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  @media (min-width: 1720px) {
+    .logo { position: absolute; top: 16px; right: calc(100% + 52px); width: 104px; height: 104px; margin: 0; padding: 10px; box-shadow: var(--ombre); border: 0; }
+    .etape:first-child .logo { top: 0; }
+  }
+
   @media (max-width: 1100px) {
     .cv { grid-template-columns: minmax(0, 1fr); }
   }
@@ -90,7 +99,7 @@
           <h2 id="titre-experiences">Expériences professionnelles</h2>
           <ol class="frise">
             <li class="etape">
-              <div class="quand"><b>avr. – sept. 2026</b>Biot</div>
+              <div class="quand"><b>avr. – sept. 2026</b>Biot<span class="logo"><img src="img/logo_dassault.png" alt="Logo Dassault Systèmes"></span></div>
               <div>
                 <h3>Dassault Systèmes</h3>
                 <p class="role">Stagiaire ingénieure en modélisation mathématique</p>
@@ -103,7 +112,7 @@
               </div>
             </li>
             <li class="etape">
-              <div class="quand"><b>avr. – sept. 2025</b>Caen</div>
+              <div class="quand"><b>avr. – sept. 2025</b>Caen<span class="logo"><img src="img/logo_orange.png" alt="Logo Orange"></span></div>
               <div>
                 <h3>Orange</h3>
                 <p class="role">Stagiaire Data Scientist</p>
@@ -116,7 +125,7 @@
               </div>
             </li>
             <li class="etape">
-              <div class="quand"><b>avr. – juin 2024</b>Avignon</div>
+              <div class="quand"><b>avr. – juin 2024</b>Avignon<span class="logo"><img src="img/logo_inter_rhone.png" alt="Logo Inter Rhône"></span></div>
               <div>
                 <h3>Inter Rhône</h3>
                 <p class="role">Stagiaire Data Analyst</p>
