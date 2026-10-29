@@ -2,11 +2,219 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CV · Cloé Gueusquin</title>
-<meta http-equiv="refresh" content="0; url=index.html">
-<link rel="canonical" href="index.html">
+<meta name="description" content="Portfolio de Cloé Gueusquin, Data Analyst. CV et dashboards Power BI.">
+<link rel="stylesheet" href="commun.css">
+<style>
+  .cv { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 20px; align-items: start; }
+  .colonne { display: grid; gap: 20px; }
+  .profil p { margin: 0; font-size: 16px; line-height: 1.6; }
+
+  .frise { list-style: none; margin: 0; padding: 0; }
+  .etape { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 20px; padding: 16px 0; border-top: 1px solid var(--trait); }
+  .etape:first-child { border-top: 0; padding-top: 0; }
+  .etape:last-child { padding-bottom: 0; }
+  .etape .quand { color: var(--texte-2); font-size: 14px; line-height: 1.4; }
+  .etape .quand b { display: block; color: var(--teal-fonce); font-size: 14.5px; }
+  .etape h3 { margin: 0; font-size: 16.5px; font-weight: 600; line-height: 1.3; }
+  .etape .role { margin: 2px 0 8px; color: var(--teal-fonce); font-weight: 600; font-size: 15px; }
+  .etape ul { margin: 0; padding-left: 18px; font-size: 15px; }
+  .etape li { margin: 3px 0; }
+
+  .contact, .liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: 15px; }
+  .liste em { font-style: normal; color: var(--texte-2); }
+  .groupe { margin: 0 0 12px; }
+  .groupe:last-child { margin-bottom: 0; }
+  .groupe span { display: block; font-size: 13px; color: var(--texte-2); margin-bottom: 6px; }
+  .groupe .etiquettes li { font-size: 13.5px; }
+
+  .dashboard { display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; border: 1px solid var(--trait); border-radius: 10px; padding: 12px; }
+  .dashboard + .dashboard { margin-top: 10px; }
+  .dashboard:hover { border-color: var(--teal); background: var(--teal-clair); }
+  .dashboard img { flex: none; width: 150px; border-radius: 6px; border: 1px solid var(--trait); }
+  .dashboard strong { display: block; font-size: 16px; }
+  .dashboard span { color: var(--texte-2); font-size: 14.5px; }
+
+  @media (max-width: 1100px) {
+    .cv { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 960px) {
+    .etape { grid-template-columns: 105px minmax(0, 1fr); gap: 14px; }
+  }
+</style>
 </head>
 <body>
-<p>Le CV est maintenant sur la <a href="index.html">page d'accueil</a>.</p>
+
+<div class="pivoter" role="status">
+  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+    <rect x="20" y="6" width="24" height="44" rx="4"/><line x1="29" y1="43" x2="35" y2="43"/>
+    <path d="M50 30a18 18 0 0 1-18 18" stroke-dasharray="3 4"/>
+  </svg>
+  <strong>Tournez votre téléphone</strong>
+  <p>Ce portfolio se consulte à l'horizontale, pour bien voir les tableaux de bord.</p>
+</div>
+
+<div class="app">
+  <aside class="lateral" aria-label="Menu">
+    <a class="profil-lateral" href="index.html"><span class="avatar"><img src="img/photo.jpg" alt="Photo de Cloé Gueusquin" onerror="this.remove()">CG</span><strong>Cloé Gueusquin</strong><small>Data Analyst · Business Analytics</small></a>
+    <p class="rubrique">CV</p>
+    <a class="lien" href="cv.html" aria-current="page" title="Mon CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Mon CV</span></a>
+    <p class="rubrique">Dashboards</p>
+    <a class="lien" href="projets/pilotage-des-ventes.html" title="Pilotage des ventes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-5M11 16V6M16 16v-8"/></svg><span>Pilotage des ventes</span></a>
+    <a class="lien" href="projets/risque-brettanomyces.html" title="Risque Brettanomyces"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 0 1 16 0"/><path d="m12 18 4-5"/></svg><span>Risque Brettanomyces</span></a>
+    <div class="bas">
+      <a class="lien" href="mailto:cloegueus1@gmail.com" title="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>E-mail</span></a>
+      <a class="lien" href="https://www.linkedin.com/in/clo%C3%A9-gueusquin" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><span>LinkedIn</span></a>
+    </div>
+  </aside>
+
+  <div class="principal">
+    <header class="barre-haut">
+      <div>
+        <p class="fil">CV</p>
+        <h1>Cloé Gueusquin</h1>
+        <p class="sous-titre">Data Analyst à Paris, future diplômée d'un master en statistiques appliquées</p>
+      </div>
+      <a class="bouton-principal" href="mailto:cloegueus1@gmail.com">Me contacter</a>
+    </header>
+
+    <main class="cv">
+      <div class="colonne">
+        <section class="carte-blanche profil" aria-labelledby="titre-profil">
+          <h2 id="titre-profil">Profil</h2>
+          <p>Future diplômée en janvier 2027 d'un Master en Statistiques Appliquées et Analyse Décisionnelle, je recherche un poste de Data Analyst pour concevoir des tableaux de bord fiables et utiles à la décision des équipes métier.</p>
+        </section>
+
+        <section class="carte-blanche" aria-labelledby="titre-experiences">
+          <h2 id="titre-experiences">Expériences professionnelles</h2>
+          <ol class="frise">
+            <li class="etape">
+              <div class="quand"><b>avr. – sept. 2026</b>Biot</div>
+              <div>
+                <h3>Dassault Systèmes</h3>
+                <p class="role">Stagiaire ingénieure en modélisation mathématique</p>
+                <ul>
+                <li>Projet de l'équipe Mental Health pour améliorer le dépistage précoce des troubles du neurodéveloppement.</li>
+                <li>Collecte, nettoyage et fiabilisation des données de santé longitudinales de <strong>80 enfants</strong> suivis de 0 à 7 ans.</li>
+                <li>Modélisation sous R de courbes de référence du développement cérébral et définition d'indicateurs de suivi.</li>
+                <li>Résultats présentés en conférence et sous forme de poster.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="etape">
+              <div class="quand"><b>avr. – sept. 2025</b>Caen</div>
+              <div>
+                <h3>Orange</h3>
+                <p class="role">Stagiaire Data Scientist</p>
+                <ul>
+                <li>Projet de l'équipe Orange Money pour détecter les fraudeurs parmi <strong>plusieurs millions d'utilisateurs</strong>.</li>
+                <li>Analyse statistique sous Python d'un graphe de transferts d'argent et sélection des indicateurs les plus pertinents.</li>
+                <li>Mise en place d'un modèle de machine learning de détection de fraude.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="etape">
+              <div class="quand"><b>avr. – juin 2024</b>Avignon</div>
+              <div>
+                <h3>Inter Rhône</h3>
+                <p class="role">Stagiaire Data Analyst</p>
+                <ul>
+                <li>Nettoyage et analyse statistique des mesures physico-chimiques de <strong>100 échantillons</strong> de vin.</li>
+                <li>Construction d'un modèle de prédiction du risque de défaut de goût.</li>
+                <li>Recueil des besoins d'utilisateurs non spécialistes et création d'un <strong>tableau de bord d'aide à la décision sous Power BI</strong>.</li>
+                <li>Présentation du tableau de bord destiné aux vignerons.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="carte-blanche" aria-labelledby="titre-formation">
+          <h2 id="titre-formation">Formation</h2>
+          <ol class="frise">
+            <li class="etape">
+              <div class="quand"><b>2024 – 2026</b>Caen</div>
+              <div>
+                <h3>Master Mathématiques Appliquées, Statistiques</h3>
+                <p class="role">Université Caen Normandie</p>
+                <ul>
+                <li>Spécialisation en Statistiques Appliquées et Analyse Décisionnelle.</li>
+                <li>Cours clés en bases de données, enquêtes et sondages, informatique de l'entreprise, analyse de données et optimisation.</li>
+                </ul>
+              </div>
+            </li>
+            <li class="etape">
+              <div class="quand"><b>2020 – 2024</b>Nice</div>
+              <div>
+                <h3>Licence MIASHS</h3>
+                <p class="role">Université Côte d'Azur</p>
+                <ul>
+                <li>Spécialisation en Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales.</li>
+                <li>Cours clés en statistiques et modélisation, data mining, marketing et microéconomie.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="carte-blanche" aria-labelledby="titre-dashboards">
+          <h2 id="titre-dashboards">Dashboards</h2>
+          <a class="dashboard" href="projets/pilotage-des-ventes.html">
+            <img src="img/demo_rapport.png" width="1804" height="1034" alt="">
+            <div><strong>Pilotage des ventes</strong><span>Prévision des ventes et risque de perte client, deux modèles Python intégrés à Power BI</span></div>
+          </a>
+          <a class="dashboard" href="projets/risque-brettanomyces.html">
+            <img src="img/brett_simulateur.png" width="1339" height="753" alt="">
+            <div><strong>Risque Brettanomyces</strong><span>Simulateur de risque pour un lot de vin, une régression logistique Python calculée en DAX</span></div>
+          </a>
+        </section>
+      </div>
+
+      <div class="colonne">
+        <section class="carte-blanche" aria-labelledby="titre-contact">
+          <h2 id="titre-contact">Contact</h2>
+          <ul class="contact">
+            <li>Paris</li>
+            <li><a href="mailto:cloegueus1@gmail.com">cloegueus1@gmail.com</a></li>
+            <li><a href="https://www.linkedin.com/in/clo%C3%A9-gueusquin">LinkedIn</a></li>
+            <li><a href="https://github.com/cloegueus">GitHub</a></li>
+          </ul>
+        </section>
+
+        <section class="carte-blanche" aria-labelledby="titre-competences">
+          <h2 id="titre-competences">Compétences</h2>
+          <div class="groupe"><span>Visualisation et BI</span><ul class="etiquettes"><li>Power BI</li><li>Power Query</li><li>DAX</li><li>Excel</li><li>R Shiny</li></ul></div>
+          <div class="groupe"><span>Langages</span><ul class="etiquettes"><li>SQL</li><li>Python</li><li>R</li><li>SAS</li><li>VBA</li></ul></div>
+          <div class="groupe"><span>Bases de données</span><ul class="etiquettes"><li>PostgreSQL</li><li>MySQL</li></ul></div>
+          <div class="groupe"><span>Environnement</span><ul class="etiquettes"><li>Git</li><li>Docker</li></ul></div>
+          <div class="groupe"><span>Savoir-faire</span><ul class="etiquettes"><li>Recueil des besoins métier</li><li>Définition d'indicateurs</li><li>Contrôle qualité des données</li></ul></div>
+        </section>
+
+        <section class="carte-blanche" aria-labelledby="titre-certification">
+          <h2 id="titre-certification">Certification</h2>
+          <ul class="liste"><li>Microsoft Power BI Data Analyst (PL-300) <em>en cours</em></li></ul>
+        </section>
+
+        <section class="carte-blanche" aria-labelledby="titre-langues">
+          <h2 id="titre-langues">Langues</h2>
+          <ul class="liste">
+            <li>Français <em>langue maternelle</em></li>
+            <li>Anglais <em>B1/B2</em></li>
+            <li>Italien <em>A2</em></li>
+          </ul>
+        </section>
+
+        <section class="carte-blanche" aria-labelledby="titre-interets">
+          <h2 id="titre-interets">Centres d'intérêt</h2>
+          <ul class="liste">
+            <li>Conception graphique sous Adobe Photoshop</li>
+            <li>Randonnée et bivouac</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
 </body>
 </html>
