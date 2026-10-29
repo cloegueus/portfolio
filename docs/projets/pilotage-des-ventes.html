@@ -183,131 +183,76 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
   </section>
 
 
-  <header class="lectures-tete">
-    <p class="surtitre">Au-delà du tableau de bord</p>
-    <h2>Le mail a-t-il fait vendre ?</h2>
-    <p>Mi-avril, le laboratoire envoie un mail aux vétérinaires pour promouvoir Parasitop Chat. Trois mois plus tard, les ventes ont pris 50&#8239;%. Le rapport montre bien la hausse, mais il ne dit pas d'où elle vient.</p>
-    <p class="legende-effets" aria-label="Code couleur"><span><i class="ef-base"></i>Ventes habituelles</span><span><i class="ef-saison"></i>Effet de la saison</span><span><i class="ef-mail"></i>Effet du mail</span></p>
-  </header>
 
-  <section class="tuile l-4 etape-mail">
-    <p class="notion">1 · Ce qu'on voit</p>
-    <h3>+50&#8239;% après le mail</h3>
-    <p>On compare les trois mois avant le mail aux trois mois après. La hausse est nette, et on a envie de tout mettre au crédit du mail.</p>
-    <p>Or les antiparasitaires se vendent toujours mieux au printemps, quand puces et tiques reviennent.</p>
-    <div class="figure-mail">
-      <svg class="mini" id="hausse" viewBox="0 0 400 290" role="img" aria-label="Ventes avant le mail : 10 000 euros. Après : 15 000 euros, dont 4 000 euros dus à la saison et 1 000 euros dus au mail.">
-        <line class="axe" x1="20" y1="240" x2="390" y2="240"/>
-        <rect class="f-base" x="40" y="115" width="90" height="125"/>
-        <text class="val" x="85" y="105" text-anchor="middle">10 000 €</text>
-        <rect class="s-base" x="190" y="115" width="90" height="125"/>
-        <rect class="s-saison" x="190" y="65" width="90" height="50"/>
-        <rect class="s-mail" x="190" y="52.5" width="90" height="12.5"/>
-        <text class="val" x="235" y="42" text-anchor="middle">15 000 €</text>
-        <text class="gros" x="160" y="88" text-anchor="middle">+50 %</text>
-        <g class="vue-simple">
-          <text x="292" y="150">« Tout ça,</text>
-          <text x="292" y="166">c'est le mail »</text>
+  <section class="pont" data-lecture="1" aria-labelledby="pont-titre">
+    <div class="pont-tete">
+      <div>
+        <h2 id="pont-titre">Le mail a-t-il fait vendre&#8239;?</h2>
+        <p>Mi-avril, le laboratoire envoie un mail aux vétérinaires pour Parasitop Chat. Trois mois plus tard, les ventes ont pris 50&#8239;%. Selon la façon de comparer, le mail n'a pas du tout le même mérite.</p>
+      </div>
+      <div class="segment" role="group" aria-labelledby="segment-titre">
+        <p id="segment-titre">Méthode de comparaison</p>
+        <button type="button" data-lecture="1" aria-pressed="true">Avant / après</button>
+        <button type="button" data-lecture="2" aria-pressed="false">Contre l'an dernier</button>
+        <button type="button" data-lecture="3" aria-pressed="false">Contre un groupe témoin</button>
+      </div>
+    </div>
+
+    <div class="pont-corps">
+      <svg class="pont-graphe" viewBox="0 0 720 300" role="img" aria-label="Pont des ventes de Parasitop Chat. Avant le mail 120 k€, après 180 k€. Selon la méthode, la hausse de 60 k€ revient entièrement au mail, ou se partage entre 48 k€ de saison et 12 k€ de mail.">
+        <line class="sol" x1="10" x2="710" y1="260" y2="260"/>
+        <rect class="b-base" x="30" y="128" width="120" height="132" rx="2"/>
+        <text class="valeur" x="90" y="118" text-anchor="middle">120 k€</text>
+        <text x="90" y="282" text-anchor="middle">Avant le mail</text>
+
+        <g class="seul1">
+          <line class="lien" x1="150" x2="210" y1="128" y2="128"/>
+          <rect class="b-mail" x="210" y="62" width="300" height="66" rx="2"/>
+          <text class="valeur" x="360" y="52" text-anchor="middle">+60 k€ mis au crédit du mail</text>
+          <text x="360" y="282" text-anchor="middle">Hausse</text>
+          <line class="lien" x1="510" x2="570" y1="62" y2="62"/>
+          <rect class="b-mail" x="570" y="62" width="120" height="66"/>
         </g>
-        <g class="vue-detail">
-          <text x="292" y="62">Mail +1 000 €</text>
-          <text x="292" y="94">Saison +4 000 €</text>
-          <text x="292" y="174">Ventes</text>
-          <text x="292" y="190">habituelles</text>
+        <g class="des2">
+          <line class="lien" x1="150" x2="210" y1="128" y2="128"/>
+          <rect class="b-saison" x="210" y="75.2" width="120" height="52.8" rx="2"/>
+          <text class="valeur" x="270" y="65" text-anchor="middle">+48 k€</text>
+          <text x="270" y="282" text-anchor="middle">Saison</text>
+          <line class="lien" x1="330" x2="390" y1="75.2" y2="75.2"/>
+          <rect class="b-mail" x="390" y="62" width="120" height="13.2" rx="2"/>
+          <text x="450" y="282" text-anchor="middle">Mail</text>
+          <line class="lien" x1="510" x2="570" y1="62" y2="62"/>
+          <rect class="b-saison" x="570" y="75.2" width="120" height="52.8"/>
+          <rect class="b-mail" x="570" y="62" width="120" height="13.2"/>
         </g>
-        <text class="fort" x="85" y="259" text-anchor="middle">Avant le mail</text>
-        <text x="85" y="276" text-anchor="middle">mi-janv. à mi-avril</text>
-        <text class="fort" x="235" y="259" text-anchor="middle">Après le mail</text>
-        <text x="235" y="276" text-anchor="middle">mi-avril à mi-juillet</text>
-      </svg>
-      <button class="decomposer" type="button" aria-pressed="false" aria-controls="hausse">Décomposer la hausse</button>
-      <p class="encart" id="hausse-texte">Sur un graphique avant / après, la saison et le mail se mélangent. Impossible de les séparer à l'œil.</p>
-    </div>
-  </section>
+        <text class="valeur seul2" x="450" y="52" text-anchor="middle">+12 k€</text>
+        <g class="seul3">
+          <line class="moustache" x1="450" x2="450" y1="53.2" y2="70.8"/>
+          <line class="moustache" x1="440" x2="460" y1="53.2" y2="53.2"/>
+          <line class="moustache" x1="440" x2="460" y1="70.8" y2="70.8"/>
+          <text class="valeur" x="450" y="40" text-anchor="middle">+12 k€, entre 4 et 20</text>
+        </g>
 
-  <section class="tuile l-4 etape-mail">
-    <p class="notion">2 · Retirer la saison</p>
-    <h3>Comparer à l'année d'avant</h3>
-    <p>En 2025, sur la même période et sans aucun mail, les ventes avaient déjà pris 40&#8239;%. C'est l'effet du printemps seul.</p>
-    <p>En 2026, avec le mail, elles prennent 50&#8239;%. Le mail n'explique donc que l'écart entre les deux.</p>
-    <div class="figure-mail">
-      <svg class="mini" viewBox="0 0 400 290" role="img" aria-label="2025 sans mail : de 10 000 à 14 000 euros, soit plus 40 %. 2026 avec mail : de 10 000 à 15 000 euros, soit plus 50 %.">
-        <line class="axe" x1="20" y1="240" x2="390" y2="240"/>
-        <rect class="f-base" x="30" y="115" width="60" height="125"/>
-        <rect class="f-base" x="100" y="115" width="60" height="125"/>
-        <rect class="f-saison" x="100" y="65" width="60" height="50"/>
-        <text class="gros" x="130" y="55" text-anchor="middle">+40 %</text>
-        <rect class="f-base" x="230" y="115" width="60" height="125"/>
-        <rect class="f-base" x="300" y="115" width="60" height="125"/>
-        <rect class="f-saison" x="300" y="65" width="60" height="50"/>
-        <rect class="f-mail" x="300" y="52.5" width="60" height="12.5"/>
-        <text class="gros" x="330" y="42" text-anchor="middle">+50 %</text>
-        <line class="tirets" x1="160" y1="65" x2="300" y2="65"/>
-        <text x="166" y="82">niveau attendu sans mail</text>
-        <text x="60" y="257" text-anchor="middle">avant</text>
-        <text x="130" y="257" text-anchor="middle">après</text>
-        <text x="260" y="257" text-anchor="middle">avant</text>
-        <text x="330" y="257" text-anchor="middle">après</text>
-        <text class="fort" x="95" y="280" text-anchor="middle">2025 · sans mail</text>
-        <text class="fort" x="295" y="280" text-anchor="middle">2026 · avec mail</text>
+        <rect class="b-base" x="570" y="128" width="120" height="132"/>
+        <text class="valeur" x="630" y="52" text-anchor="middle">180 k€</text>
+        <text x="630" y="282" text-anchor="middle">Après le mail</text>
       </svg>
-      <p class="encart"><strong>Effet du mail = 50 − 40 = 10 points.</strong> Cinq fois moins que ce qu'on croyait.</p>
-    </div>
-  </section>
 
-  <section class="tuile l-4 etape-mail">
-    <p class="notion">3 · Le prouver</p>
-    <h3>Tirer au sort les cliniques</h3>
-    <p>D'une année sur l'autre, la météo, les prix ou les concurrents changent. Pour isoler le mail, on l'envoie à 100 cliniques tirées au sort et on en garde 100 autres comme témoin, sur la même période.</p>
-    <div class="figure-mail">
-      <svg class="mini" viewBox="0 0 400 290" role="img" aria-label="Ventes moyennes par clinique. Groupe avec mail : de 500 à 800 euros. Groupe témoin : de 500 à 700 euros. Effet du mail : 100 euros par clinique.">
-        <line class="axe" x1="20" y1="240" x2="390" y2="240"/>
-        <rect class="f-base" x="30" y="128.9" width="60" height="111.1"/>
-        <text class="val" x="60" y="120" text-anchor="middle">500 €</text>
-        <rect class="f-base" x="100" y="128.9" width="60" height="111.1"/>
-        <rect class="f-saison" x="100" y="84.4" width="60" height="44.5"/>
-        <rect class="f-mail" x="100" y="62.2" width="60" height="22.2"/>
-        <text class="val" x="130" y="53" text-anchor="middle">800 €</text>
-        <rect class="f-base" x="230" y="128.9" width="60" height="111.1"/>
-        <text class="val" x="260" y="120" text-anchor="middle">500 €</text>
-        <rect class="f-base" x="300" y="128.9" width="60" height="111.1"/>
-        <rect class="f-saison" x="300" y="84.4" width="60" height="44.5"/>
-        <text class="val" x="330" y="75" text-anchor="middle">700 €</text>
-        <text x="60" y="257" text-anchor="middle">avant</text>
-        <text x="130" y="257" text-anchor="middle">après</text>
-        <text x="260" y="257" text-anchor="middle">avant</text>
-        <text x="330" y="257" text-anchor="middle">après</text>
-        <text class="fort" x="95" y="280" text-anchor="middle">Avec mail</text>
-        <text class="fort" x="295" y="280" text-anchor="middle">Témoin</text>
-      </svg>
-      <svg class="mini" viewBox="0 0 400 100" role="img" aria-label="Fourchette à 95 % de l'effet du mail : de 31 à 169 euros par clinique, centrée sur 100 euros. Elle ne contient pas zéro.">
-        <line class="axe" x1="30" y1="60" x2="370" y2="60"/>
-        <line class="tirets" x1="86.7" y1="8" x2="86.7" y2="60"/>
-        <text x="92" y="13">0 € = aucun effet</text>
-        <line class="intervalle" x1="121.8" y1="45" x2="278.2" y2="45"/>
-        <line class="borne" x1="121.8" y1="37" x2="121.8" y2="53"/>
-        <line class="borne" x1="278.2" y1="37" x2="278.2" y2="53"/>
-        <circle class="f-mail" cx="200" cy="45" r="6.5"/>
-        <text class="val" x="121.8" y="33" text-anchor="middle">31 €</text>
-        <text class="val" x="200" y="33" text-anchor="middle">100 €</text>
-        <text class="val" x="278.2" y="33" text-anchor="middle">169 €</text>
-        <text x="86.7" y="80" text-anchor="middle">0 €</text>
-        <text x="200" y="80" text-anchor="middle">100 €</text>
-        <text x="313.3" y="80" text-anchor="middle">200 €</text>
-        <text x="370" y="97" text-anchor="end">gain par clinique dû au mail</text>
-      </svg>
-      <p class="encart"><strong>Le mail rapporte 100 € par clinique</strong> sur trois mois, entre 31 et 169 € à 95&#8239;%. La fourchette ne touche pas zéro, l'effet n'est donc pas un coup de chance.</p>
+      <div class="lecture-mail" aria-live="polite">
+        <p class="part-libelle">Part de la hausse due au mail</p>
+        <p class="part"><span class="seul1">100&#8239;%</span><span class="des2">20&#8239;%</span></p>
+        <p class="part-marge seul3">entre 7 et 33&#8239;%</p>
+        <p class="seul1">On compare les trois mois qui précèdent le mail aux trois mois qui le suivent. Les ventes passent de 120 à 180&#8239;k€, et toute la hausse revient au mail.</p>
+        <p class="seul2">L'an dernier, sans aucun mail, les ventes avaient déjà pris 40&#8239;% sur la même période, car puces et tiques reviennent chaque printemps. Une fois la saison retirée, il reste 12&#8239;k€ pour le mail.</p>
+        <p class="seul3">Le mail part vers des cliniques tirées au sort, les autres servent de témoin au même moment. Le gain se confirme et vient avec sa marge d'erreur. Il reste entre 4 et 20&#8239;k€, jamais nul.</p>
+      </div>
     </div>
-  </section>
 
-  <section class="tuile l-12 conclusion-mail">
-    <p class="piege">Comparer avant et après dans la même saison, c'est donner au mail le mérite <span>du printemps</span>.</p>
-    <div class="trois">
-      <div><h3>Séparer les effets</h3><p>Distinguer ce qui revient chaque année, comme la saison ou la tendance, de ce que l'action a vraiment changé.</p></div>
-      <div><h3>Comparer à armes égales</h3><p>Construire un groupe témoin par tirage au sort, et savoir combien de cliniques il faut pour pouvoir conclure.</p></div>
-      <div><h3>Mesurer le hasard</h3><p>Les ventes d'une clinique varient beaucoup d'un mois à l'autre. Une fourchette évite de fêter un effet qui n'existe pas.</p></div>
+    <div class="pont-pied">
+      <p class="cles"><span><i class="c-base"></i>Ventes habituelles</span><span><i class="c-saison"></i>Saison</span><span><i class="c-mail"></i>Mail</span></p>
+      <p class="morale">Avec la première lecture, on aurait doublé le budget des mails. Avec la dernière, on sait ce qu'un mail rapporte et jusqu'où s'y fier.</p>
+      <p class="fictif">Chiffres fictifs et arrondis.</p>
     </div>
-    <p class="remarque">Chiffres fictifs et arrondis, pour illustrer la méthode.</p>
   </section>
 
 </main>
