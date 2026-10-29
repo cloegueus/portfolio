@@ -266,3 +266,40 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
   .notes-zone, .notes-zone.gauche, .notes-zone.bas { grid-column: auto; flex-direction: column; justify-content: flex-start; margin: 0; text-align: left; }
   .traits path { display: none; }
 }
+
+/* --- Lectures : trois chiffres du rapport, lus vite puis avec du recul ------
+   Un petit graphique par chiffre, puis deux lectures superposées. La seconde,
+   soulignée en sarcelle, est celle qui tient compte du contexte. */
+.lectures-tete { grid-column: 1 / -1; margin-top: 18px; padding-top: 28px; border-top: 1px solid var(--trait); max-width: 860px; }
+.lectures-tete .surtitre { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+.principal .lectures-tete h2 { margin: 4px 0 10px; font-size: 26px; line-height: 1.2; font-weight: 600; letter-spacing: -.01em; color: var(--ardoise); }
+.lectures-tete p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--texte-2); }
+
+.lecture { display: flex; flex-direction: column; }
+.tuile .notion { margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); }
+.lecture h3 { margin: 2px 0 14px; font-size: 18px; font-weight: 600; color: var(--ardoise); }
+.mini { display: block; width: 100%; height: auto; margin: 0 0 6px; }
+.mini text { font: 10.5px var(--police); fill: var(--texte-2); }
+.mini .fort { font-weight: 700; fill: var(--ardoise); }
+.mini .axe { stroke: var(--trait); stroke-width: 1.5; }
+.mini .barre { fill: #C9D5D6; }
+.mini .accent { fill: var(--teal); }
+.mini .repere-an { stroke: var(--ardoise); stroke-width: 2; }
+.mini .budget { stroke: var(--gris-bleu); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.mini .fourchette { fill: var(--teal); opacity: .28; }
+.mini .centre { stroke: var(--teal-fonce); stroke-width: 3; }
+.tuile .cle { margin: 0 0 4px; font-size: 12.5px; color: var(--texte-2); }
+.cle i { display: inline-block; vertical-align: middle; margin: 0 6px 0 0; }
+.cle .cle-barre { width: 10px; height: 10px; background: #C9D5D6; }
+.cle .cle-trait { width: 14px; height: 2px; margin-left: 14px; background: var(--ardoise); }
+.cle .cle-zone { width: 14px; height: 10px; background: var(--teal); opacity: .28; }
+.cle .cle-tirets { background: repeating-linear-gradient(90deg, var(--gris-bleu) 0 4px, transparent 4px 7px); }
+
+.temps { margin-top: 14px; padding-left: 12px; border-left: 2px solid var(--trait); }
+.temps b { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--gris-bleu); }
+.tuile .temps p { margin: 3px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--texte-2); }
+.temps.second { border-left-color: var(--teal); }
+.temps.second b { color: var(--teal-fonce); }
+.tuile .temps.second p { color: var(--texte); }
+
+.lectures-fin { grid-column: 1 / -1; margin: 4px 0 0; font-size: 18px; line-height: 1.5; font-weight: 600; color: var(--ardoise); }
