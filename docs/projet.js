@@ -155,3 +155,16 @@ document.querySelectorAll(".schema").forEach((schema) => {
   image.addEventListener("load", tracer);
   tracer();
 });
+
+// Le mail a-t-il fait vendre ? Le bouton sépare la hausse en ventes habituelles, saison et mail.
+document.querySelectorAll(".decomposer").forEach((bouton) => {
+  const figure = document.getElementById(bouton.getAttribute("aria-controls"));
+  const texte = document.getElementById("hausse-texte");
+  const simple = texte.textContent;
+  bouton.addEventListener("click", () => {
+    const detail = figure.classList.toggle("decompose");
+    bouton.setAttribute("aria-pressed", detail);
+    bouton.textContent = detail ? "Revenir à la vue avant / après" : "Décomposer la hausse";
+    texte.textContent = detail ? "Sur les 5 000 € gagnés, 4 000 € viennent du printemps. Le mail n'en explique que 1 000 €." : simple;
+  });
+});

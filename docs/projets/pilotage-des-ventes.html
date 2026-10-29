@@ -182,51 +182,133 @@ RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
         <p class="remarque">Ici, les cliniques qui partent ralentissent toutes avant d'arrêter, ce qui les rend faciles à repérer. Sur de vraies données, le score serait sûrement moins bon, et il gagnerait à intégrer d'autres signaux, comme les visites des délégués.</p>
   </section>
 
+
   <header class="lectures-tete">
     <p class="surtitre">Au-delà du tableau de bord</p>
-    <h2>Ce que les chiffres ne disent pas tout seuls</h2>
-    <p>Un tableau de bord affiche des chiffres justes. Les conclusions qu'on en tire le sont moins souvent. Voici trois chiffres de ce rapport, lus une première fois en vitesse, puis avec un peu de recul.</p>
+    <h2>Le mail a-t-il fait vendre ?</h2>
+    <p>Mi-avril, le laboratoire envoie un mail aux vétérinaires pour promouvoir Parasitop Chat. Trois mois plus tard, les ventes ont pris 50&#8239;%. Le rapport montre bien la hausse, mais il ne dit pas d'où elle vient.</p>
+    <p class="legende-effets" aria-label="Code couleur"><span><i class="ef-base"></i>Ventes habituelles</span><span><i class="ef-saison"></i>Effet de la saison</span><span><i class="ef-mail"></i>Effet du mail</span></p>
   </header>
 
-  <section class="tuile l-4 lecture">
-    <p class="notion">Saisonnalité</p>
-    <h3>Août 2025, le pire mois ?</h3>
-    <svg class="mini" viewBox="0 0 360 172" role="img" aria-label="Ventes mensuelles 2025 comparées au même mois de 2024. Août 2025 est le mois le plus bas, mais il dépasse août 2024 de 18 %."><line class="axe" x1="4" x2="356" y1="150" y2="150"/><rect class="barre" x="14.0" y="59.5" width="18" height="90.5"/><line class="repere-an" x1="11.0" x2="35.0" y1="64.5" y2="64.5"/><text x="23.0" y="166" text-anchor="middle">J</text><rect class="barre" x="42.5" y="78.4" width="18" height="71.6"/><line class="repere-an" x1="39.5" x2="63.5" y1="71.4" y2="71.4"/><text x="51.5" y="166" text-anchor="middle">F</text><rect class="barre" x="71.0" y="45.5" width="18" height="104.5"/><line class="repere-an" x1="68.0" x2="92.0" y1="70.3" y2="70.3"/><text x="80.0" y="166" text-anchor="middle">M</text><rect class="barre" x="99.5" y="60.2" width="18" height="89.8"/><line class="repere-an" x1="96.5" x2="120.5" y1="50.3" y2="50.3"/><text x="108.5" y="166" text-anchor="middle">A</text><rect class="barre" x="128.0" y="53.9" width="18" height="96.1"/><line class="repere-an" x1="125.0" x2="149.0" y1="52.0" y2="52.0"/><text x="137.0" y="166" text-anchor="middle">M</text><rect class="barre" x="156.5" y="55.2" width="18" height="94.8"/><line class="repere-an" x1="153.5" x2="177.5" y1="63.1" y2="63.1"/><text x="165.5" y="166" text-anchor="middle">J</text><rect class="barre" x="185.0" y="69.2" width="18" height="80.8"/><line class="repere-an" x1="182.0" x2="206.0" y1="71.7" y2="71.7"/><text x="194.0" y="166" text-anchor="middle">J</text><rect class="barre accent" x="213.5" y="87.7" width="18" height="62.3"/><line class="repere-an" x1="210.5" x2="234.5" y1="97.3" y2="97.3"/><text x="222.5" y="166" text-anchor="middle">A</text><rect class="barre" x="242.0" y="55.9" width="18" height="94.1"/><line class="repere-an" x1="239.0" x2="263.0" y1="68.9" y2="68.9"/><text x="251.0" y="166" text-anchor="middle">S</text><rect class="barre" x="270.5" y="30.8" width="18" height="119.2"/><line class="repere-an" x1="267.5" x2="291.5" y1="60.3" y2="60.3"/><text x="279.5" y="166" text-anchor="middle">O</text><rect class="barre" x="299.0" y="68.9" width="18" height="81.1"/><line class="repere-an" x1="296.0" x2="320.0" y1="68.3" y2="68.3"/><text x="308.0" y="166" text-anchor="middle">N</text><rect class="barre" x="327.5" y="50.6" width="18" height="99.4"/><line class="repere-an" x1="324.5" x2="348.5" y1="73.2" y2="73.2"/><text x="336.5" y="166" text-anchor="middle">D</text><text class="fort" x="222.5" y="79.7" text-anchor="middle">+18 %</text></svg>
-    <p class="cle"><i class="cle-barre"></i>Ventes 2025 <i class="cle-trait"></i>Même mois en 2024</p>
-    <div class="temps premier"><b>Première lecture</b><p>Avec 117&#8239;k€, août 2025 est le mois le plus faible du rapport. On y verrait volontiers un décrochage.</p></div>
-    <div class="temps second"><b>Avec du recul</b><p>Les cliniques commandent moins chaque été. Face à août 2024, ce mois gagne 18&#8239;%, deux fois plus que l'année entière (+9&#8239;%).</p></div>
+  <section class="tuile l-4 etape-mail">
+    <p class="notion">1 · Ce qu'on voit</p>
+    <h3>+50&#8239;% après le mail</h3>
+    <p>On compare les trois mois avant le mail aux trois mois après. La hausse est nette, et on a envie de tout mettre au crédit du mail.</p>
+    <p>Or les antiparasitaires se vendent toujours mieux au printemps, quand puces et tiques reviennent.</p>
+    <div class="figure-mail">
+      <svg class="mini" id="hausse" viewBox="0 0 400 290" role="img" aria-label="Ventes avant le mail : 10 000 euros. Après : 15 000 euros, dont 4 000 euros dus à la saison et 1 000 euros dus au mail.">
+        <line class="axe" x1="20" y1="240" x2="390" y2="240"/>
+        <rect class="f-base" x="40" y="115" width="90" height="125"/>
+        <text class="val" x="85" y="105" text-anchor="middle">10 000 €</text>
+        <rect class="s-base" x="190" y="115" width="90" height="125"/>
+        <rect class="s-saison" x="190" y="65" width="90" height="50"/>
+        <rect class="s-mail" x="190" y="52.5" width="90" height="12.5"/>
+        <text class="val" x="235" y="42" text-anchor="middle">15 000 €</text>
+        <text class="gros" x="160" y="88" text-anchor="middle">+50 %</text>
+        <g class="vue-simple">
+          <text x="292" y="150">« Tout ça,</text>
+          <text x="292" y="166">c'est le mail »</text>
+        </g>
+        <g class="vue-detail">
+          <text x="292" y="62">Mail +1 000 €</text>
+          <text x="292" y="94">Saison +4 000 €</text>
+          <text x="292" y="174">Ventes</text>
+          <text x="292" y="190">habituelles</text>
+        </g>
+        <text class="fort" x="85" y="259" text-anchor="middle">Avant le mail</text>
+        <text x="85" y="276" text-anchor="middle">mi-janv. à mi-avril</text>
+        <text class="fort" x="235" y="259" text-anchor="middle">Après le mail</text>
+        <text x="235" y="276" text-anchor="middle">mi-avril à mi-juillet</text>
+      </svg>
+      <button class="decomposer" type="button" aria-pressed="false" aria-controls="hausse">Décomposer la hausse</button>
+      <p class="encart" id="hausse-texte">Sur un graphique avant / après, la saison et le mail se mélangent. Impossible de les séparer à l'œil.</p>
+    </div>
   </section>
 
-  <section class="tuile l-4 lecture">
-    <p class="notion">Incertitude</p>
-    <h3>Au-dessus du budget, vraiment ?</h3>
-    <svg class="mini" viewBox="0 -22 360 172" role="img" aria-label="Atterrissage de fin d'année estimé à 2,27 millions d'euros, entre 2,22 et 2,32 millions. Le budget, 2,18 millions, reste en dessous de toute la fourchette.">
-<line class="axe" x1="20" x2="340" y1="96" y2="96"/>
-<line class="axe" x1="20.0" x2="20.0" y1="96" y2="101"/><text x="20.0" y="116" text-anchor="middle">2,10 M€</text><line class="axe" x1="148.0" x2="148.0" y1="96" y2="101"/><text x="148.0" y="116" text-anchor="middle">2,20 M€</text><line class="axe" x1="276.0" x2="276.0" y1="96" y2="101"/><text x="276.0" y="116" text-anchor="middle">2,30 M€</text>
-<line class="budget" x1="122.6" x2="122.6" y1="18" y2="96"/>
-<text x="116.6" y="26" text-anchor="end">Budget</text>
-<text x="116.6" y="40" text-anchor="end">2,18 M€</text>
-<rect class="fourchette" x="170.0" y="55" width="129.3" height="14" rx="2"/>
-<line class="centre" x1="234.7" x2="234.7" y1="49" y2="75"/>
-<text class="fort" x="234.7" y="42" text-anchor="middle">2,27 M€</text>
-<text x="170.0" y="86" text-anchor="middle">2,22</text>
-<text x="299.3" y="86" text-anchor="middle">2,32</text>
-</svg>
-    <p class="cle"><i class="cle-zone"></i>Fourchette à 80&#8239;% <i class="cle-trait cle-tirets"></i>Budget</p>
-    <div class="temps premier"><b>Première lecture</b><p>Le rapport annonce 2,27&#8239;M€ en fin d'année, soit 4&#8239;% au-dessus du budget. Pris seul, ce chiffre ne dit pas s'il faut y croire.</p></div>
-    <div class="temps second"><b>Avec du recul</b><p>Chaque mois prévu vient avec sa fourchette. Même si octobre, novembre et décembre tombaient tous au plus bas de la leur, l'année finirait 1,7&#8239;% au-dessus du budget.</p></div>
+  <section class="tuile l-4 etape-mail">
+    <p class="notion">2 · Retirer la saison</p>
+    <h3>Comparer à l'année d'avant</h3>
+    <p>En 2025, sur la même période et sans aucun mail, les ventes avaient déjà pris 40&#8239;%. C'est l'effet du printemps seul.</p>
+    <p>En 2026, avec le mail, elles prennent 50&#8239;%. Le mail n'explique donc que l'écart entre les deux.</p>
+    <div class="figure-mail">
+      <svg class="mini" viewBox="0 0 400 290" role="img" aria-label="2025 sans mail : de 10 000 à 14 000 euros, soit plus 40 %. 2026 avec mail : de 10 000 à 15 000 euros, soit plus 50 %.">
+        <line class="axe" x1="20" y1="240" x2="390" y2="240"/>
+        <rect class="f-base" x="30" y="115" width="60" height="125"/>
+        <rect class="f-base" x="100" y="115" width="60" height="125"/>
+        <rect class="f-saison" x="100" y="65" width="60" height="50"/>
+        <text class="gros" x="130" y="55" text-anchor="middle">+40 %</text>
+        <rect class="f-base" x="230" y="115" width="60" height="125"/>
+        <rect class="f-base" x="300" y="115" width="60" height="125"/>
+        <rect class="f-saison" x="300" y="65" width="60" height="50"/>
+        <rect class="f-mail" x="300" y="52.5" width="60" height="12.5"/>
+        <text class="gros" x="330" y="42" text-anchor="middle">+50 %</text>
+        <line class="tirets" x1="160" y1="65" x2="300" y2="65"/>
+        <text x="166" y="82">niveau attendu sans mail</text>
+        <text x="60" y="257" text-anchor="middle">avant</text>
+        <text x="130" y="257" text-anchor="middle">après</text>
+        <text x="260" y="257" text-anchor="middle">avant</text>
+        <text x="330" y="257" text-anchor="middle">après</text>
+        <text class="fort" x="95" y="280" text-anchor="middle">2025 · sans mail</text>
+        <text class="fort" x="295" y="280" text-anchor="middle">2026 · avec mail</text>
+      </svg>
+      <p class="encart"><strong>Effet du mail = 50 − 40 = 10 points.</strong> Cinq fois moins que ce qu'on croyait.</p>
+    </div>
   </section>
 
-  <section class="tuile l-4 lecture">
-    <p class="notion">Probabilité</p>
-    <h3>Onze cliniques perdues ?</h3>
-    <svg class="mini" viewBox="0 -3 360 172" role="img" aria-label="Probabilité de départ des onze cliniques en risque élevé, de 98 % à 41 %. La clinique C226, à 46 %, achète 13,7 k€ par an."><text x="38" y="16" text-anchor="end">C176</text><rect class="barre" x="44" y="8" width="216.7" height="9" rx="1"/><text class="" x="264.7" y="16">98 %</text><text x="38" y="30" text-anchor="end">C014</text><rect class="barre" x="44" y="22" width="211.2" height="9" rx="1"/><text class="" x="259.2" y="30">96 %</text><text x="38" y="44" text-anchor="end">C076</text><rect class="barre" x="44" y="36" width="186.3" height="9" rx="1"/><text class="" x="234.3" y="44">85 %</text><text x="38" y="58" text-anchor="end">C070</text><rect class="barre" x="44" y="50" width="177.3" height="9" rx="1"/><text class="" x="225.3" y="58">81 %</text><text x="38" y="72" text-anchor="end">C046</text><rect class="barre" x="44" y="64" width="145.2" height="9" rx="1"/><text class="" x="193.2" y="72">66 %</text><text x="38" y="86" text-anchor="end">C117</text><rect class="barre" x="44" y="78" width="140.4" height="9" rx="1"/><text class="" x="188.4" y="86">64 %</text><text x="38" y="100" text-anchor="end">C160</text><rect class="barre" x="44" y="92" width="129.6" height="9" rx="1"/><text class="" x="177.6" y="100">59 %</text><text x="38" y="114" text-anchor="end">C015</text><rect class="barre" x="44" y="106" width="126.5" height="9" rx="1"/><text class="" x="174.5" y="114">57 %</text><text x="38" y="128" text-anchor="end">C226</text><rect class="barre accent" x="44" y="120" width="100.5" height="9" rx="1"/><text class="fort" x="148.5" y="128">46 % · achète 13,7 k€ par an</text><text x="38" y="142" text-anchor="end">C039</text><rect class="barre" x="44" y="134" width="92.6" height="9" rx="1"/><text class="" x="140.6" y="142">42 %</text><text x="38" y="156" text-anchor="end">C028</text><rect class="barre" x="44" y="148" width="90.4" height="9" rx="1"/><text class="" x="138.4" y="156">41 %</text></svg>
-    <p class="cle"><i class="cle-barre"></i>Probabilité de partir dans les six mois</p>
-    <div class="temps premier"><b>Première lecture</b><p>Onze cliniques sont en risque élevé, pour 80&#8239;k€ d'achats sur un an. On serait tenté de les appeler dans le désordre.</p></div>
-    <div class="temps second"><b>Avec du recul</b><p>Leur risque va de 41 à 98&#8239;%. Additionnés, ces risques donnent environ sept départs et 56&#8239;k€ de perte probable. C226, moins risquée mais grosse cliente, remonte alors dans la liste d'appels.</p></div>
+  <section class="tuile l-4 etape-mail">
+    <p class="notion">3 · Le prouver</p>
+    <h3>Tirer au sort les cliniques</h3>
+    <p>D'une année sur l'autre, la météo, les prix ou les concurrents changent. Pour isoler le mail, on l'envoie à 100 cliniques tirées au sort et on en garde 100 autres comme témoin, sur la même période.</p>
+    <div class="figure-mail">
+      <svg class="mini" viewBox="0 0 400 290" role="img" aria-label="Ventes moyennes par clinique. Groupe avec mail : de 500 à 800 euros. Groupe témoin : de 500 à 700 euros. Effet du mail : 100 euros par clinique.">
+        <line class="axe" x1="20" y1="240" x2="390" y2="240"/>
+        <rect class="f-base" x="30" y="128.9" width="60" height="111.1"/>
+        <text class="val" x="60" y="120" text-anchor="middle">500 €</text>
+        <rect class="f-base" x="100" y="128.9" width="60" height="111.1"/>
+        <rect class="f-saison" x="100" y="84.4" width="60" height="44.5"/>
+        <rect class="f-mail" x="100" y="62.2" width="60" height="22.2"/>
+        <text class="val" x="130" y="53" text-anchor="middle">800 €</text>
+        <rect class="f-base" x="230" y="128.9" width="60" height="111.1"/>
+        <text class="val" x="260" y="120" text-anchor="middle">500 €</text>
+        <rect class="f-base" x="300" y="128.9" width="60" height="111.1"/>
+        <rect class="f-saison" x="300" y="84.4" width="60" height="44.5"/>
+        <text class="val" x="330" y="75" text-anchor="middle">700 €</text>
+        <text x="60" y="257" text-anchor="middle">avant</text>
+        <text x="130" y="257" text-anchor="middle">après</text>
+        <text x="260" y="257" text-anchor="middle">avant</text>
+        <text x="330" y="257" text-anchor="middle">après</text>
+        <text class="fort" x="95" y="280" text-anchor="middle">Avec mail</text>
+        <text class="fort" x="295" y="280" text-anchor="middle">Témoin</text>
+      </svg>
+      <svg class="mini" viewBox="0 0 400 100" role="img" aria-label="Fourchette à 95 % de l'effet du mail : de 31 à 169 euros par clinique, centrée sur 100 euros. Elle ne contient pas zéro.">
+        <line class="axe" x1="30" y1="60" x2="370" y2="60"/>
+        <line class="tirets" x1="86.7" y1="8" x2="86.7" y2="60"/>
+        <text x="92" y="13">0 € = aucun effet</text>
+        <line class="intervalle" x1="121.8" y1="45" x2="278.2" y2="45"/>
+        <line class="borne" x1="121.8" y1="37" x2="121.8" y2="53"/>
+        <line class="borne" x1="278.2" y1="37" x2="278.2" y2="53"/>
+        <circle class="f-mail" cx="200" cy="45" r="6.5"/>
+        <text class="val" x="121.8" y="33" text-anchor="middle">31 €</text>
+        <text class="val" x="200" y="33" text-anchor="middle">100 €</text>
+        <text class="val" x="278.2" y="33" text-anchor="middle">169 €</text>
+        <text x="86.7" y="80" text-anchor="middle">0 €</text>
+        <text x="200" y="80" text-anchor="middle">100 €</text>
+        <text x="313.3" y="80" text-anchor="middle">200 €</text>
+        <text x="370" y="97" text-anchor="end">gain par clinique dû au mail</text>
+      </svg>
+      <p class="encart"><strong>Le mail rapporte 100 € par clinique</strong> sur trois mois, entre 31 et 169 € à 95&#8239;%. La fourchette ne touche pas zéro, l'effet n'est donc pas un coup de chance.</p>
+    </div>
   </section>
 
-  <p class="lectures-fin">Dans les trois cas, le chiffre affiché était exact. C'est la conclusion tirée trop vite qui aurait coûté cher.</p>
+  <section class="tuile l-12 conclusion-mail">
+    <p class="piege">Comparer avant et après dans la même saison, c'est donner au mail le mérite <span>du printemps</span>.</p>
+    <div class="trois">
+      <div><h3>Séparer les effets</h3><p>Distinguer ce qui revient chaque année, comme la saison ou la tendance, de ce que l'action a vraiment changé.</p></div>
+      <div><h3>Comparer à armes égales</h3><p>Construire un groupe témoin par tirage au sort, et savoir combien de cliniques il faut pour pouvoir conclure.</p></div>
+      <div><h3>Mesurer le hasard</h3><p>Les ventes d'une clinique varient beaucoup d'un mois à l'autre. Une fourchette évite de fêter un effet qui n'existe pas.</p></div>
+    </div>
+    <p class="remarque">Chiffres fictifs et arrondis, pour illustrer la méthode.</p>
+  </section>
 
 </main>
   </div>
