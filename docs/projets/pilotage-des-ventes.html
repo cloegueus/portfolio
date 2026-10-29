@@ -102,54 +102,66 @@
   </section>
 
   <section class="tuile l-12" id="mesures">
-    <h2>Les mesures DAX</h2>
-    <p class="sous">Elles sont rangées dans une table <code>_Mesures</code>. Voici celles qui font tourner la page.</p>
-    <div class="mesures">
-      <article class="mesure">
-        <h3>Gross Sales</h3>
-        <p>Le chiffre d'affaires au prix tarif, calculé ligne par ligne. Presque tout le reste en dépend.</p>
-        <pre><code>SUMX ( SellIn, SellIn[Quantite] * SellIn[Prix_Tarif_Unitaire] )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>Dernier mois complet</h3>
-        <p>La dernière vente enregistrée date du 16 octobre 2026. La mesure prend la fin du mois précédent, le 30 septembre, pour ne garder que des mois entiers. C'est la frontière entre le réel et la prévision.</p>
-        <pre><code>EOMONTH ( CALCULATE ( MAX ( SellIn[Date] ), ALL ( SellIn ) ), -1 )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>EYE modele</h3>
-        <p>L'atterrissage de fin d'année. Il ajoute au cumul réel de janvier au dernier mois complet (<code>CF annee</code>) la prévision du modèle jusqu'à décembre.</p>
-        <pre><code>[CF annee] + [Prevision fin annee]</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>Ecart EYE modele vs budget</h3>
-        <p>L'écart entre cet atterrissage et le budget de l'année, en pourcentage.</p>
-        <pre><code>DIVIDE ( [EYE modele] - [Budget annee], [Budget annee] )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>Erreur backtest modele</h3>
-        <p>Ce que le modèle avait prévu pour janvier–septembre 2026, comparé à ce qui s'est vraiment vendu. La même mesure existe pour le forecast.</p>
-        <pre><code>VAR fin = [Dernier mois complet]
-VAR reel = CALCULATE ( [Gross Sales], REMOVEFILTERS ( Calendrier ),
-    DATESBETWEEN ( Calendrier[Date], DATE ( YEAR ( fin ), 1, 1 ), fin ) )
-VAR prev = CALCULATE ( SUM ( prevision_produit[Prevision] ),
-    prevision_produit[Type] = "Backtest", REMOVEFILTERS ( Calendrier ) )
-RETURN DIVIDE ( ABS ( prev - reel ), reel )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>Reel mois complets</h3>
-        <p>Pour chaque mois du graphique, la mesure compare le dernier jour du mois au 30 septembre. Au-delà, elle ne renvoie rien et la courbe du réel s'arrête en septembre. Sans elle, octobre, à moitié écoulé, ressemblerait à une chute.</p>
-        <pre><code>IF ( MAX ( Calendrier[Date] ) &lt;= [Dernier mois complet], [Gross Sales] )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>Cliniques risque eleve</h3>
-        <p>Le nombre de cliniques que le modèle classe en risque élevé, au-delà de 40&#8239;% de probabilité de perte.</p>
-        <pre><code>CALCULATE ( COUNTROWS ( score_clients ), score_clients[Niveau_risque] = "Élevé" )</code></pre>
-      </article>
-      <article class="mesure">
-        <h3>CA a risque</h3>
-        <p>Ce que ces cliniques ont acheté sur douze mois, autrement dit la perte possible en euros.</p>
-        <pre><code>CALCULATE ( SUM ( score_clients[CA_12_mois] ), score_clients[Niveau_risque] = "Élevé" )</code></pre>
-      </article>
+    <div class="mesures-tete">
+      <div>
+        <h2>Les mesures DAX</h2>
+        <p class="sous">Elles sont rangées dans une table <code>_Mesures</code>. Cliquez sur une mesure pour lire sa formule.</p>
+      </div>
+      <button class="tout-deplier" type="button" aria-pressed="false">Afficher toutes les formules</button>
+    </div>
+    <div class="mesures-liste">
+      <div class="famille">
+        <p class="famille-nom">Socle<span>Le chiffre d'affaires et la limite entre réel et prévision</span></p>
+        <div class="famille-mesures">
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Gross Sales</span><span class="mesure-role">Le chiffre d'affaires au prix tarif, calculé ligne par ligne. Presque tout le reste en dépend.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">SUMX</span> ( SellIn, <span class="dax-colonne">SellIn[Quantite]</span> * <span class="dax-colonne">SellIn[Prix_Tarif_Unitaire]</span> )</code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Dernier mois complet</span><span class="mesure-role">La dernière vente enregistrée date du 16 octobre 2026. La mesure prend la fin du mois précédent, le 30 septembre, pour ne garder que des mois entiers. C'est la frontière entre le réel et la prévision.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">EOMONTH</span> ( <span class="dax-fonction">CALCULATE</span> ( <span class="dax-fonction">MAX</span> ( <span class="dax-colonne">SellIn[Date]</span> ), <span class="dax-fonction">ALL</span> ( SellIn ) ), <span class="dax-nombre">-1</span> )</code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Reel mois complets</span><span class="mesure-role">Pour chaque mois du graphique, la mesure compare le dernier jour du mois au 30 septembre. Au-delà, elle ne renvoie rien et la courbe du réel s'arrête en septembre. Sans elle, octobre, à moitié écoulé, ressemblerait à une chute.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">IF</span> ( <span class="dax-fonction">MAX</span> ( <span class="dax-colonne">Calendrier[Date]</span> ) &lt;= <span class="dax-ref">[Dernier mois complet]</span>, <span class="dax-ref">[Gross Sales]</span> )</code></pre>
+          </details>
+        </div>
+      </div>
+      <div class="famille">
+        <p class="famille-nom">Prévision<span>L'atterrissage de fin d'année et sa fiabilité</span></p>
+        <div class="famille-mesures">
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">EYE modele</span><span class="mesure-role">L'atterrissage de fin d'année. Il ajoute au cumul réel de janvier au dernier mois complet (<code>CF annee</code>) la prévision du modèle jusqu'à décembre.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-ref">[CF annee]</span> + <span class="dax-ref">[Prevision fin annee]</span></code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Ecart EYE modele vs budget</span><span class="mesure-role">L'écart entre cet atterrissage et le budget de l'année, en pourcentage.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">DIVIDE</span> ( <span class="dax-ref">[EYE modele]</span> - <span class="dax-ref">[Budget annee]</span>, <span class="dax-ref">[Budget annee]</span> )</code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Erreur backtest modele</span><span class="mesure-role">Ce que le modèle avait prévu pour janvier–septembre 2026, comparé à ce qui s'est vraiment vendu. La même mesure existe pour le forecast.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-mot">VAR</span> fin = <span class="dax-ref">[Dernier mois complet]</span>
+<span class="dax-mot">VAR</span> reel = <span class="dax-fonction">CALCULATE</span> ( <span class="dax-ref">[Gross Sales]</span>, <span class="dax-fonction">REMOVEFILTERS</span> ( Calendrier ),
+    <span class="dax-fonction">DATESBETWEEN</span> ( <span class="dax-colonne">Calendrier[Date]</span>, <span class="dax-fonction">DATE</span> ( <span class="dax-fonction">YEAR</span> ( fin ), <span class="dax-nombre">1</span>, <span class="dax-nombre">1</span> ), fin ) )
+<span class="dax-mot">VAR</span> prev = <span class="dax-fonction">CALCULATE</span> ( <span class="dax-fonction">SUM</span> ( <span class="dax-colonne">prevision_produit[Prevision]</span> ),
+    <span class="dax-colonne">prevision_produit[Type]</span> = <span class="dax-chaine">"Backtest"</span>, <span class="dax-fonction">REMOVEFILTERS</span> ( Calendrier ) )
+<span class="dax-mot">RETURN</span> <span class="dax-fonction">DIVIDE</span> ( <span class="dax-fonction">ABS</span> ( prev - reel ), reel )</code></pre>
+          </details>
+        </div>
+      </div>
+      <div class="famille">
+        <p class="famille-nom">Risque client<span>Les cliniques à rappeler et ce qu'elles pèsent</span></p>
+        <div class="famille-mesures">
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Cliniques risque eleve</span><span class="mesure-role">Le nombre de cliniques que le modèle classe en risque élevé, au-delà de 40&#8239;% de probabilité de perte.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">CALCULATE</span> ( <span class="dax-fonction">COUNTROWS</span> ( score_clients ), <span class="dax-colonne">score_clients[Niveau_risque]</span> = <span class="dax-chaine">"Élevé"</span> )</code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">CA a risque</span><span class="mesure-role">Ce que ces cliniques ont acheté sur douze mois, autrement dit la perte possible en euros.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">CALCULATE</span> ( <span class="dax-fonction">SUM</span> ( <span class="dax-colonne">score_clients[CA_12_mois]</span> ), <span class="dax-colonne">score_clients[Niveau_risque]</span> = <span class="dax-chaine">"Élevé"</span> )</code></pre>
+          </details>
+        </div>
+      </div>
     </div>
   </section>
 

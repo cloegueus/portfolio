@@ -164,3 +164,14 @@ document.querySelectorAll(".pont").forEach((pont) => {
     boutons.forEach((b) => b.setAttribute("aria-pressed", b === bouton));
   }));
 });
+
+// Mesures DAX : un bouton déplie ou replie toutes les formules d'un coup.
+document.querySelectorAll(".tout-deplier").forEach((bouton) => {
+  const mesures = bouton.closest(".tuile").querySelectorAll("details.mesure");
+  bouton.addEventListener("click", () => {
+    const ouvrir = bouton.getAttribute("aria-pressed") !== "true";
+    mesures.forEach((mesure) => { mesure.open = ouvrir; });
+    bouton.setAttribute("aria-pressed", ouvrir);
+    bouton.textContent = ouvrir ? "Replier les formules" : "Afficher toutes les formules";
+  });
+});
