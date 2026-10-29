@@ -38,10 +38,11 @@
 
   /* Logo de l'entreprise : dans la marge à gauche de la carte sur grand écran, sous la date sinon. */
   .etape { position: relative; }
-  .logo { display: grid; place-items: center; width: 84px; height: 84px; margin-top: 12px; padding: 7px; background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon); }
+  .logo { display: grid; place-items: center; width: 84px; height: 84px; margin-top: 12px; }
   .logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .logo img[src$="logo_orange.png"] { max-width: 62%; }
   @media (min-width: 1720px) {
-    .logo { position: absolute; top: 16px; right: calc(100% + 52px); width: 104px; height: 104px; margin: 0; padding: 10px; box-shadow: var(--ombre); border: 0; }
+    .logo { position: absolute; top: 16px; right: calc(100% + 52px); width: 104px; height: 104px; margin: 0; }
     .etape:first-child .logo { top: 0; }
   }
 
