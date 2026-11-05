@@ -263,10 +263,12 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .enjeu { margin: 0; }
 .fiche .enjeu strong { display: block; font-size: clamp(22px, 2.1vw, 28px); line-height: 1.2; text-wrap: balance; }
 .enjeu span { display: block; margin-top: 8px; font-size: 15.5px; color: var(--texte-2); }
-.decouvrir { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px; border-radius: 4px; background: linear-gradient(90deg, #17404F, #26806F); color: var(--blanc); font-size: 16px; font-weight: 600; text-decoration: none; }
-.decouvrir:hover { background: #17404F; color: var(--blanc); }
-.decouvrir:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
-.decouvrir svg { width: 16px; height: 16px; }
+.decouvrir { align-self: center; display: grid; justify-items: center; gap: 10px; padding: 6px 18px; color: #111; font-size: 18px; font-weight: 500; letter-spacing: .03em; text-decoration: none; }
+.decouvrir:hover { color: #111; }
+.decouvrir:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.decouvrir svg { width: 16px; height: 36px; }
+.decouvrir:hover svg { transform: translateY(4px); }
+.tableau[hidden] { display: none; }
 #suite { scroll-margin-top: 22px; margin-top: 40px; }
 @media (prefers-reduced-motion: no-preference) {
   html:has(.ouverture) { scroll-behavior: smooth; }

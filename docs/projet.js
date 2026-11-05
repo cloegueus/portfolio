@@ -175,3 +175,17 @@ document.querySelectorAll(".tout-deplier").forEach((bouton) => {
     bouton.textContent = ouvrir ? "Replier les formules" : "Afficher toutes les formules";
   });
 });
+
+// Ouverture : la suite de la page reste cachée jusqu'au clic sur Découvrir, puis la page y descend.
+document.querySelectorAll(".decouvrir").forEach((lien) => {
+  const suite = document.getElementById(lien.getAttribute("aria-controls"));
+  const montrer = () => {
+    suite.hidden = false;
+    lien.setAttribute("aria-expanded", "true");
+  };
+  lien.addEventListener("click", montrer);
+  if (location.hash === "#suite") {
+    montrer();
+    suite.scrollIntoView();
+  }
+});
