@@ -7,6 +7,7 @@
 <meta name="description" content="Simulateur Power BI qui estime le risque de développement de Brettanomyces dans un lot de vin, à partir d'une régression logistique sur des données fictives.">
 <link rel="stylesheet" href="../commun.css">
 <link rel="stylesheet" href="../projet.css">
+<noscript><style>.tableau[hidden] { display: grid; }</style></noscript>
 </head>
 <body>
 
@@ -34,22 +35,35 @@
   </aside>
 
   <div class="principal">
-    <header class="barre-haut">
-      <div>
+    <div class="ouverture">
+      <header class="barre-haut">
         <p class="fil">Dashboards</p>
         <h1>Risque Brettanomyces</h1>
-        <p class="sous-titre">J'ai reproduit sur des données fictives la maquette créée pendant mon stage chez Inter Rhône. On saisit l'analyse d'un lot de vin et le rapport estime le risque que la levure se développe, puis indique la correction à faire en cave.</p>
-      </div>
-    </header>
+        <p class="sous-titre">J'ai reproduit sur des données fictives la maquette créée pendant mon stage chez Inter Rhône, un simulateur Power BI pour les vignerons.</p>
+      </header>
 
+      <dl class="fiche">
+        <div>
+          <dt>Objectifs</dt>
+          <dd class="enjeux">
+            <p class="enjeu"><strong>Ce lot risque-t-il d'être marqué par la levure&#8239;?</strong><span>Brettanomyces donne au vin des odeurs animales, de cuir ou d'écurie. Une fois qu'elle s'est développée, on ne peut plus revenir en arrière.</span></p>
+            <p class="enjeu"><strong>Que corriger en cave&#8239;?</strong><span>Le vigneron saisit l'analyse de son lot. Le rapport estime le risque et indique ce qu'il peut corriger tout de suite.</span></p>
+          </dd>
+        </div>
+        <div>
+          <dt>Technologies</dt>
+          <dd><strong>Power BI</strong> pour le simulateur, <strong>DAX</strong> pour calculer le risque en direct et <strong>Python</strong> pour la régression logistique.</dd>
+        </div>
+        <div>
+          <dt>Données</dt>
+          <dd><strong>Fictives.</strong> 120 lots de vin inventés, sans aucune donnée d'Inter Rhône.</dd>
+        </div>
+      </dl>
 
-<main class="tableau">
+      <button class="decouvrir" type="button" aria-controls="suite" aria-expanded="false">Découvrir<svg viewBox="0 0 16 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 35V2M2 8l6-6 6 6"/></svg></button>
+    </div>
 
-  <section class="tuile l-12" id="objectif">
-    <h2>Objectif</h2>
-    <p class="sous">Agir avant que le vin ne soit marqué</p>
-    <p>Brettanomyces est une levure qui donne au vin des odeurs animales, de cuir ou d'écurie. Une fois qu'elle s'est développée, on ne peut plus revenir en arrière. Ce simulateur aide le vigneron à savoir, lot par lot, si le risque est réel et ce qu'il peut corriger tout de suite.</p>
-  </section>
+<main class="tableau" id="suite" hidden>
 
   <section class="tuile l-12" id="simulateur">
     <h2>La page Simulateur</h2>
