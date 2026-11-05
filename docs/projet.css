@@ -247,6 +247,35 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
   .traits path { display: none; }
 }
 
+/* --- Ouverture d'une page projet ----------------------------------------------
+   Le premier écran pose le contexte en une fiche, le bouton mène au rapport. */
+.ouverture { display: flex; flex-direction: column; min-height: calc(100vh - 66px); max-width: 1280px; margin: 0 auto; }
+.ouverture .barre-haut { display: block; margin: 0; padding: 0; border: 0; }
+.ouverture .barre-haut h1 { font-size: clamp(34px, 4vw, 52px); line-height: 1.1; letter-spacing: -.02em; }
+.principal .ouverture .sous-titre { margin-top: 10px; max-width: 65ch; font-size: 18px; }
+.fiche { margin: auto 0; padding: 28px 0; }
+.fiche > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 6px 32px; padding: 22px 0; border-top: 1px solid rgba(38, 60, 63, .16); }
+.fiche > div:last-child { border-bottom: 1px solid rgba(38, 60, 63, .16); }
+.fiche dt { font-size: 15px; font-weight: 600; color: var(--texte-2); }
+.fiche dd { margin: 0; max-width: 85ch; font-size: 17px; line-height: 1.55; }
+.fiche dd strong { font-weight: 600; color: var(--ardoise); }
+.fiche .enjeux { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 48px; max-width: none; }
+.enjeu { margin: 0; }
+.fiche .enjeu strong { display: block; font-size: clamp(22px, 2.1vw, 28px); line-height: 1.2; text-wrap: balance; }
+.enjeu span { display: block; margin-top: 8px; font-size: 15.5px; color: var(--texte-2); }
+.decouvrir { align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 13px 26px; border-radius: 4px; background: linear-gradient(90deg, #17404F, #26806F); color: var(--blanc); font-size: 16px; font-weight: 600; text-decoration: none; }
+.decouvrir:hover { background: #17404F; color: var(--blanc); }
+.decouvrir:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+.decouvrir svg { width: 16px; height: 16px; }
+#suite { scroll-margin-top: 22px; margin-top: 40px; }
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.ouverture) { scroll-behavior: smooth; }
+}
+@media (max-width: 860px) {
+  .fiche > div { grid-template-columns: minmax(0, 1fr); }
+  .fiche .enjeux { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* --- Mesures DAX -------------------------------------------------------------
    Une liste rangée par usage, à la façon du volet Données de Power BI. Chaque
    mesure se lit en une ligne ; sa formule se déplie dessous, colorée comme dans

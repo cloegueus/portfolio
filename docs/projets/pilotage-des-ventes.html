@@ -34,23 +34,35 @@
   </aside>
 
   <div class="principal">
-    <header class="barre-haut">
-      <div>
+    <div class="ouverture">
+      <header class="barre-haut">
         <p class="fil">Dashboards</p>
         <h1>Pilotage des ventes</h1>
-        <p class="sous-titre">Un rapport Power BI construit sur des ventes vétérinaires fictives. Il estime le chiffre de fin d'année et signale les cliniques qui risquent d'arrêter de commander, grâce à deux modèles écrits en Python qui tournent dans Power BI.</p>
-      </div>
-    </header>
+        <p class="sous-titre">Un rapport Power BI sur des ventes vétérinaires, avec deux modèles écrits en Python qui tournent dans le rapport.</p>
+      </header>
 
-<main class="tableau">
+      <dl class="fiche">
+        <div>
+          <dt>Objectifs</dt>
+          <dd class="enjeux">
+            <p class="enjeu"><strong>L'année finira-t-elle au&#8209;dessus du budget&#8239;?</strong><span>La question de la direction. Le rapport estime le chiffre de fin d'année à partir d'une prévision par produit.</span></p>
+            <p class="enjeu"><strong>Quelle clinique appeler en premier&#8239;?</strong><span>La question des délégués. Le rapport classe les cliniques selon leur risque d'arrêter de commander.</span></p>
+          </dd>
+        </div>
+        <div>
+          <dt>Technologies</dt>
+          <dd><strong>Power BI</strong> pour le rapport, <strong>DAX</strong> pour les mesures, <strong>Power Query</strong> pour préparer les données et <strong>Python</strong> (pandas, statsmodels) pour les deux modèles.</dd>
+        </div>
+        <div>
+          <dt>Données</dt>
+          <dd><strong>Fictives.</strong> Les ventes, les produits et les cliniques sont inventés, de janvier 2023 à octobre 2026, pour ressembler à un vrai suivi commercial.</dd>
+        </div>
+      </dl>
 
-  <section class="tuile l-12" id="objectif">
-    <h2>Objectif</h2>
-    <p class="sous">Deux questions, deux publics</p>
-    <p>Ce rapport répond à deux questions qu'on entend souvent dans une équipe commerciale. La direction veut savoir si l'année finira au-dessus ou en dessous du budget. Les délégués, eux, veulent savoir quelles cliniques décrochent, et laquelle appeler en premier.</p>
-  </section>
+      <a class="decouvrir" href="#suite">Découvrir<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v11M3.5 9 8 13.5 12.5 9"/></svg></a>
+    </div>
 
-
+<main class="tableau" id="suite">
 
   <figure class="visuel-carte l-2"><img src="../img/demo_carte_1.png" width="559" height="293" alt="Carte du rapport, EYE modele : 2 267 698 €"></figure>
   <figure class="visuel-carte l-2"><img src="../img/demo_carte_2.png" width="559" height="293" alt="Carte du rapport, Ecart EYE modele vs budget : 4,01 %"></figure>
