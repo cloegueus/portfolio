@@ -176,16 +176,14 @@ document.querySelectorAll(".tout-deplier").forEach((bouton) => {
   });
 });
 
-// Ouverture : la suite de la page reste cachée jusqu'au clic sur Découvrir, puis la page y descend.
-document.querySelectorAll(".decouvrir").forEach((lien) => {
-  const suite = document.getElementById(lien.getAttribute("aria-controls"));
-  const montrer = () => {
-    suite.hidden = false;
-    lien.setAttribute("aria-expanded", "true");
-  };
-  lien.addEventListener("click", montrer);
-  if (location.hash === "#suite") {
-    montrer();
-    suite.scrollIntoView();
-  }
+// Ouverture : tant que la suite est cachée, la flèche vise le haut. Au clic, elle bascule
+// vers le bas et la suite se déroule sous elle ; un second clic la replie.
+document.querySelectorAll(".decouvrir").forEach((bouton) => {
+  const suite = document.getElementById(bouton.getAttribute("aria-controls"));
+  bouton.addEventListener("click", () => {
+    const ouvrir = suite.hidden;
+    suite.hidden = !ouvrir;
+    bouton.setAttribute("aria-expanded", ouvrir);
+    if (ouvrir) bouton.scrollIntoView();
+  });
 });

@@ -263,15 +263,17 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .enjeu { margin: 0; }
 .fiche .enjeu strong { display: block; font-size: clamp(22px, 2.1vw, 28px); line-height: 1.2; text-wrap: balance; }
 .enjeu span { display: block; margin-top: 8px; font-size: 15.5px; color: var(--texte-2); }
-.decouvrir { align-self: center; display: grid; justify-items: center; gap: 10px; padding: 6px 18px; color: #111; font-size: 18px; font-weight: 500; letter-spacing: .03em; text-decoration: none; }
-.decouvrir:hover { color: #111; }
+.decouvrir { align-self: center; display: grid; justify-items: center; gap: 10px; padding: 6px 18px; background: none; border: 0; color: #111; font: 500 18px var(--police); letter-spacing: .03em; cursor: pointer; scroll-margin-top: 14px; }
 .decouvrir:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-.decouvrir svg { width: 16px; height: 36px; }
-.decouvrir:hover svg { transform: translateY(4px); }
+.decouvrir svg { width: 16px; height: 36px; transition: transform .3s ease; }
+.decouvrir[aria-expanded="true"] svg { transform: rotate(180deg); }
 .tableau[hidden] { display: none; }
-#suite { scroll-margin-top: 22px; margin-top: 40px; }
+#suite { margin-top: 28px; }
 @media (prefers-reduced-motion: no-preference) {
   html:has(.ouverture) { scroll-behavior: smooth; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .decouvrir svg { transition: none; }
 }
 @media (max-width: 860px) {
   .fiche > div { grid-template-columns: minmax(0, 1fr); }
