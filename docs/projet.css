@@ -123,11 +123,6 @@ dialog .fermer { position: absolute; top: 10px; right: 10px; width: 40px; height
 section .texte h2 { margin-bottom: 10px; }
 code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-size: .92em; background: var(--teal-clair); color: var(--teal-fonce); padding: 1px 5px; border-radius: 4px; }
 
-.donnees { width: 100%; border-collapse: collapse; background: var(--blanc); border-radius: var(--rayon); overflow: hidden; box-shadow: var(--ombre); font-size: 15.5px; margin-top: 6px; }
-.donnees th, .donnees td { text-align: left; padding: 12px 18px; border-bottom: 1px solid var(--trait); vertical-align: top; }
-.donnees tbody tr:last-child th, .donnees tbody tr:last-child td { border-bottom: 0; }
-.donnees thead th { background: var(--ardoise); color: var(--blanc); font-weight: 600; }
-.donnees th[scope="row"] { font-weight: 600; color: var(--ardoise); white-space: nowrap; width: 1%; }
 
 
 
@@ -176,8 +171,6 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .chiffre-cle .contexte b { font-weight: 600; color: var(--teal-fonce); }
 
 /* Dans une tuile, les tableaux et les mesures n'ont plus leur propre ombre. */
-.tuile .donnees { box-shadow: none; border: 1px solid var(--trait); font-size: 14.5px; }
-.tuile .donnees th, .tuile .donnees td { padding: 9px 12px; }
 .tuile .comparaison { font-size: 14.5px; }
 .tuile .groupe { margin: 0 0 12px; }
 .tuile .groupe span { display: block; margin-bottom: 6px; font-size: 13px; color: var(--texte-2); }

@@ -92,30 +92,13 @@
     <p class="legende">La liste d'appels des délégués. Les cliniques sont classées de la plus à risque à la moins à risque avec la raison principale et le nombre de jours sans commande.</p>
   </section>
 
-  <section class="tuile l-12" id="donnees">
+  <section class="tuile l-5" id="donnees">
     <h2>Les données</h2>
-    <p class="sous">Six tables fictives</p>
-    <p>Les produits, les cliniques et les montants sont tous inventés. Le jeu de données a quand même été pensé pour ressembler à un vrai suivi des ventes. On y retrouve le pic des antiparasitaires au printemps, le creux d'août, une croissance d'environ 5&#8239;% par an, et des cliniques qui commandent de moins en moins avant d'arrêter.</p>
-    <table class="donnees">
-      <thead><tr><th scope="col">Table</th><th scope="col">Ce qu'elle contient</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Ventes</th><td>35&#8239;659 lignes de commande entre janvier 2023 et le 16 octobre 2026 avec la date, la clinique, le produit, la quantité et le prix</td></tr>
-        <tr><th scope="row">Budget</th><td>L'objectif mensuel de chaque produit, fixé en début d'année, pour 2025 et 2026</td></tr>
-        <tr><th scope="row">Forecast</th><td>Le budget 2026 revu en cours d'année</td></tr>
-        <tr><th scope="row">Produits</th><td>12 produits avec leur gamme et l'espèce concernée</td></tr>
-        <tr><th scope="row">Cliniques</th><td>260 cliniques avec leur région et leur délégué</td></tr>
-        <tr><th scope="row">Délégués</th><td>8 délégués, un par région</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="tuile l-5" id="modele">
-    <h2>Le modèle de données</h2>
-    <p class="sous">Un modèle en étoile</p>
-    <p>Ces tables forment un modèle en étoile. Les ventes, le budget et le forecast sont au centre, les produits, les cliniques et les délégués autour avec une table Calendrier écrite en DAX. Les deux scripts Python récupèrent la table des ventes dans Power Query et renvoient leurs résultats sous forme de tables du modèle, reliées comme les autres.</p>
-    <div class="groupe"><span>Faits</span><ul class="etiquettes"><li>Ventes</li><li>Budget</li><li>Forecast</li></ul></div>
-    <div class="groupe"><span>Dimensions</span><ul class="etiquettes"><li>Produits</li><li>Cliniques</li><li>Délégués</li><li>Calendrier</li></ul></div>
-    <div class="groupe"><span>Résultats des modèles Python</span><ul class="etiquettes"><li>prevision_produit</li><li>prevision_total</li><li>qualite_modele</li><li>score_clients</li><li>facteurs_risque</li><li>qualite_risque</li></ul></div>
+    <p class="sous">Fictives, organisées en modèle en étoile</p>
+    <p>Tout est inventé, mais pensé comme un vrai suivi des ventes, avec le pic des antiparasitaires au printemps et le creux d'août.</p>
+    <div class="groupe"><span>Au centre</span><ul class="etiquettes"><li>Ventes · 35&#8239;659 lignes</li><li>Budget</li><li>Forecast</li></ul></div>
+    <div class="groupe"><span>Autour</span><ul class="etiquettes"><li>Produits · 12</li><li>Cliniques · 260</li><li>Délégués · 8</li><li>Calendrier</li></ul></div>
+    <p class="remarque">Les deux modèles Python renvoient leurs résultats dans des tables reliées aux autres.</p>
   </section>
 
   <section class="tuile l-7 prevision">
