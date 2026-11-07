@@ -356,17 +356,17 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
   --hm-titre: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --hm-corps: "Public Sans", "Segoe UI", system-ui, sans-serif;
   --hm-donnee: "IBM Plex Mono", ui-monospace, Consolas, monospace;
-  grid-column: 1 / -1; margin-top: 18px; padding: 44px 40px 36px; border-radius: var(--rayon);
+  grid-column: 1 / -1; margin-top: 18px; padding: 30px 28px 28px; border-radius: var(--rayon);
   background: var(--hm-fond); color: var(--hm-encre); font: 16px/1.55 var(--hm-corps);
 }
-.hm-wrap { max-width: 1000px; margin: 0 auto; display: grid; gap: 56px; }
-.histoire-mail p { margin: 0; max-width: 62ch; }
+.hm-wrap { display: grid; gap: 40px; }
+.histoire-mail p { margin: 0; max-width: none; }
 
-.hm-tete { display: grid; gap: 12px; max-width: 680px; }
+.hm-tete { display: grid; gap: 12px; }
 .principal .histoire-mail h2 { margin: 0; font: 700 clamp(1.9rem, 3.6vw, 2.8rem)/1.08 var(--hm-titre); letter-spacing: -.02em; color: var(--hm-encre); text-wrap: balance; }
 .histoire-mail .hm-lead { font-size: 1.15rem; }
 
-.hm-scene { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; align-items: start; border-top: 1px solid var(--hm-trait); padding-top: 32px; }
+.hm-scene { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; align-items: start; border-top: 1px solid var(--hm-trait); padding-top: 32px; }
 .hm-texte { display: grid; gap: 12px; min-width: 0; }
 
 /* Les trois méthodes en onglets, à la façon d'un segment Power BI. */
