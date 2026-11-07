@@ -221,133 +221,141 @@
         <p class="hm-legende" aria-label="Code couleur"><span><i class="hm-sw base"></i>Ventes habituelles</span><span><i class="hm-sw saison"></i>Effet de la saison</span><span><i class="hm-sw mail"></i>Effet du mail</span></p>
       </header>
 
-      <div class="hm-scene">
-        <div class="hm-texte">
-          <p class="hm-etape">1 / Ce qu'on voit</p>
-          <h3>+50&#8239;% après le mail. Tout est grâce au mail&#8239;?</h3>
-          <p>La comparaison la plus courante met face à face les ventes des 3 mois avant le mail et celles des 3 mois après. La hausse est nette, et on a envie de tout attribuer au mail.</p>
-          <p>Sauf que les antiparasitaires se vendent toujours plus au printemps. Puces et tiques reviennent chaque année à cette période, mail ou pas.</p>
-          <button class="hm-bouton" id="hm-reveler" type="button" aria-pressed="false">Révéler ce qui se cache dans les +50&#8239;%</button>
+      <div class="hm-methodes">
+        <p class="hm-onglets-titre" id="hm-onglets-titre">Méthode de comparaison</p>
+        <div class="hm-onglets" role="tablist" aria-labelledby="hm-onglets-titre">
+          <button type="button" role="tab" id="hm-onglet-1" aria-controls="hm-panneau-1" aria-selected="true">Avant / après</button>
+          <button type="button" role="tab" id="hm-onglet-2" aria-controls="hm-panneau-2" aria-selected="false" tabindex="-1">Contre l'an dernier</button>
+          <button type="button" role="tab" id="hm-onglet-3" aria-controls="hm-panneau-3" aria-selected="false" tabindex="-1">Contre un groupe témoin</button>
         </div>
-        <div class="hm-figure">
-          <svg id="hm-fig1" viewBox="0 0 400 290" role="img" aria-label="Ventes avant le mail, 10 000 euros. Après, 15 000 euros, dont 4 000 euros dus à la saison et 1 000 euros dus au mail.">
-            <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
-            <rect x="40" y="115" width="90" height="125" class="f-base"/>
-            <text x="85" y="105" class="val" text-anchor="middle">10 000 €</text>
-            <rect x="190" y="115" width="90" height="125" class="s-base"/>
-            <rect x="190" y="65" width="90" height="50" class="s-saison"/>
-            <rect x="190" y="52.5" width="90" height="12.5" class="s-mail"/>
-            <text x="235" y="42" class="val" text-anchor="middle">15 000 €</text>
-            <text x="160" y="88" class="gros" text-anchor="middle">+50 %</text>
-            <g class="vue-naive">
-              <text x="292" y="150" class="lab">« Tout ça,</text>
-              <text x="292" y="165" class="lab">c'est le mail »</text>
-            </g>
-            <g class="vue-revelee">
-              <text x="292" y="62" class="lab">Mail +1 000 €</text>
-              <text x="292" y="94" class="lab">Saison +4 000 €</text>
-              <text x="292" y="174" class="lab">Ventes</text>
-              <text x="292" y="188" class="lab">habituelles</text>
-            </g>
-            <text x="85" y="259" class="lab" text-anchor="middle">Avant le mail</text>
-            <text x="85" y="275" class="lab-m" text-anchor="middle">15 janv. – 14 avr.</text>
-            <text x="235" y="259" class="lab" text-anchor="middle">Après le mail</text>
-            <text x="235" y="275" class="lab-m" text-anchor="middle">15 avr. – 14 juil.</text>
-          </svg>
-          <p class="hm-encart" id="hm-fig1-msg">Sur un graphique avant / après, la saison et le mail sont mélangés. Impossible de les séparer à l'œil.</p>
+        <div class="hm-scene" role="tabpanel" id="hm-panneau-1" aria-labelledby="hm-onglet-1" tabindex="0">
+          <div class="hm-texte">
+            <p class="hm-etape">1 / Ce qu'on voit</p>
+            <h3>+50&#8239;% après le mail. Tout est grâce au mail&#8239;?</h3>
+            <p>La comparaison la plus courante met face à face les ventes des 3 mois avant le mail et celles des 3 mois après. La hausse est nette, et on a envie de tout attribuer au mail.</p>
+            <p>Sauf que les antiparasitaires se vendent toujours plus au printemps. Puces et tiques reviennent chaque année à cette période, mail ou pas.</p>
+            <button class="hm-bouton" id="hm-reveler" type="button" aria-pressed="false">Révéler ce qui se cache dans les +50&#8239;%</button>
+          </div>
+          <div class="hm-figure">
+            <svg id="hm-fig1" viewBox="0 0 400 290" role="img" aria-label="Ventes avant le mail, 10 000 euros. Après, 15 000 euros, dont 4 000 euros dus à la saison et 1 000 euros dus au mail.">
+              <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
+              <rect x="40" y="115" width="90" height="125" class="f-base"/>
+              <text x="85" y="105" class="val" text-anchor="middle">10 000 €</text>
+              <rect x="190" y="115" width="90" height="125" class="s-base"/>
+              <rect x="190" y="65" width="90" height="50" class="s-saison"/>
+              <rect x="190" y="52.5" width="90" height="12.5" class="s-mail"/>
+              <text x="235" y="42" class="val" text-anchor="middle">15 000 €</text>
+              <text x="160" y="88" class="gros" text-anchor="middle">+50 %</text>
+              <g class="vue-naive">
+                <text x="292" y="150" class="lab">« Tout ça,</text>
+                <text x="292" y="165" class="lab">c'est le mail »</text>
+              </g>
+              <g class="vue-revelee">
+                <text x="292" y="62" class="lab">Mail +1 000 €</text>
+                <text x="292" y="94" class="lab">Saison +4 000 €</text>
+                <text x="292" y="174" class="lab">Ventes</text>
+                <text x="292" y="188" class="lab">habituelles</text>
+              </g>
+              <text x="85" y="259" class="lab" text-anchor="middle">Avant le mail</text>
+              <text x="85" y="275" class="lab-m" text-anchor="middle">15 janv. – 14 avr.</text>
+              <text x="235" y="259" class="lab" text-anchor="middle">Après le mail</text>
+              <text x="235" y="275" class="lab-m" text-anchor="middle">15 avr. – 14 juil.</text>
+            </svg>
+            <p class="hm-encart" id="hm-fig1-msg">Sur un graphique avant / après, la saison et le mail sont mélangés. Impossible de les séparer à l'œil.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="hm-scene">
-        <div class="hm-texte">
-          <p class="hm-etape">2 / Retirer la saison</p>
-          <h3>Comparer à la même période, l'année d'avant</h3>
-          <p>En 2025, à la même période, il n'y avait pas de mail. Les ventes ont pourtant pris +40&#8239;%. C'est l'effet du printemps tout seul.</p>
-          <p>En 2026, avec le mail, elles prennent +50&#8239;%. Le mail n'explique donc que la différence entre les deux.</p>
-          <p class="hm-encart"><strong>Effet du mail = 50&#8239;% − 40&#8239;% = +10 points.</strong> Cinq fois moins que ce qu'on croyait.</p>
+        <div class="hm-scene" role="tabpanel" id="hm-panneau-2" aria-labelledby="hm-onglet-2" tabindex="0" hidden>
+          <div class="hm-texte">
+            <p class="hm-etape">2 / Retirer la saison</p>
+            <h3>Comparer à la même période, l'année d'avant</h3>
+            <p>En 2025, à la même période, il n'y avait pas de mail. Les ventes ont pourtant pris +40&#8239;%. C'est l'effet du printemps tout seul.</p>
+            <p>En 2026, avec le mail, elles prennent +50&#8239;%. Le mail n'explique donc que la différence entre les deux.</p>
+            <p class="hm-encart"><strong>Effet du mail = 50&#8239;% − 40&#8239;% = +10 points.</strong> Cinq fois moins que ce qu'on croyait.</p>
+          </div>
+          <div class="hm-figure">
+            <svg viewBox="0 0 400 295" role="img" aria-label="2025 sans mail, de 10 000 à 14 000 euros, soit plus 40 %. 2026 avec mail, de 10 000 à 15 000 euros, soit plus 50 %.">
+              <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
+              <rect x="30" y="115" width="60" height="125" class="f-base"/>
+              <rect x="100" y="115" width="60" height="125" class="f-base"/>
+              <rect x="100" y="65" width="60" height="50" class="f-saison"/>
+              <text x="130" y="55" class="gros" text-anchor="middle" style="font-size:17px">+40 %</text>
+              <rect x="230" y="115" width="60" height="125" class="f-base"/>
+              <rect x="300" y="115" width="60" height="125" class="f-base"/>
+              <rect x="300" y="65" width="60" height="50" class="f-saison"/>
+              <rect x="300" y="52.5" width="60" height="12.5" class="f-mail"/>
+              <text x="330" y="42" class="gros" text-anchor="middle" style="font-size:17px">+50 %</text>
+              <line x1="160" y1="65" x2="300" y2="65" class="tirets"/>
+              <text x="166" y="81" class="lab-m">niveau attendu sans mail</text>
+              <text x="60" y="256" class="lab-m" text-anchor="middle">avant</text>
+              <text x="130" y="256" class="lab-m" text-anchor="middle">après</text>
+              <text x="260" y="256" class="lab-m" text-anchor="middle">avant</text>
+              <text x="330" y="256" class="lab-m" text-anchor="middle">après</text>
+              <text x="95" y="280" class="lab" text-anchor="middle" style="font-weight:600">2025 · sans mail</text>
+              <text x="295" y="280" class="lab" text-anchor="middle" style="font-weight:600">2026 · avec mail</text>
+            </svg>
+            <p class="hm-note">Même période (mi-janvier → mi-juillet), deux années. La partie ambre revient chaque printemps, seule la petite partie sarcelle est due au mail.</p>
+          </div>
         </div>
-        <div class="hm-figure">
-          <svg viewBox="0 0 400 295" role="img" aria-label="2025 sans mail, de 10 000 à 14 000 euros, soit plus 40 %. 2026 avec mail, de 10 000 à 15 000 euros, soit plus 50 %.">
-            <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
-            <rect x="30" y="115" width="60" height="125" class="f-base"/>
-            <rect x="100" y="115" width="60" height="125" class="f-base"/>
-            <rect x="100" y="65" width="60" height="50" class="f-saison"/>
-            <text x="130" y="55" class="gros" text-anchor="middle" style="font-size:17px">+40 %</text>
-            <rect x="230" y="115" width="60" height="125" class="f-base"/>
-            <rect x="300" y="115" width="60" height="125" class="f-base"/>
-            <rect x="300" y="65" width="60" height="50" class="f-saison"/>
-            <rect x="300" y="52.5" width="60" height="12.5" class="f-mail"/>
-            <text x="330" y="42" class="gros" text-anchor="middle" style="font-size:17px">+50 %</text>
-            <line x1="160" y1="65" x2="300" y2="65" class="tirets"/>
-            <text x="166" y="81" class="lab-m">niveau attendu sans mail</text>
-            <text x="60" y="256" class="lab-m" text-anchor="middle">avant</text>
-            <text x="130" y="256" class="lab-m" text-anchor="middle">après</text>
-            <text x="260" y="256" class="lab-m" text-anchor="middle">avant</text>
-            <text x="330" y="256" class="lab-m" text-anchor="middle">après</text>
-            <text x="95" y="280" class="lab" text-anchor="middle" style="font-weight:600">2025 · sans mail</text>
-            <text x="295" y="280" class="lab" text-anchor="middle" style="font-weight:600">2026 · avec mail</text>
-          </svg>
-          <p class="hm-note">Même période (mi-janvier → mi-juillet), deux années. La partie ambre revient chaque printemps, seule la petite partie sarcelle est due au mail.</p>
-        </div>
-      </div>
 
-      <div class="hm-scene">
-        <div class="hm-texte">
-          <p class="hm-etape">3 / Le prouver</p>
-          <h3>Le test A/B, tirer au sort qui reçoit le mail</h3>
-          <p>L'année d'avant n'a pas vécu les mêmes événements (météo, prix, concurrents). Pour une preuve solide, on compare deux groupes <strong>au même moment</strong>.</p>
-          <p>On tire au sort 100 cliniques qui reçoivent le mail (A) et 100 qui ne le reçoivent pas (B). Grâce au hasard, les deux groupes se ressemblent en tout, sauf le mail.</p>
-          <div class="hm-points" id="hm-points" aria-label="Répartition au hasard des cliniques entre les groupes A et B"></div>
-          <p class="hm-cle-points"><span><i class="a"></i>Groupe A · reçoit le mail</span><span><i class="b"></i>Groupe B · pas de mail</span></p>
-          <button class="hm-bouton" id="hm-tirage" type="button">Refaire le tirage au sort</button>
+        <div class="hm-scene" role="tabpanel" id="hm-panneau-3" aria-labelledby="hm-onglet-3" tabindex="0" hidden>
+          <div class="hm-texte">
+            <p class="hm-etape">3 / Le prouver</p>
+            <h3>Le test A/B, tirer au sort qui reçoit le mail</h3>
+            <p>L'année d'avant n'a pas vécu les mêmes événements (météo, prix, concurrents). Pour une preuve solide, on compare deux groupes <strong>au même moment</strong>.</p>
+            <p>On tire au sort 100 cliniques qui reçoivent le mail (A) et 100 qui ne le reçoivent pas (B). Grâce au hasard, les deux groupes se ressemblent en tout, sauf le mail.</p>
+            <div class="hm-points" id="hm-points" aria-label="Répartition au hasard des cliniques entre les groupes A et B"></div>
+            <p class="hm-cle-points"><span><i class="a"></i>Groupe A · reçoit le mail</span><span><i class="b"></i>Groupe B · pas de mail</span></p>
+            <button class="hm-bouton" id="hm-tirage" type="button">Refaire le tirage au sort</button>
+          </div>
+          <div class="hm-figure">
+            <svg viewBox="0 0 400 295" role="img" aria-label="Ventes moyennes par clinique. Groupe A, de 500 à 800 euros, soit plus 300. Groupe B, de 500 à 700 euros, soit plus 200. Effet du mail, plus 100 euros par clinique.">
+              <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
+              <rect x="30" y="128.9" width="60" height="111.1" class="f-base"/>
+              <text x="60" y="120" class="val" text-anchor="middle">500 €</text>
+              <rect x="100" y="128.9" width="60" height="111.1" class="f-base"/>
+              <rect x="100" y="84.4" width="60" height="44.5" class="f-saison"/>
+              <rect x="100" y="62.2" width="60" height="22.2" class="f-mail"/>
+              <text x="130" y="53" class="val" text-anchor="middle">800 €</text>
+              <text x="130" y="35" class="gros" text-anchor="middle" style="font-size:16px">+300 €</text>
+              <rect x="230" y="128.9" width="60" height="111.1" class="f-base"/>
+              <text x="260" y="120" class="val" text-anchor="middle">500 €</text>
+              <rect x="300" y="128.9" width="60" height="111.1" class="f-base"/>
+              <rect x="300" y="84.4" width="60" height="44.5" class="f-saison"/>
+              <text x="330" y="75" class="val" text-anchor="middle">700 €</text>
+              <text x="330" y="57" class="gros" text-anchor="middle" style="font-size:16px">+200 €</text>
+              <text x="60" y="256" class="lab-m" text-anchor="middle">avant</text>
+              <text x="130" y="256" class="lab-m" text-anchor="middle">après</text>
+              <text x="260" y="256" class="lab-m" text-anchor="middle">avant</text>
+              <text x="330" y="256" class="lab-m" text-anchor="middle">après</text>
+              <text x="95" y="280" class="lab" text-anchor="middle" style="font-weight:600">Groupe A · mail</text>
+              <text x="295" y="280" class="lab" text-anchor="middle" style="font-weight:600">Groupe B · témoin</text>
+            </svg>
+            <p class="hm-encart"><strong>Effet du mail = (+300 €) − (+200 €) = +100 € par clinique</strong> sur 3 mois. Le groupe B montre ce que A aurait fait sans le mail.</p>
+            <svg viewBox="0 0 400 100" role="img" aria-label="Intervalle de confiance à 95 % de l'effet, de 31 à 169 euros, centré sur 100 euros. Il ne contient pas zéro.">
+              <line x1="30" y1="60" x2="370" y2="60" class="axe"/>
+              <line x1="86.7" y1="8" x2="86.7" y2="60" class="tirets"/>
+              <text x="92" y="13" class="lab-m">0 € = aucun effet</text>
+              <line x1="121.8" y1="45" x2="278.2" y2="45" class="intervalle"/>
+              <line x1="121.8" y1="37" x2="121.8" y2="53" class="borne"/>
+              <line x1="278.2" y1="37" x2="278.2" y2="53" class="borne"/>
+              <circle cx="200" cy="45" r="6.5" class="f-mail"/>
+              <text x="121.8" y="32" class="val" text-anchor="middle" style="font-size:11px">31 €</text>
+              <text x="200" y="32" class="val" text-anchor="middle" style="font-size:11px">100 €</text>
+              <text x="278.2" y="32" class="val" text-anchor="middle" style="font-size:11px">169 €</text>
+              <line x1="86.7" y1="60" x2="86.7" y2="65" class="axe"/>
+              <line x1="200" y1="60" x2="200" y2="65" class="axe"/>
+              <line x1="313.3" y1="60" x2="313.3" y2="65" class="axe"/>
+              <text x="86.7" y="80" class="lab-m" text-anchor="middle">0 €</text>
+              <text x="200" y="80" class="lab-m" text-anchor="middle">100 €</text>
+              <text x="313.3" y="80" class="lab-m" text-anchor="middle">200 €</text>
+              <text x="370" y="96" class="lab-m" text-anchor="end">gain par clinique dû au mail</text>
+            </svg>
+            <p class="hm-note">Fourchette à 95&#8239;%. Le mail rapporte entre 31 € et 169 € par clinique. Elle ne touche pas 0, donc l'effet n'est pas un coup de chance.</p>
+          </div>
         </div>
-        <div class="hm-figure">
-          <svg viewBox="0 0 400 295" role="img" aria-label="Ventes moyennes par clinique. Groupe A, de 500 à 800 euros, soit plus 300. Groupe B, de 500 à 700 euros, soit plus 200. Effet du mail, plus 100 euros par clinique.">
-            <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
-            <rect x="30" y="128.9" width="60" height="111.1" class="f-base"/>
-            <text x="60" y="120" class="val" text-anchor="middle">500 €</text>
-            <rect x="100" y="128.9" width="60" height="111.1" class="f-base"/>
-            <rect x="100" y="84.4" width="60" height="44.5" class="f-saison"/>
-            <rect x="100" y="62.2" width="60" height="22.2" class="f-mail"/>
-            <text x="130" y="53" class="val" text-anchor="middle">800 €</text>
-            <text x="130" y="35" class="gros" text-anchor="middle" style="font-size:16px">+300 €</text>
-            <rect x="230" y="128.9" width="60" height="111.1" class="f-base"/>
-            <text x="260" y="120" class="val" text-anchor="middle">500 €</text>
-            <rect x="300" y="128.9" width="60" height="111.1" class="f-base"/>
-            <rect x="300" y="84.4" width="60" height="44.5" class="f-saison"/>
-            <text x="330" y="75" class="val" text-anchor="middle">700 €</text>
-            <text x="330" y="57" class="gros" text-anchor="middle" style="font-size:16px">+200 €</text>
-            <text x="60" y="256" class="lab-m" text-anchor="middle">avant</text>
-            <text x="130" y="256" class="lab-m" text-anchor="middle">après</text>
-            <text x="260" y="256" class="lab-m" text-anchor="middle">avant</text>
-            <text x="330" y="256" class="lab-m" text-anchor="middle">après</text>
-            <text x="95" y="280" class="lab" text-anchor="middle" style="font-weight:600">Groupe A · mail</text>
-            <text x="295" y="280" class="lab" text-anchor="middle" style="font-weight:600">Groupe B · témoin</text>
-          </svg>
-          <p class="hm-encart"><strong>Effet du mail = (+300 €) − (+200 €) = +100 € par clinique</strong> sur 3 mois. Le groupe B montre ce que A aurait fait sans le mail.</p>
-          <svg viewBox="0 0 400 100" role="img" aria-label="Intervalle de confiance à 95 % de l'effet, de 31 à 169 euros, centré sur 100 euros. Il ne contient pas zéro.">
-            <line x1="30" y1="60" x2="370" y2="60" class="axe"/>
-            <line x1="86.7" y1="8" x2="86.7" y2="60" class="tirets"/>
-            <text x="92" y="13" class="lab-m">0 € = aucun effet</text>
-            <line x1="121.8" y1="45" x2="278.2" y2="45" class="intervalle"/>
-            <line x1="121.8" y1="37" x2="121.8" y2="53" class="borne"/>
-            <line x1="278.2" y1="37" x2="278.2" y2="53" class="borne"/>
-            <circle cx="200" cy="45" r="6.5" class="f-mail"/>
-            <text x="121.8" y="32" class="val" text-anchor="middle" style="font-size:11px">31 €</text>
-            <text x="200" y="32" class="val" text-anchor="middle" style="font-size:11px">100 €</text>
-            <text x="278.2" y="32" class="val" text-anchor="middle" style="font-size:11px">169 €</text>
-            <line x1="86.7" y1="60" x2="86.7" y2="65" class="axe"/>
-            <line x1="200" y1="60" x2="200" y2="65" class="axe"/>
-            <line x1="313.3" y1="60" x2="313.3" y2="65" class="axe"/>
-            <text x="86.7" y="80" class="lab-m" text-anchor="middle">0 €</text>
-            <text x="200" y="80" class="lab-m" text-anchor="middle">100 €</text>
-            <text x="313.3" y="80" class="lab-m" text-anchor="middle">200 €</text>
-            <text x="370" y="96" class="lab-m" text-anchor="end">gain par clinique dû au mail</text>
-          </svg>
-          <p class="hm-note">Fourchette à 95&#8239;%. Le mail rapporte entre 31 € et 169 € par clinique. Elle ne touche pas 0, donc l'effet n'est pas un coup de chance.</p>
-        </div>
-      </div>
 
+      </div>
       <div class="hm-scene hm-fin">
         <div class="hm-texte">
           <p class="hm-etape">4 / Ce qu'il faut retenir</p>

@@ -350,9 +350,22 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 
 .hm-scene { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; align-items: start; border-top: 1px solid var(--hm-trait); padding-top: 32px; }
 .hm-texte { display: grid; gap: 12px; min-width: 0; }
+
+/* Les trois méthodes en onglets, à la façon d'un segment Power BI. */
+.hm-methodes { display: grid; gap: 10px; border-top: 1px solid var(--hm-trait); padding-top: 32px; }
+.histoire-mail .hm-onglets-titre { font-size: 13px; color: var(--hm-sourdine); }
+.hm-onglets { display: flex; flex-wrap: wrap; }
+.hm-onglets button { padding: 10px 18px; font: 15px var(--hm-corps); color: var(--hm-encre); background: transparent; border: 1px solid var(--hm-trait); cursor: pointer; }
+.hm-onglets button + button { border-left: 0; }
+.hm-onglets button:hover { background: rgba(255, 255, 255, .05); }
+.hm-onglets button[aria-selected="true"] { background: var(--hm-encre); border-color: var(--hm-encre); color: var(--hm-fond); font-weight: 600; }
+.hm-onglets button:focus-visible { outline: 2px solid var(--hm-mail); outline-offset: 2px; position: relative; }
+.hm-methodes .hm-scene { border-top: 0; padding-top: 24px; }
+.hm-scene[hidden] { display: none; }
+.hm-methodes .hm-scene:focus-visible { outline: 2px solid var(--hm-mail); outline-offset: 8px; }
 .hm-etape { font: 500 13px var(--hm-donnee); color: var(--hm-sourdine); }
 .histoire-mail h3 { margin: 0; font: 700 clamp(1.5rem, 2.6vw, 2rem)/1.12 var(--hm-titre); letter-spacing: -.01em; text-wrap: balance; color: var(--hm-encre); }
-.hm-figure { background: var(--hm-surface); border: 1px solid var(--hm-trait); border-radius: 10px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.hm-figure { display: grid; gap: 14px; min-width: 0; }
 .hm-figure svg { width: 100%; height: auto; display: block; }
 .histoire-mail .hm-note { font-size: 14px; color: var(--hm-sourdine); }
 .histoire-mail .hm-encart { background: var(--hm-mail-doux); border-radius: 8px; padding: 12px 14px; font-size: 15px; max-width: none; }

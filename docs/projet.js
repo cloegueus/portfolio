@@ -186,6 +186,27 @@ document.querySelectorAll(".histoire-mail").forEach((histoire) => {
     return groupes;
   };
   dessiner("abbabaabbaababbabaabbabaababbaabaabbabab".split(""));
+
+  // Onglets : un seul panneau de méthode visible à la fois, flèches gauche et droite au clavier.
+  const onglets = [...histoire.querySelectorAll('[role="tab"]')];
+  const choisir = (onglet) => {
+    onglets.forEach((o) => {
+      const actif = o === onglet;
+      o.setAttribute("aria-selected", actif);
+      o.tabIndex = actif ? 0 : -1;
+      histoire.querySelector("#" + o.getAttribute("aria-controls")).hidden = !actif;
+    });
+  };
+  onglets.forEach((onglet, i) => {
+    onglet.addEventListener("click", () => choisir(onglet));
+    onglet.addEventListener("keydown", (e) => {
+      const pas = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+      if (!pas) return;
+      const suivant = onglets[(i + pas + onglets.length) % onglets.length];
+      choisir(suivant);
+      suivant.focus();
+    });
+  });
   histoire.querySelector("#hm-tirage").addEventListener("click", () => dessiner(tirer()));
 });
 
