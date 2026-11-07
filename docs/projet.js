@@ -156,7 +156,7 @@ document.querySelectorAll(".schema").forEach((schema) => {
   tracer();
 });
 
-// Saison ou mail ? Le bouton décompose la hausse, les onglets changent de méthode.
+// Effet d'une action marketing : le bouton décompose la hausse, les onglets changent de méthode.
 document.querySelectorAll(".histoire-mail").forEach((histoire) => {
   const figure = histoire.querySelector("#hm-fig1");
   const reveler = histoire.querySelector("#hm-reveler");

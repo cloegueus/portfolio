@@ -320,7 +320,7 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
   .mesure pre { margin-left: 0; }
 }
 
-/* --- Saison ou mail ? ------------------------------------------------------------
+/* --- Mesurer l'effet d'une action marketing ---------------------------------
    Une histoire verticale en quatre scènes, texte à gauche et graphique à droite
    (empilés en écran étroit). Code couleur constant : gris = ventes habituelles,
    ambre = saison, sarcelle = mail. */
@@ -337,16 +337,8 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .histoire-mail p { margin: 0; max-width: 62ch; }
 
 .hm-tete { display: grid; gap: 12px; max-width: 680px; }
-.hm-eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--hm-sourdine); font-weight: 600; }
-.principal .histoire-mail h2 { margin: 0; font: 700 clamp(2.4rem, 5vw, 3.6rem)/1.02 var(--hm-titre); letter-spacing: -.02em; color: var(--hm-encre); text-wrap: balance; }
-.histoire-mail h2 em { font-style: normal; color: var(--hm-mail); }
+.principal .histoire-mail h2 { margin: 0; font: 700 clamp(1.9rem, 3.6vw, 2.8rem)/1.08 var(--hm-titre); letter-spacing: -.02em; color: var(--hm-encre); text-wrap: balance; }
 .histoire-mail .hm-lead { font-size: 1.15rem; }
-.hm-legende { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 14px; color: var(--hm-sourdine); }
-.hm-legende span { display: inline-flex; align-items: center; gap: 8px; }
-.hm-sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
-.hm-sw.base { background: var(--hm-base); }
-.hm-sw.saison { background: var(--hm-saison); }
-.hm-sw.mail { background: var(--hm-mail); }
 
 .hm-scene { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; align-items: start; border-top: 1px solid var(--hm-trait); padding-top: 32px; }
 .hm-texte { display: grid; gap: 12px; min-width: 0; }
