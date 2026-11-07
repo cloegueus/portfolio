@@ -156,19 +156,8 @@ document.querySelectorAll(".schema").forEach((schema) => {
   tracer();
 });
 
-// Effet d'une action marketing : le bouton décompose la hausse, les onglets changent de méthode.
+// Effet d'une action marketing : les onglets changent de méthode.
 document.querySelectorAll(".histoire-mail").forEach((histoire) => {
-  const figure = histoire.querySelector("#hm-fig1");
-  const reveler = histoire.querySelector("#hm-reveler");
-  const message = histoire.querySelector("#hm-fig1-msg");
-  const naif = message.textContent;
-  reveler.addEventListener("click", () => {
-    const revele = figure.classList.toggle("revele");
-    reveler.setAttribute("aria-pressed", revele);
-    reveler.textContent = revele ? "Revenir à la vision avant / après" : "Révéler ce qui se cache dans les +50 %";
-    message.textContent = revele ? "Sur les +5 000 €, 4 000 € viennent du printemps. Le mail n'en explique que 1 000 €." : naif;
-  });
-
   // Onglets : un seul panneau de méthode visible à la fois, flèches gauche et droite au clavier.
   const onglets = [...histoire.querySelectorAll('[role="tab"]')];
   const choisir = (onglet) => {

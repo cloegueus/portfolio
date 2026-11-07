@@ -362,9 +362,6 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .histoire-mail .hm-encart { background: var(--hm-mail-doux); border-radius: 8px; padding: 12px 14px; font-size: 15px; max-width: none; }
 .hm-encart strong { color: var(--hm-mail); }
 
-.hm-bouton { justify-self: start; font: 600 15px var(--hm-corps); background: var(--hm-encre); color: var(--hm-fond); border: 0; border-radius: 6px; padding: 10px 16px; cursor: pointer; }
-.hm-bouton:hover { opacity: .88; }
-.hm-bouton:focus-visible { outline: 3px solid var(--hm-mail); outline-offset: 2px; }
 
 .histoire-mail .axe { stroke: var(--hm-trait); stroke-width: 1.5; }
 .histoire-mail .val { fill: var(--hm-encre); font: 12px var(--hm-donnee); }
@@ -378,21 +375,7 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .histoire-mail .intervalle { stroke: var(--hm-mail); stroke-width: 4; stroke-linecap: round; }
 .histoire-mail .borne { stroke: var(--hm-mail); stroke-width: 2; }
 
-/* Scène 1 : la hausse d'un seul bloc, puis révélée en trois parts. */
-#hm-fig1 .s-base, #hm-fig1 .s-saison, #hm-fig1 .s-mail { fill: var(--hm-mail); transition: fill .5s ease; }
-#hm-fig1.revele .s-base { fill: var(--hm-base); }
-#hm-fig1.revele .s-saison { fill: var(--hm-saison); }
-#hm-fig1 .vue-revelee { opacity: 0; transition: opacity .5s ease .2s; }
-#hm-fig1.revele .vue-revelee { opacity: 1; }
-#hm-fig1 .vue-naive { transition: opacity .3s ease; }
-#hm-fig1.revele .vue-naive { opacity: 0; }
-
-.histoire-mail .hm-pied { font-size: 13px; color: var(--hm-sourdine); border-top: 1px solid var(--hm-trait); padding-top: 16px; max-width: none; }
-
 @media (max-width: 900px) {
   .histoire-mail { padding: 32px 20px 28px; }
   .hm-scene { grid-template-columns: minmax(0, 1fr); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .histoire-mail * { transition: none !important; }
 }

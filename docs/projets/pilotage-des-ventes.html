@@ -228,37 +228,25 @@
         </div>
         <div class="hm-scene" role="tabpanel" id="hm-panneau-1" aria-labelledby="hm-onglet-1" tabindex="0">
           <div class="hm-texte">
-            <h3>Une méthode courante, mais trompeuse</h3>
+            <h3>Erreur courante</h3>
             <p>Comparer les 3 mois avant le mail aux 3 mois après est la méthode la plus courante. C'est pourtant une erreur, car elle mélange l'effet du mail avec tout ce qui a changé entre les deux périodes.</p>
             <p>Ici, les ventes prennent +50&#8239;% et on a envie de tout attribuer au mail. Sauf que les antiparasitaires se vendent toujours plus au printemps. Puces et tiques reviennent chaque année à cette période, mail ou pas.</p>
-            <button class="hm-bouton" id="hm-reveler" type="button" aria-pressed="false">Révéler ce qui se cache dans les +50&#8239;%</button>
           </div>
           <div class="hm-figure">
-            <svg id="hm-fig1" viewBox="0 0 400 290" role="img" aria-label="Ventes avant le mail, 10 000 euros. Après, 15 000 euros, dont 4 000 euros dus à la saison et 1 000 euros dus au mail.">
+            <svg viewBox="0 0 400 290" role="img" aria-label="Ventes avant le mail, 10 000 euros. Après, 15 000 euros, soit plus 50 %, que la comparaison avant / après attribue entièrement au mail.">
               <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
               <rect x="40" y="115" width="90" height="125" class="f-base"/>
               <text x="85" y="105" class="val" text-anchor="middle">10 000 €</text>
-              <rect x="190" y="115" width="90" height="125" class="s-base"/>
-              <rect x="190" y="65" width="90" height="50" class="s-saison"/>
-              <rect x="190" y="52.5" width="90" height="12.5" class="s-mail"/>
+              <rect x="190" y="52.5" width="90" height="187.5" class="f-mail"/>
               <text x="235" y="42" class="val" text-anchor="middle">15 000 €</text>
               <text x="160" y="88" class="gros" text-anchor="middle">+50 %</text>
-              <g class="vue-naive">
-                <text x="292" y="150" class="lab">« Tout ça,</text>
-                <text x="292" y="165" class="lab">c'est le mail »</text>
-              </g>
-              <g class="vue-revelee">
-                <text x="292" y="62" class="lab">Mail +1 000 €</text>
-                <text x="292" y="94" class="lab">Saison +4 000 €</text>
-                <text x="292" y="174" class="lab">Ventes</text>
-                <text x="292" y="188" class="lab">habituelles</text>
-              </g>
+              <text x="292" y="150" class="lab">« Tout ça,</text>
+              <text x="292" y="165" class="lab">c'est le mail »</text>
               <text x="85" y="259" class="lab" text-anchor="middle">Avant le mail</text>
               <text x="85" y="275" class="lab-m" text-anchor="middle">15 janv. – 14 avr.</text>
               <text x="235" y="259" class="lab" text-anchor="middle">Après le mail</text>
               <text x="235" y="275" class="lab-m" text-anchor="middle">15 avr. – 14 juil.</text>
             </svg>
-            <p class="hm-encart" id="hm-fig1-msg">Sur un graphique avant / après, la saison et le mail sont mélangés. Impossible de les séparer à l'œil.</p>
           </div>
         </div>
 
@@ -349,7 +337,6 @@
 
       </div>
 
-      <p class="hm-pied">Chiffres fictifs et arrondis, pour illustrer la méthode.</p>
     </div>
   </div>
 
