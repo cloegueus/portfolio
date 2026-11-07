@@ -182,33 +182,28 @@
     </div>
   </section>
 
-  <section class="tuile l-6">
+  <section class="tuile l-12 prevision">
     <h2>Prévision des ventes</h2>
-    <p class="sous">Backtest sur janvier–septembre 2026</p>
-    <p>Un modèle par produit avec une tendance pour la croissance et un effet par mois pour la saison. Il a appris sur 2023–2025, puis prévu janvier–septembre 2026, que je connaissais déjà.</p>
-        <table class="comparaison">
-          <thead><tr><th scope="col">Sur janvier–septembre 2026</th><th scope="col">Modèle</th><th scope="col">Forecast</th></tr></thead>
-          <tbody>
-            <tr><td>Erreur moyenne par mois</td><td class="meilleur">5,6&#8239;%</td><td>10,3&#8239;%</td></tr>
-            <tr><td>Erreur sur le total des 9 mois</td><td class="meilleur">2,6&#8239;%</td><td>5,8&#8239;%</td></tr>
-            <tr><td>Mois réels dans la marge à 80&#8239;%</td><td>8 sur 9</td><td>–</td></tr>
-          </tbody>
-        </table>
-        <p class="remarque">Le forecast de ces données a été tiré au hasard autour du budget, donc le modèle part avantagé. Ce qui m'intéressait, c'est la méthode. Sur de vraies données, les chefs de produit savent des choses que l'historique ignore, comme un lancement ou une rupture de stock. Le modèle servirait alors de point de comparaison, pas de remplaçant.</p>
-  </section>
-  <section class="tuile l-6">
-    <h2>Risque de perte client</h2>
-    <p class="sous">Période de test jamais vue par le modèle</p>
-    <p>Une régression logistique donne à chaque clinique une probabilité d'arrêter de commander dans les six mois. Elle apprend sur des « photos » mensuelles du passé, qui associent ce qu'on savait de chaque clinique à une date donnée et ce qui s'est passé ensuite.</p>
-        <table class="comparaison">
-          <thead><tr><th scope="col">Sur la période de test</th><th scope="col">Valeur</th></tr></thead>
-          <tbody>
-            <tr><td>AUC</td><td class="meilleur">0,91</td></tr>
-            <tr><td>Part de cliniques réellement perdues</td><td>2,8&#8239;%</td></tr>
-            <tr><td>Part de vraies pertes parmi les 10&#8239;% les mieux scorées</td><td class="meilleur">21&#8239;%</td></tr>
-          </tbody>
-        </table>
-        <p class="remarque">Ici, les cliniques qui partent ralentissent toutes avant d'arrêter, ce qui les rend faciles à repérer. Sur de vraies données, le score serait sûrement moins bon, et il gagnerait à intégrer d'autres signaux, comme les visites des délégués.</p>
+    <p>Pour chaque produit, le modèle repère la croissance d'une année sur l'autre et le rythme des saisons. Pour le tester, je lui ai montré 2023–2025 seulement, puis je lui ai fait prévoir janvier–septembre 2026, dont je connaissais déjà les vrais chiffres. J'ai comparé ses erreurs à celles du budget revu en cours d'année, l'estimation que l'entreprise met à jour pendant l'année (le «&#8239;forecast&#8239;»).</p>
+    <div class="pv-bloc">
+      <p class="pv-titre">De combien il se trompe sur un mois, en moyenne</p>
+      <div class="pv-barres">
+          <span class="pv-nom">Modèle</span><span class="pv-piste"><span class="pv-barre modele" style="width:50.9%"></span></span><span class="pv-val modele">5,6&#8239;%</span>
+          <span class="pv-nom">forecast</span><span class="pv-piste"><span class="pv-barre forecast" style="width:93.6%"></span></span><span class="pv-val forecast">10,3&#8239;%</span>
+      </div>
+    </div>
+    <div class="pv-bloc">
+      <p class="pv-titre">De combien il se trompe sur le total des 9 mois</p>
+      <div class="pv-barres">
+          <span class="pv-nom">Modèle</span><span class="pv-piste"><span class="pv-barre modele" style="width:23.6%"></span></span><span class="pv-val modele">2,6&#8239;%</span>
+          <span class="pv-nom">forecast</span><span class="pv-piste"><span class="pv-barre forecast" style="width:52.7%"></span></span><span class="pv-val forecast">5,8&#8239;%</span>
+      </div>
+    </div>
+    <div class="pv-marge">
+      <span class="pv-points" role="img" aria-label="8 mois sur 9 dans la fourchette"><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i></i></span>
+      <p>Il donne aussi une fourchette basse et haute. <strong>8 mois sur 9</strong>, les vraies ventes sont tombées dedans.</p>
+    </div>
+    <p class="remarque">Ici, le forecast est inventé au hasard, donc le modèle part avantagé. Sur de vraies données, il servirait de point de comparaison aux chefs de produit, pas de remplaçant.</p>
   </section>
 
 

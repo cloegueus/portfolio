@@ -280,6 +280,29 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
   .fiche .enjeux { grid-auto-flow: row; }
 }
 
+/* --- Prévision des ventes : les erreurs du modèle et du forecast en barres ---- */
+.prevision > * { max-width: 820px; }
+.principal .tuile.prevision h2 { margin: 0 0 14px; font-size: 22px; letter-spacing: 0; text-transform: none; }
+.pv-bloc { margin-top: 20px; }
+.tuile .pv-titre { margin: 0 0 6px; font-size: 14.5px; font-weight: 700; color: var(--ardoise); }
+.pv-barres { display: grid; grid-template-columns: 80px minmax(0, 1fr) 64px; gap: 6px 12px; align-items: center; }
+.pv-nom { font-size: 14px; color: var(--texte-2); }
+.pv-piste { height: 12px; }
+.pv-barre { display: block; height: 100%; border-radius: 2px; }
+.pv-barre.modele { background: var(--teal); }
+.pv-barre.forecast { background: var(--gris); }
+.pv-val { text-align: right; font-size: 14px; font-variant-numeric: tabular-nums; color: var(--texte-2); }
+.pv-val.modele { font-weight: 700; color: var(--teal-fonce); }
+.pv-marge { display: flex; align-items: center; gap: 18px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--trait); }
+.pv-points { display: flex; gap: 6px; flex: none; }
+.pv-points i { width: 15px; height: 15px; border-radius: 50%; border: 2px solid var(--teal); }
+.pv-points i.plein { background: var(--teal); }
+.tuile .pv-marge p { margin: 0; }
+.pv-marge strong { color: var(--teal-fonce); }
+@media (max-width: 700px) {
+  .pv-marge { flex-direction: column; align-items: flex-start; }
+}
+
 /* --- Mesures DAX -------------------------------------------------------------
    Une liste rangée par usage, à la façon du volet Données de Power BI. Chaque
    mesure se lit en une ligne ; sa formule se déplie dessous, colorée comme dans
