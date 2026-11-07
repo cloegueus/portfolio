@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pilotage des ventes · Cloé Gueusquin</title>
 <meta name="description" content="Rapport Power BI sur des ventes vétérinaires fictives : prévision de fin d'année et repérage des cliniques sur le point d'arrêter de commander avec deux modèles Python exécutés dans Power BI.">
-<link rel="stylesheet" href="../commun.css?v=3">
-<link rel="stylesheet" href="../projet.css?v=3">
+<link rel="stylesheet" href="../commun.css?v=4">
+<link rel="stylesheet" href="../projet.css?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -105,6 +105,8 @@
     <p class="legende">La liste d'appels des délégués. Les cliniques sont classées de la plus à risque à la moins à risque avec la raison principale et le nombre de jours sans commande.</p>
   </section>
 
+  <h2 class="partie-titre">Comment est construit ce dashboard</h2>
+
   <section class="tuile l-12 prevision">
     <h2>Prévision des ventes</h2>
     <p>Pour chaque produit, le modèle repère la croissance d'une année sur l'autre et le rythme des saisons. Pour le tester, je lui ai montré 2023–2025 seulement, puis je lui ai fait prévoir janvier–septembre 2026, dont je connaissais déjà les vrais chiffres. J'ai comparé ses erreurs à celles du budget revu en cours d'année, l'estimation que l'entreprise met à jour pendant l'année (le «&#8239;forecast&#8239;»).</p>
@@ -121,10 +123,6 @@
           <span class="pv-nom">Modèle</span><span class="pv-piste"><span class="pv-barre modele" style="width:23.6%"></span></span><span class="pv-val modele">2,6&#8239;%</span>
           <span class="pv-nom">forecast</span><span class="pv-piste"><span class="pv-barre forecast" style="width:52.7%"></span></span><span class="pv-val forecast">5,8&#8239;%</span>
       </div>
-    </div>
-    <div class="pv-marge">
-      <span class="pv-points" role="img" aria-label="8 mois sur 9 dans la fourchette"><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i></i></span>
-      <p>Il donne aussi une fourchette basse et haute. <strong>8 mois sur 9</strong>, les vraies ventes sont tombées dedans.</p>
     </div>
     <p class="remarque">Ici, le forecast est inventé au hasard, donc le modèle part avantagé. Sur de vraies données, il servirait de point de comparaison aux chefs de produit, pas de remplaçant.</p>
   </section>
@@ -338,6 +336,6 @@
   <img alt="">
 </dialog>
 
-<script src="../projet.js?v=3"></script>
+<script src="../projet.js?v=4"></script>
 </body>
 </html>
