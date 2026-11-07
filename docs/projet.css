@@ -320,64 +320,94 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
   .mesure pre { margin-left: 0; }
 }
 
-/* --- Le mail a-t-il fait vendre ? -------------------------------------------
-   Un seul bandeau ardoise, comme le menu, qui clôt la page. Un graphique en pont
-   (avant, saison, mail, après) se redessine selon la méthode choisie dans un
-   segment à la façon de Power BI. Gris = ventes habituelles, ambre = saison,
-   sarcelle = mail. */
-.pont {
-  --p-base: #8DA3A6; --p-saison: #E0A245; --p-mail: #3FC1C6; --p-ligne: rgba(255, 255, 255, .16);
-  grid-column: 1 / -1; margin-top: 18px; padding: 34px 36px 26px; border-radius: var(--rayon);
-  background: var(--ardoise); color: var(--blanc);
+/* --- Saison ou mail ? ------------------------------------------------------------
+   Une histoire verticale en quatre scènes, texte à gauche et graphique à droite
+   (empilés en écran étroit). Code couleur constant : gris = ventes habituelles,
+   ambre = saison, sarcelle = mail. */
+.histoire-mail {
+  --hm-fond: #0E1917; --hm-surface: #15231F; --hm-encre: #E4EDEA; --hm-sourdine: #9AB0AA; --hm-trait: #2A3B37;
+  --hm-base: #4F635E; --hm-saison: #E3A440; --hm-mail: #3DB6AA; --hm-mail-doux: #183631;
+  --hm-titre: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --hm-corps: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --hm-donnee: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  grid-column: 1 / -1; margin-top: 18px; padding: 44px 40px 36px; border-radius: var(--rayon);
+  background: var(--hm-fond); color: var(--hm-encre); font: 16px/1.55 var(--hm-corps);
 }
-.pont-tete { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; }
-.principal .pont h2 { margin: 0 0 12px; font-size: clamp(30px, 3.2vw, 44px); line-height: 1.05; font-weight: 300; letter-spacing: -.02em; text-wrap: balance; }
-.pont-tete p { margin: 0; max-width: 62ch; font-size: 16px; line-height: 1.6; color: var(--sur-fonce); }
+.hm-wrap { max-width: 1000px; margin: 0 auto; display: grid; gap: 56px; }
+.histoire-mail p { margin: 0; max-width: 62ch; }
 
-.segment { display: grid; grid-auto-flow: column; gap: 0; }
-.segment p { grid-column: 1 / -1; grid-row: 1; margin: 0 0 6px; font-size: 13px; color: var(--sur-fonce); }
-.segment button { grid-row: 2; padding: 9px 16px; font: 14px var(--police); color: var(--blanc); background: transparent; border: 1px solid var(--p-ligne); cursor: pointer; white-space: nowrap; }
-.segment button + button { border-left: 0; }
-.segment button:hover { background: rgba(255, 255, 255, .07); }
-.segment button[aria-pressed="true"] { background: var(--blanc); color: var(--ardoise); border-color: var(--blanc); font-weight: 600; }
-.segment button:focus-visible { outline: 2px solid var(--p-mail); outline-offset: 2px; position: relative; }
+.hm-tete { display: grid; gap: 12px; max-width: 680px; }
+.hm-eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--hm-sourdine); font-weight: 600; }
+.principal .histoire-mail h2 { margin: 0; font: 700 clamp(2.4rem, 5vw, 3.6rem)/1.02 var(--hm-titre); letter-spacing: -.02em; color: var(--hm-encre); text-wrap: balance; }
+.histoire-mail h2 em { font-style: normal; color: var(--hm-mail); }
+.histoire-mail .hm-lead { font-size: 1.15rem; }
+.hm-legende { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: 14px; color: var(--hm-sourdine); }
+.hm-legende span { display: inline-flex; align-items: center; gap: 8px; }
+.hm-sw { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+.hm-sw.base { background: var(--hm-base); }
+.hm-sw.saison { background: var(--hm-saison); }
+.hm-sw.mail { background: var(--hm-mail); }
 
-.pont-corps { display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(220px, 1fr); gap: 40px; align-items: center; margin-top: 30px; }
-.pont-graphe { display: block; width: 100%; height: auto; }
-.pont-graphe text { font: 13px var(--police); fill: var(--sur-fonce); }
-.pont-graphe .valeur { font-weight: 600; fill: var(--blanc); font-variant-numeric: tabular-nums; }
-.pont-graphe .sol { stroke: var(--p-ligne); stroke-width: 1.5; }
-.pont-graphe .lien { stroke: rgba(255, 255, 255, .35); stroke-width: 1; stroke-dasharray: 3 3; }
-.pont-graphe .moustache { stroke: var(--blanc); stroke-width: 2; }
-.b-base { fill: var(--p-base); }
-.b-saison { fill: var(--p-saison); }
-.b-mail { fill: var(--p-mail); }
+.hm-scene { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; align-items: start; border-top: 1px solid var(--hm-trait); padding-top: 32px; }
+.hm-texte { display: grid; gap: 12px; min-width: 0; }
+.hm-etape { font: 500 13px var(--hm-donnee); color: var(--hm-sourdine); }
+.histoire-mail h3 { margin: 0; font: 700 clamp(1.5rem, 2.6vw, 2rem)/1.12 var(--hm-titre); letter-spacing: -.01em; text-wrap: balance; color: var(--hm-encre); }
+.hm-figure { background: var(--hm-surface); border: 1px solid var(--hm-trait); border-radius: 10px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.hm-figure svg { width: 100%; height: auto; display: block; }
+.histoire-mail .hm-note { font-size: 14px; color: var(--hm-sourdine); }
+.histoire-mail .hm-encart { background: var(--hm-mail-doux); border-radius: 8px; padding: 12px 14px; font-size: 15px; max-width: none; }
+.hm-encart strong { color: var(--hm-mail); }
 
-.lecture-mail p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--sur-fonce); }
-.lecture-mail .part-libelle { font-size: 13px; }
-.lecture-mail .part { margin: 2px 0 0; font-size: 64px; line-height: 1; font-weight: 300; letter-spacing: -.03em; color: var(--p-mail); font-variant-numeric: tabular-nums; }
-.lecture-mail .part-marge { margin-top: 6px; font-size: 15px; font-weight: 600; color: var(--blanc); }
-.lecture-mail .part + p, .lecture-mail .part-marge + p { margin-top: 18px; }
+.hm-bouton { justify-self: start; font: 600 15px var(--hm-corps); background: var(--hm-encre); color: var(--hm-fond); border: 0; border-radius: 6px; padding: 10px 16px; cursor: pointer; }
+.hm-bouton:hover { opacity: .88; }
+.hm-bouton:focus-visible { outline: 3px solid var(--hm-mail); outline-offset: 2px; }
 
-/* Ce qui s'affiche selon la méthode : seul1, seul2, seul3, ou des2 (méthodes 2 et 3). */
-.pont[data-lecture="1"] :is(.seul2, .seul3, .des2),
-.pont[data-lecture="2"] :is(.seul1, .seul3),
-.pont[data-lecture="3"] :is(.seul1, .seul2) { display: none; }
+.histoire-mail .axe { stroke: var(--hm-trait); stroke-width: 1.5; }
+.histoire-mail .val { fill: var(--hm-encre); font: 12px var(--hm-donnee); }
+.histoire-mail .gros { fill: var(--hm-encre); font: 700 20px var(--hm-titre); }
+.histoire-mail .lab { fill: var(--hm-encre); font: 11.5px var(--hm-corps); }
+.histoire-mail .lab-m { fill: var(--hm-sourdine); font: 11px var(--hm-corps); }
+.histoire-mail .f-base { fill: var(--hm-base); }
+.histoire-mail .f-saison { fill: var(--hm-saison); }
+.histoire-mail .f-mail { fill: var(--hm-mail); }
+.histoire-mail .tirets { stroke: var(--hm-sourdine); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
+.histoire-mail .intervalle { stroke: var(--hm-mail); stroke-width: 4; stroke-linecap: round; }
+.histoire-mail .borne { stroke: var(--hm-mail); stroke-width: 2; }
 
-.pont-pied { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px 36px; align-items: baseline; margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--p-ligne); }
-.pont-pied p { margin: 0; font-size: 13px; color: var(--sur-fonce); }
-.pont-pied .cles { display: flex; gap: 16px; white-space: nowrap; }
-.cles span { display: inline-flex; align-items: center; gap: 7px; }
-.cles i { width: 11px; height: 11px; border-radius: 2px; }
-.c-base { background: var(--p-base); }
-.c-saison { background: var(--p-saison); }
-.c-mail { background: var(--p-mail); }
-.pont-pied .morale { font-size: 15.5px; line-height: 1.5; color: var(--blanc); }
+/* Scène 1 : la hausse d'un seul bloc, puis révélée en trois parts. */
+#hm-fig1 .s-base, #hm-fig1 .s-saison, #hm-fig1 .s-mail { fill: var(--hm-mail); transition: fill .5s ease; }
+#hm-fig1.revele .s-base { fill: var(--hm-base); }
+#hm-fig1.revele .s-saison { fill: var(--hm-saison); }
+#hm-fig1 .vue-revelee { opacity: 0; transition: opacity .5s ease .2s; }
+#hm-fig1.revele .vue-revelee { opacity: 1; }
+#hm-fig1 .vue-naive { transition: opacity .3s ease; }
+#hm-fig1.revele .vue-naive { opacity: 0; }
 
-@media (max-width: 1100px) {
-  .pont { padding: 26px 22px 22px; }
-  .pont-tete, .pont-corps, .pont-pied { grid-template-columns: minmax(0, 1fr); }
-  .pont-tete { align-items: start; }
-  .segment button { white-space: normal; }
-  .pont-pied .cles { flex-wrap: wrap; }
+/* Scène 3 : le tirage au sort des cliniques. */
+.hm-points { display: flex; flex-wrap: wrap; gap: 7px; }
+.hm-point { width: 16px; height: 16px; border-radius: 50%; }
+.hm-point.a { background: var(--hm-mail); }
+.hm-point.b { background: var(--hm-base); }
+.hm-cle-points { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; color: var(--hm-sourdine); }
+.hm-cle-points i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.hm-cle-points .a { background: var(--hm-mail); }
+.hm-cle-points .b { background: var(--hm-base); }
+
+/* Scène 4 : la leçon. */
+.hm-fin { grid-template-columns: minmax(0, 1fr); }
+.hm-fin .hm-texte { gap: 24px; }
+.histoire-mail .hm-piege { font: 700 clamp(1.3rem, 2.6vw, 1.7rem)/1.25 var(--hm-titre); max-width: 30ch; text-wrap: balance; }
+.hm-piege span { color: var(--hm-saison); }
+.hm-pourquoi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.hm-pourquoi div { display: grid; gap: 6px; align-content: start; }
+.histoire-mail .hm-pourquoi h3 { font-size: 1.15rem; }
+.histoire-mail .hm-pourquoi p { font-size: 15px; color: var(--hm-sourdine); }
+.histoire-mail .hm-pied { font-size: 13px; color: var(--hm-sourdine); border-top: 1px solid var(--hm-trait); padding-top: 16px; max-width: none; }
+
+@media (max-width: 900px) {
+  .histoire-mail { padding: 32px 20px 28px; }
+  .hm-scene, .hm-pourquoi { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .histoire-mail * { transition: none !important; }
 }

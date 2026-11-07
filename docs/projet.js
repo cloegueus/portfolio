@@ -156,13 +156,37 @@ document.querySelectorAll(".schema").forEach((schema) => {
   tracer();
 });
 
-// Le mail a-t-il fait vendre ? Le segment choisit la méthode de comparaison, le pont se redessine.
-document.querySelectorAll(".pont").forEach((pont) => {
-  const boutons = pont.querySelectorAll(".segment button");
-  boutons.forEach((bouton) => bouton.addEventListener("click", () => {
-    pont.dataset.lecture = bouton.dataset.lecture;
-    boutons.forEach((b) => b.setAttribute("aria-pressed", b === bouton));
-  }));
+// Saison ou mail ? Le premier bouton décompose la hausse, le second refait le tirage au sort.
+document.querySelectorAll(".histoire-mail").forEach((histoire) => {
+  const figure = histoire.querySelector("#hm-fig1");
+  const reveler = histoire.querySelector("#hm-reveler");
+  const message = histoire.querySelector("#hm-fig1-msg");
+  const naif = message.textContent;
+  reveler.addEventListener("click", () => {
+    const revele = figure.classList.toggle("revele");
+    reveler.setAttribute("aria-pressed", revele);
+    reveler.textContent = revele ? "Revenir à la vision avant / après" : "Révéler ce qui se cache dans les +50 %";
+    message.textContent = revele ? "Sur les +5 000 €, 4 000 € viennent du printemps. Le mail n'en explique que 1 000 €." : naif;
+  });
+
+  const points = histoire.querySelector("#hm-points");
+  const dessiner = (groupes) => {
+    points.replaceChildren(...groupes.map((g) => {
+      const point = document.createElement("span");
+      point.className = "hm-point " + g;
+      return point;
+    }));
+  };
+  const tirer = () => {
+    const groupes = Array.from({ length: 40 }, (_, i) => (i < 20 ? "a" : "b"));
+    for (let i = groupes.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [groupes[i], groupes[j]] = [groupes[j], groupes[i]];
+    }
+    return groupes;
+  };
+  dessiner("abbabaabbaababbabaabbabaababbaabaabbabab".split(""));
+  histoire.querySelector("#hm-tirage").addEventListener("click", () => dessiner(tirer()));
 });
 
 // Mesures DAX : un bouton déplie ou replie toutes les formules d'un coup.
