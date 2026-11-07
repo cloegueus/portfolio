@@ -321,7 +321,7 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 }
 
 /* --- Mesurer l'effet d'une action marketing ---------------------------------
-   Une histoire verticale en quatre scènes, texte à gauche et graphique à droite
+   Trois méthodes en onglets, texte à gauche et graphique à droite
    (empilés en écran étroit). Code couleur constant : gris = ventes habituelles,
    ambre = saison, sarcelle = mail. */
 .histoire-mail {
@@ -355,7 +355,6 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .hm-methodes .hm-scene { border-top: 0; padding-top: 24px; }
 .hm-scene[hidden] { display: none; }
 .hm-methodes .hm-scene:focus-visible { outline: 2px solid var(--hm-mail); outline-offset: 8px; }
-.hm-etape { font: 500 13px var(--hm-donnee); color: var(--hm-sourdine); }
 .histoire-mail h3 { margin: 0; font: 700 clamp(1.5rem, 2.6vw, 2rem)/1.12 var(--hm-titre); letter-spacing: -.01em; text-wrap: balance; color: var(--hm-encre); }
 .hm-figure { display: grid; gap: 14px; min-width: 0; }
 .hm-figure svg { width: 100%; height: auto; display: block; }
@@ -388,20 +387,11 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 #hm-fig1 .vue-naive { transition: opacity .3s ease; }
 #hm-fig1.revele .vue-naive { opacity: 0; }
 
-/* Scène 4 : la leçon. */
-.hm-fin { grid-template-columns: minmax(0, 1fr); }
-.hm-fin .hm-texte { gap: 24px; }
-.histoire-mail .hm-piege { font: 700 clamp(1.3rem, 2.6vw, 1.7rem)/1.25 var(--hm-titre); max-width: 30ch; text-wrap: balance; }
-.hm-piege span { color: var(--hm-saison); }
-.hm-pourquoi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.hm-pourquoi div { display: grid; gap: 6px; align-content: start; }
-.histoire-mail .hm-pourquoi h3 { font-size: 1.15rem; }
-.histoire-mail .hm-pourquoi p { font-size: 15px; color: var(--hm-sourdine); }
 .histoire-mail .hm-pied { font-size: 13px; color: var(--hm-sourdine); border-top: 1px solid var(--hm-trait); padding-top: 16px; max-width: none; }
 
 @media (max-width: 900px) {
   .histoire-mail { padding: 32px 20px 28px; }
-  .hm-scene, .hm-pourquoi { grid-template-columns: minmax(0, 1fr); }
+  .hm-scene { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
   .histoire-mail * { transition: none !important; }
