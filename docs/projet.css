@@ -273,6 +273,23 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
   .fiche .enjeux { grid-auto-flow: row; }
 }
 
+/* --- Parc de cliniques : une pastille par clinique, colorée selon son type ---- */
+.parc { --canine: var(--teal); --mixte: #C9A227; --mixte-texte: #8A6D00; --rurale: #3A8F3A; }
+.tuile .parc-titre { display: flex; align-items: baseline; gap: 10px; margin: 0 0 14px; font-size: 14px; color: var(--texte-2); }
+.parc-titre strong { font-size: 34px; line-height: 1; font-weight: 700; color: var(--ardoise); font-variant-numeric: tabular-nums; }
+.parc-corps { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: start; }
+.parc-points { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 5px; max-width: 300px; }
+.parc-points i { aspect-ratio: 1; border-radius: 50%; }
+.parc-points .c { background: var(--canine); }
+.parc-points .m { background: var(--mixte); }
+.parc-points .r { background: var(--rurale); }
+.parc-types { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; font-size: 13px; color: var(--texte-2); }
+.parc-types strong { display: block; font-size: 24px; line-height: 1.1; font-weight: 700; font-variant-numeric: tabular-nums; }
+.parc-types .c strong { color: var(--canine); }
+.parc-types .m strong { color: var(--mixte-texte); }
+.parc-types .r strong { color: var(--rurale); }
+.tuile .parc-pied { margin: 16px 0 0; font-size: 13.5px; color: var(--texte-2); }
+
 /* --- Prévision des ventes : les erreurs du modèle et du forecast en barres ---- */
 .prevision > * { max-width: 820px; }
 .principal .tuile.prevision h2 { margin: 0 0 14px; font-size: 22px; letter-spacing: 0; text-transform: none; }
