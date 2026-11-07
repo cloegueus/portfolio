@@ -287,7 +287,9 @@
           <div class="hm-texte">
             <h3>Le test A/B, tirer au sort qui reçoit le mail</h3>
             <p>Pour écarter ces différences entre années, on compare deux groupes <strong>au même moment</strong>. Ils vivent la même météo, les mêmes prix et les mêmes concurrents.</p>
-            <p>On tire au sort 100 cliniques qui reçoivent le mail (A) et 100 qui ne le reçoivent pas (B). Grâce au hasard, les deux groupes se ressemblent en tout, sauf le mail.</p>
+            <p><strong>Qui reçoit le mail&#8239;?</strong> Si on l'envoie aux meilleures clientes, elles auraient de toute façon acheté plus. On tire donc au sort, pour que les deux groupes se ressemblent en tout, sauf le mail.</p>
+            <p><strong>Combien de cliniques&#8239;?</strong> Avec trop peu, une seule grosse commande suffit à fausser le résultat. On calcule avant l'envoi combien il en faut pour obtenir une réponse fiable, ici environ 100 par groupe.</p>
+            <p><strong>Quelle confiance dans le résultat&#8239;?</strong> Avec d'autres cliniques tirées au sort, on n'aurait pas trouvé exactement +100&#8239;€. On calcule donc une fourchette autour du résultat. Elle se resserre quand il y a plus de cliniques et que leurs ventes sont régulières.</p>
           </div>
           <div class="hm-figure">
             <svg viewBox="0 0 400 295" role="img" aria-label="Ventes moyennes par clinique. Groupe A, de 500 à 800 euros, soit plus 300. Groupe B, de 500 à 700 euros, soit plus 200. Effet du mail, plus 100 euros par clinique.">
@@ -313,26 +315,29 @@
               <text x="295" y="280" class="lab" text-anchor="middle" style="font-weight:600">Groupe B · témoin</text>
             </svg>
             <p class="hm-encart"><strong>Effet du mail = (+300 €) − (+200 €) = +100 € par clinique</strong> sur 3 mois. Le groupe B montre ce que A aurait fait sans le mail.</p>
-            <svg viewBox="0 0 400 100" role="img" aria-label="Intervalle de confiance à 95 % de l'effet, de 31 à 169 euros, centré sur 100 euros. Il ne contient pas zéro.">
-              <line x1="30" y1="60" x2="370" y2="60" class="axe"/>
-              <line x1="86.7" y1="8" x2="86.7" y2="60" class="tirets"/>
-              <text x="92" y="13" class="lab-m">0 € = aucun effet</text>
-              <line x1="121.8" y1="45" x2="278.2" y2="45" class="intervalle"/>
-              <line x1="121.8" y1="37" x2="121.8" y2="53" class="borne"/>
-              <line x1="278.2" y1="37" x2="278.2" y2="53" class="borne"/>
-              <circle cx="200" cy="45" r="6.5" class="f-mail"/>
-              <text x="121.8" y="32" class="val" text-anchor="middle" style="font-size:11px">31 €</text>
-              <text x="200" y="32" class="val" text-anchor="middle" style="font-size:11px">100 €</text>
-              <text x="278.2" y="32" class="val" text-anchor="middle" style="font-size:11px">169 €</text>
-              <line x1="86.7" y1="60" x2="86.7" y2="65" class="axe"/>
-              <line x1="200" y1="60" x2="200" y2="65" class="axe"/>
-              <line x1="313.3" y1="60" x2="313.3" y2="65" class="axe"/>
-              <text x="86.7" y="80" class="lab-m" text-anchor="middle">0 €</text>
-              <text x="200" y="80" class="lab-m" text-anchor="middle">100 €</text>
-              <text x="313.3" y="80" class="lab-m" text-anchor="middle">200 €</text>
-              <text x="370" y="96" class="lab-m" text-anchor="end">gain par clinique dû au mail</text>
+            <svg viewBox="0 0 400 134" role="img" aria-label="Fourchette du gain par clinique. Avec 100 cliniques par groupe, de 31 à 169 euros, au-dessus de zéro. Avec 20 cliniques par groupe, de moins 54 à 254 euros, elle passe par zéro.">
+              <line x1="15" y1="100" x2="385" y2="100" class="axe"/>
+              <line x1="86.7" y1="14" x2="86.7" y2="100" class="tirets"/>
+              <text x="121.8" y="24" class="lab">100 cliniques par groupe, de 31 à 169 €</text>
+              <line x1="121.8" y1="38" x2="278.2" y2="38" class="intervalle"/>
+              <line x1="121.8" y1="31" x2="121.8" y2="45" class="borne"/>
+              <line x1="278.2" y1="31" x2="278.2" y2="45" class="borne"/>
+              <circle cx="200" cy="38" r="6" class="f-mail"/>
+              <text x="95" y="64" class="lab-m">20 cliniques par groupe, de −54 à 254 €</text>
+              <line x1="25.5" y1="78" x2="374.5" y2="78" class="intervalle-large"/>
+              <line x1="25.5" y1="71" x2="25.5" y2="85" class="borne-large"/>
+              <line x1="374.5" y1="71" x2="374.5" y2="85" class="borne-large"/>
+              <circle cx="200" cy="78" r="6" class="point-large"/>
+              <line x1="86.7" y1="100" x2="86.7" y2="105" class="axe"/>
+              <line x1="200" y1="100" x2="200" y2="105" class="axe"/>
+              <line x1="313.3" y1="100" x2="313.3" y2="105" class="axe"/>
+              <text x="86.7" y="117" class="lab-m" text-anchor="middle">0 €</text>
+              <text x="86.7" y="130" class="lab-m" text-anchor="middle">aucun effet</text>
+              <text x="200" y="117" class="lab-m" text-anchor="middle">100 €</text>
+              <text x="313.3" y="117" class="lab-m" text-anchor="middle">200 €</text>
+              <text x="385" y="130" class="lab-m" text-anchor="end">gain par clinique dû au mail</text>
             </svg>
-            <p class="hm-note">Fourchette à 95&#8239;%. Le mail rapporte entre 31 € et 169 € par clinique. Elle ne touche pas 0, donc l'effet n'est pas un coup de chance.</p>
+            <p class="hm-note">Les ventes d'une clinique varient beaucoup d'un mois à l'autre. Avec 20 cliniques par groupe, la fourchette est si large qu'elle passe par 0, et on ne peut rien conclure. Avec 100, elle se resserre et reste au-dessus de 0. Le mail rapporte vraiment.</p>
           </div>
         </div>
 

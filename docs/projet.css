@@ -374,6 +374,9 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 .histoire-mail .tirets { stroke: var(--hm-sourdine); stroke-width: 1.2; stroke-dasharray: 4 4; fill: none; }
 .histoire-mail .intervalle { stroke: var(--hm-mail); stroke-width: 4; stroke-linecap: round; }
 .histoire-mail .borne { stroke: var(--hm-mail); stroke-width: 2; }
+.histoire-mail .intervalle-large { stroke: var(--hm-sourdine); stroke-width: 4; stroke-linecap: round; opacity: .6; }
+.histoire-mail .borne-large { stroke: var(--hm-sourdine); stroke-width: 2; opacity: .6; }
+.histoire-mail .point-large { fill: var(--hm-sourdine); }
 
 @media (max-width: 900px) {
   .histoire-mail { padding: 32px 20px 28px; }
