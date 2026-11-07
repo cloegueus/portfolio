@@ -156,7 +156,7 @@ document.querySelectorAll(".schema").forEach((schema) => {
   tracer();
 });
 
-// Saison ou mail ? Le premier bouton décompose la hausse, le second refait le tirage au sort.
+// Saison ou mail ? Le bouton décompose la hausse, les onglets changent de méthode.
 document.querySelectorAll(".histoire-mail").forEach((histoire) => {
   const figure = histoire.querySelector("#hm-fig1");
   const reveler = histoire.querySelector("#hm-reveler");
@@ -168,24 +168,6 @@ document.querySelectorAll(".histoire-mail").forEach((histoire) => {
     reveler.textContent = revele ? "Revenir à la vision avant / après" : "Révéler ce qui se cache dans les +50 %";
     message.textContent = revele ? "Sur les +5 000 €, 4 000 € viennent du printemps. Le mail n'en explique que 1 000 €." : naif;
   });
-
-  const points = histoire.querySelector("#hm-points");
-  const dessiner = (groupes) => {
-    points.replaceChildren(...groupes.map((g) => {
-      const point = document.createElement("span");
-      point.className = "hm-point " + g;
-      return point;
-    }));
-  };
-  const tirer = () => {
-    const groupes = Array.from({ length: 40 }, (_, i) => (i < 20 ? "a" : "b"));
-    for (let i = groupes.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [groupes[i], groupes[j]] = [groupes[j], groupes[i]];
-    }
-    return groupes;
-  };
-  dessiner("abbabaabbaababbabaabbabaababbaabaabbabab".split(""));
 
   // Onglets : un seul panneau de méthode visible à la fois, flèches gauche et droite au clavier.
   const onglets = [...histoire.querySelectorAll('[role="tab"]')];
@@ -207,7 +189,6 @@ document.querySelectorAll(".histoire-mail").forEach((histoire) => {
       suivant.focus();
     });
   });
-  histoire.querySelector("#hm-tirage").addEventListener("click", () => dessiner(tirer()));
 });
 
 // Mesures DAX : un bouton déplie ou replie toutes les formules d'un coup.

@@ -396,16 +396,6 @@ code { font-family: Consolas, "Cascadia Mono", ui-monospace, monospace; font-siz
 #hm-fig1 .vue-naive { transition: opacity .3s ease; }
 #hm-fig1.revele .vue-naive { opacity: 0; }
 
-/* Scène 3 : le tirage au sort des cliniques. */
-.hm-points { display: flex; flex-wrap: wrap; gap: 7px; }
-.hm-point { width: 16px; height: 16px; border-radius: 50%; }
-.hm-point.a { background: var(--hm-mail); }
-.hm-point.b { background: var(--hm-base); }
-.hm-cle-points { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; color: var(--hm-sourdine); }
-.hm-cle-points i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
-.hm-cle-points .a { background: var(--hm-mail); }
-.hm-cle-points .b { background: var(--hm-base); }
-
 /* Scène 4 : la leçon. */
 .hm-fin { grid-template-columns: minmax(0, 1fr); }
 .hm-fin .hm-texte { gap: 24px; }
