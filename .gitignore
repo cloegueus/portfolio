@@ -1,12 +1,9 @@
-# Ce dépôt publie le portfolio (dossier docs/) et le PDF du rapport Démo prédiction.
-# Tout est exclu par défaut : seuls les fichiers listés ci-dessous sont publiés.
-# Le reste du dossier (rapports .pbix, données, scripts, révisions, .venv) reste uniquement en local.
+# Ce dépôt publie seulement le portfolio (dossier docs/).
+# Tout le reste (rapports Power BI, données, scripts Python, .venv) reste en local.
 
 *
 !*/
 !/.gitignore
-!/README.md
-!documents/rapport_demo_prediction.pdf
 !docs/*.html
 !docs/*.css
 !docs/*.js
