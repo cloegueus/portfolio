@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Risque Brettanomyces · Cloé Gueusquin</title>
+<meta name="description" content="Application R Shiny d'aide à la décision créée chez Inter Rhône pour estimer le risque Brettanomyces d'un lot de vin, puis refaite en Power BI sur des données fictives.">
+<link rel="stylesheet" href="../../commun.css?v=6">
+<link rel="stylesheet" href="../../projet.css?v=6">
+<noscript><style>.tableau[hidden] { display: grid; }</style></noscript>
+</head>
+<body>
+
+<div class="pivoter" role="status">
+  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+    <rect x="20" y="6" width="24" height="44" rx="4"/><line x1="29" y1="43" x2="35" y2="43"/>
+    <path d="M50 30a18 18 0 0 1-18 18" stroke-dasharray="3 4"/>
+  </svg>
+  <strong>Tournez votre téléphone</strong>
+  <p>Ce portfolio se consulte à l'horizontale, pour bien voir les tableaux de bord.</p>
+</div>
+
+<div class="app">
+  <aside class="lateral" aria-label="Menu">
+    <a class="profil-lateral" href="../index.html"><span class="avatar"><img src="../../img/photo.jpg" alt="Photo de Cloé Gueusquin" onerror="this.remove()">CG</span><strong>Cloé Gueusquin</strong><small>Data Scientist junior</small></a>
+    <p class="rubrique">CV</p>
+    <a class="lien" href="../cv.html" title="Mon CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Mon CV</span></a>
+    <p class="rubrique">Projets</p>
+    <a class="lien" href="../projets/pilotage-des-ventes.html" title="Pilotage des ventes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-5M11 16V6M16 16v-8"/></svg><span>Pilotage des ventes</span></a>
+    <a class="lien" href="../projets/risque-brettanomyces.html" aria-current="page" title="Risque Brettanomyces"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 0 1 16 0"/><path d="m12 18 4-5"/></svg><span>Risque Brettanomyces</span></a>
+    <div class="bas">
+      <a class="lien" href="mailto:cloegueus1@gmail.com" title="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>E-mail</span></a>
+      <a class="lien" href="https://www.linkedin.com/in/clo%C3%A9-gueusquin" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><span>LinkedIn</span></a>
+    </div>
+  </aside>
+
+  <div class="principal">
+    <div class="ouverture">
+      <header class="barre-haut">
+        <p class="fil">Projets</p>
+        <h1>Risque Brettanomyces</h1>
+        <p class="sous-titre">Pendant mon stage chez Inter Rhône, j'ai créé une application R Shiny qui aide les vignerons à estimer ce risque. Je l'ai ensuite refaite en Power BI, sur des données fictives.</p>
+      </header>
+
+      <dl class="fiche">
+        <div>
+          <dt>Objectifs</dt>
+          <dd class="enjeux">
+            <p class="enjeu"><strong>Ce lot risque-t-il d'être marqué par la levure&#8239;?</strong><span>Brettanomyces donne au vin des odeurs animales, de cuir ou d'écurie. Une fois qu'elle s'est développée, on ne peut plus revenir en arrière.</span></p>
+            <p class="enjeu"><strong>Que corriger en cave&#8239;?</strong><span>Le vigneron saisit l'analyse de son lot. Le rapport estime le risque et indique ce qu'il peut corriger tout de suite.</span></p>
+          </dd>
+        </div>
+        <div>
+          <dt>Technologies</dt>
+          <dd>À l'origine, <strong>R</strong> pour un modèle <strong>Random Forest</strong> et <strong>R Shiny</strong> pour l'application. Pour la version refaite, <strong>Python</strong> pour une régression logistique, <strong>Power BI</strong> et <strong>DAX</strong> pour le simulateur.</dd>
+        </div>
+        <div>
+          <dt>Données</dt>
+          <dd>Pour la version Power BI, <strong>fictives</strong>, 120 lots de vin inventés sans aucune donnée d'Inter Rhône.</dd>
+        </div>
+        <div>
+          <dt>Application R Shiny</dt>
+          <dd>La version d'origine se teste en ligne. <a class="lien-version" href="https://cloegueusquin.shinyapps.io/test/" target="_blank" rel="noopener">Ouvrir l'application R Shiny<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></dd>
+        </div>
+      </dl>
+
+      <button class="decouvrir" type="button" aria-controls="suite" aria-expanded="false">Découvrir<svg viewBox="0 0 16 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 35V2M2 8l6-6 6 6"/></svg></button>
+    </div>
+
+<main class="tableau" id="suite" hidden>
+
+  <section class="tuile l-12" id="simulateur">
+    <h2>La version Power BI</h2>
+    <p class="sous">Survolez une zone pour la mettre en lumière, cliquez sur la capture pour l'agrandir</p>
+    <div class="schema" id="schema-simulateur">
+      <div class="notes-zone gauche">
+        <div class="zone-note" data-zone="1.5,13,24.5,52"><strong>Le bulletin d'analyse</strong><p>On y saisit les mesures du lot, du pH à la population de levures. Toute la page se met à jour aussitôt.</p></div>
+        <div class="zone-note" data-zone="2,65,22.5,11"><strong>Le contenant</strong><p>Une barrique ancienne abrite plus facilement la levure qu'une cuve inox. Un clic suffit pour comparer.</p></div>
+      </div>
+      <div class="capture"><img src="../../img/brett_simulateur.png" width="1339" height="753" alt="Page Simulateur du rapport. À gauche, le bulletin d'analyse du lot. Au centre, une jauge à 24 % de risque. À droite, le SO₂ actif, le SO₂ libre à viser et deux conseils."></div>
+      <div class="notes-zone droite">
+        <div class="zone-note" data-zone="66.5,18,30,13.5"><strong>Le SO₂ actif</strong><p>La part du SO₂ qui protège vraiment le vin. Le petit trait marque le seuil à atteindre.</p></div>
+        <div class="zone-note" data-zone="66.5,35,13,8.5"><strong>Le SO₂ à viser</strong><p>La dose qui suffirait à protéger ce lot, compte tenu de son acidité.</p></div>
+        <div class="zone-note" data-zone="66.5,46.5,30,16"><strong>Que faire ?</strong><p>Des conseils concrets pour la cave, qui changent selon l'analyse.</p></div>
+      </div>
+      <div class="notes-zone bas">
+        <div class="zone-note" data-zone="33,24,30,56"><strong>Le verdict</strong><p>La jauge donne la probabilité que la levure se développe d'ici le prochain contrôle. Juste dessous, le risque est classé faible, modéré ou élevé, et la couleur suit.</p></div>
+      </div>
+      <svg class="traits" aria-hidden="true"></svg>
+    </div>
+  </section>
+
+</main>
+  </div>
+</div>
+
+<dialog id="agrandissement" aria-label="Capture agrandie">
+  <button class="fermer" type="button" aria-label="Fermer">×</button>
+  <img alt="">
+</dialog>
+
+<script src="../../projet.js?v=6"></script>
+</body>
+</html>

@@ -8,6 +8,8 @@
 !docs/*.css
 !docs/*.js
 !docs/projets/*.html
+!docs/recherche/*.html
+!docs/recherche/projets/*.html
 !docs/img/*.png
 !docs/img/*.jpg
 

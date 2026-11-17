@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilotage des ventes · Cloé Gueusquin</title>
+<meta name="description" content="Rapport Power BI sur des ventes vétérinaires fictives : prévision de fin d'année et repérage des cliniques sur le point d'arrêter de commander avec deux modèles Python exécutés dans Power BI.">
+<link rel="stylesheet" href="../../commun.css?v=6">
+<link rel="stylesheet" href="../../projet.css?v=6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<noscript><style>.tableau[hidden] { display: grid; }</style></noscript>
+</head>
+<body>
+
+<div class="pivoter" role="status">
+  <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
+    <rect x="20" y="6" width="24" height="44" rx="4"/><line x1="29" y1="43" x2="35" y2="43"/>
+    <path d="M50 30a18 18 0 0 1-18 18" stroke-dasharray="3 4"/>
+  </svg>
+  <strong>Tournez votre téléphone</strong>
+  <p>Ce portfolio se consulte à l'horizontale, pour bien voir les tableaux de bord.</p>
+</div>
+
+<div class="app">
+  <aside class="lateral" aria-label="Menu">
+    <a class="profil-lateral" href="../index.html"><span class="avatar"><img src="../../img/photo.jpg" alt="Photo de Cloé Gueusquin" onerror="this.remove()">CG</span><strong>Cloé Gueusquin</strong><small>Data Scientist junior</small></a>
+    <p class="rubrique">CV</p>
+    <a class="lien" href="../cv.html" title="Mon CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg><span>Mon CV</span></a>
+    <p class="rubrique">Projets</p>
+    <a class="lien" href="../projets/pilotage-des-ventes.html" aria-current="page" title="Pilotage des ventes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 16v-5M11 16V6M16 16v-8"/></svg><span>Pilotage des ventes</span></a>
+    <a class="lien" href="../projets/risque-brettanomyces.html" title="Risque Brettanomyces"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 0 1 16 0"/><path d="m12 18 4-5"/></svg><span>Risque Brettanomyces</span></a>
+    <div class="bas">
+      <a class="lien" href="mailto:cloegueus1@gmail.com" title="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>E-mail</span></a>
+      <a class="lien" href="https://www.linkedin.com/in/clo%C3%A9-gueusquin" title="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg><span>LinkedIn</span></a>
+    </div>
+  </aside>
+
+  <div class="principal">
+    <div class="ouverture">
+      <header class="barre-haut">
+        <p class="fil">Projets</p>
+        <h1>Pilotage des ventes</h1>
+        <p class="sous-titre">Un rapport Power BI sur des ventes vétérinaires, avec deux modèles écrits en Python qui tournent dans le rapport.</p>
+      </header>
+
+      <dl class="fiche">
+        <div>
+          <dt>Objectifs</dt>
+          <dd class="enjeux">
+            <p class="enjeu"><strong>L'année finira-t-elle au&#8209;dessus du budget&#8239;?</strong><span>La question de la direction. Le rapport estime le chiffre de fin d'année à partir d'une prévision par produit.</span></p>
+            <p class="enjeu"><strong>Quelle clinique appeler en premier&#8239;?</strong><span>La question des délégués. Le rapport classe les cliniques selon leur risque d'arrêter de commander.</span></p>
+            <p class="enjeu"><strong>Comment mesurer l'effet d'une action marketing grâce aux statistiques&#8239;?</strong><span>Les entreprises mènent souvent des actions promotionnelles. Une mauvaise lecture des chiffres peut faire croire qu'une campagne a marché, et conduire à de mauvaises décisions.</span></p>
+          </dd>
+        </div>
+        <div>
+          <dt>Technologies</dt>
+          <dd><strong>Power BI</strong> pour le rapport, <strong>DAX</strong> pour les mesures, <strong>Power Query</strong> pour préparer les données et <strong>Python</strong> (pandas, statsmodels) pour les deux modèles.</dd>
+        </div>
+        <div>
+          <dt>Données</dt>
+          <dd><strong>Fictives.</strong> Les ventes, les produits et les cliniques sont inventés, de janvier 2023 à octobre 2026, pour ressembler à un vrai suivi commercial.</dd>
+        </div>
+      </dl>
+
+      <button class="decouvrir" type="button" aria-controls="suite" aria-expanded="false">Découvrir<svg viewBox="0 0 16 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 35V2M2 8l6-6 6 6"/></svg></button>
+    </div>
+
+<main class="tableau" id="suite" hidden>
+
+  <figure class="visuel-carte l-2"><img src="../../img/demo_carte_1.png" width="559" height="293" alt="Carte du rapport, EYE modele : 2 267 698 €"></figure>
+  <figure class="visuel-carte l-2"><img src="../../img/demo_carte_2.png" width="559" height="293" alt="Carte du rapport, Ecart EYE modele vs budget : 4,01 %"></figure>
+  <figure class="visuel-carte l-2"><img src="../../img/demo_carte_3.png" width="559" height="293" alt="Carte du rapport, Erreur backtest modele : 2,56 %"></figure>
+  <figure class="visuel-carte l-2"><img src="../../img/demo_carte_4.png" width="559" height="293" alt="Carte du rapport, Erreur backtest forecast : 5,84 %"></figure>
+  <figure class="visuel-carte l-2"><img src="../../img/demo_carte_5.png" width="559" height="293" alt="Carte du rapport, Cliniques risque eleve : 11"></figure>
+  <figure class="visuel-carte l-2"><img src="../../img/demo_carte_6.png" width="559" height="293" alt="Carte du rapport, CA a risque : 80 109 €"></figure>
+  <p class="legende-bande">EYE désigne l'atterrissage de fin d'année, soit les ventes réalisées plus la prévision du modèle. Les erreurs sont mesurées sur janvier–septembre 2026.</p>
+
+  <section class="tuile l-7 haut-2" id="rapport">
+    <div class="tuile-tete seul">
+      <button class="agrandir" type="button">Agrandir</button>
+    </div>
+    <div class="capture"><img src="../../img/demo_graphique.png" width="1400" height="1115" alt="Histogramme des ventes mensuelles réelles de janvier 2025 à septembre 2026, meilleur mois en vert et mois le plus faible en rouge, avec la prévision du modèle en pointillés jusqu'en mars 2027."></div>
+    <p class="legende">Les barres donnent les ventes réelles de chaque mois, en vert le meilleur (mai 2026, 228&#8239;k€) et en rouge le plus faible (août 2025, 117&#8239;k€). Les pointillés suivent la prévision du modèle sur le backtest puis jusqu'en mars 2027.</p>
+  </section>
+
+  <section class="tuile l-5 parc" aria-labelledby="parc-titre">
+    <p class="parc-titre" id="parc-titre"><strong>260</strong> cliniques clientes</p>
+    <div class="parc-corps">
+      <div class="parc-points" role="img" aria-label="260 cliniques, dont 139 canines, 81 mixtes et 40 rurales"><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="c"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="m"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i><i class="r"></i></div>
+      <ul class="parc-types">
+        <li class="c"><strong>139</strong>canine</li>
+        <li class="m"><strong>81</strong>mixte</li>
+        <li class="r"><strong>40</strong>rurale</li>
+      </ul>
+    </div>
+    <p class="parc-pied">14&#8239;260 commandes, 12 produits, 8 délégués, 8 régions</p>
+  </section>
+
+  <section class="tuile l-5" id="clients">
+    <h2>Cliniques à relancer</h2>
+    <p class="sous">Les 10 probabilités de perte les plus élevées</p>
+    <div class="capture"><img src="../../img/demo_tableau.png" alt="Tableau des dix cliniques au risque de perte le plus élevé, de 99 % à 42 %, avec le facteur principal et le nombre de jours sans commande."></div>
+    <p class="legende">La liste d'appels des délégués. Les cliniques sont classées de la plus à risque à la moins à risque avec la raison principale et le nombre de jours sans commande.</p>
+  </section>
+
+  <h2 class="partie-titre">Comment est construit ce dashboard</h2>
+
+  <section class="tuile l-12 prevision">
+    <h2>Prévision des ventes</h2>
+    <p>Pour chaque produit, le modèle repère la croissance d'une année sur l'autre et le rythme des saisons. Pour le tester, je lui ai montré 2023–2025 seulement, puis je lui ai fait prévoir janvier–septembre 2026, dont je connaissais déjà les vrais chiffres. J'ai comparé ses erreurs à celles du budget revu en cours d'année, l'estimation que l'entreprise met à jour pendant l'année (le «&#8239;forecast&#8239;»).</p>
+    <div class="pv-bloc">
+      <p class="pv-titre">De combien il se trompe sur un mois, en moyenne</p>
+      <div class="pv-barres">
+          <span class="pv-nom">Modèle</span><span class="pv-piste"><span class="pv-barre modele" style="width:50.9%"></span></span><span class="pv-val modele">5,6&#8239;%</span>
+          <span class="pv-nom">forecast</span><span class="pv-piste"><span class="pv-barre forecast" style="width:93.6%"></span></span><span class="pv-val forecast">10,3&#8239;%</span>
+      </div>
+    </div>
+    <div class="pv-bloc">
+      <p class="pv-titre">De combien il se trompe sur le total des 9 mois</p>
+      <div class="pv-barres">
+          <span class="pv-nom">Modèle</span><span class="pv-piste"><span class="pv-barre modele" style="width:23.6%"></span></span><span class="pv-val modele">2,6&#8239;%</span>
+          <span class="pv-nom">forecast</span><span class="pv-piste"><span class="pv-barre forecast" style="width:52.7%"></span></span><span class="pv-val forecast">5,8&#8239;%</span>
+      </div>
+    </div>
+    <p class="remarque">Ici, le forecast est inventé au hasard, donc le modèle part avantagé. Sur de vraies données, il servirait de point de comparaison aux chefs de produit, pas de remplaçant.</p>
+  </section>
+
+  <section class="tuile l-12" id="mesures">
+    <div class="mesures-tete">
+      <div>
+        <h2>Les mesures DAX</h2>
+        <p class="sous">Elles sont rangées dans une table <code>_Mesures</code>. Cliquez sur une mesure pour lire sa formule.</p>
+      </div>
+      <button class="tout-deplier" type="button" aria-pressed="false">Afficher toutes les formules</button>
+    </div>
+    <div class="mesures-liste">
+      <div class="famille">
+        <p class="famille-nom">Socle<span>Le chiffre d'affaires et la limite entre réel et prévision</span></p>
+        <div class="famille-mesures">
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Gross Sales</span><span class="mesure-role">Le chiffre d'affaires au prix tarif, calculé ligne par ligne. Presque tout le reste en dépend.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">SUMX</span> ( SellIn, <span class="dax-colonne">SellIn[Quantite]</span> * <span class="dax-colonne">SellIn[Prix_Tarif_Unitaire]</span> )</code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Dernier mois complet</span><span class="mesure-role">La dernière vente enregistrée date du 16 octobre 2026. La mesure prend la fin du mois précédent, le 30 septembre, pour ne garder que des mois entiers. C'est la frontière entre le réel et la prévision.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">EOMONTH</span> ( <span class="dax-fonction">CALCULATE</span> ( <span class="dax-fonction">MAX</span> ( <span class="dax-colonne">SellIn[Date]</span> ), <span class="dax-fonction">ALL</span> ( SellIn ) ), <span class="dax-nombre">-1</span> )</code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Reel mois complets</span><span class="mesure-role">Pour chaque mois du graphique, la mesure compare le dernier jour du mois au 30 septembre. Au-delà, elle ne renvoie rien et la courbe du réel s'arrête en septembre. Sans elle, octobre, à moitié écoulé, ressemblerait à une chute.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">IF</span> ( <span class="dax-fonction">MAX</span> ( <span class="dax-colonne">Calendrier[Date]</span> ) &lt;= <span class="dax-ref">[Dernier mois complet]</span>, <span class="dax-ref">[Gross Sales]</span> )</code></pre>
+          </details>
+        </div>
+      </div>
+      <div class="famille">
+        <p class="famille-nom">Prévision<span>L'atterrissage de fin d'année et sa fiabilité</span></p>
+        <div class="famille-mesures">
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">EYE modele</span><span class="mesure-role">L'atterrissage de fin d'année. Il ajoute au cumul réel de janvier au dernier mois complet (<code>CF annee</code>) la prévision du modèle jusqu'à décembre.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-ref">[CF annee]</span> + <span class="dax-ref">[Prevision fin annee]</span></code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Ecart EYE modele vs budget</span><span class="mesure-role">L'écart entre cet atterrissage et le budget de l'année, en pourcentage.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">DIVIDE</span> ( <span class="dax-ref">[EYE modele]</span> - <span class="dax-ref">[Budget annee]</span>, <span class="dax-ref">[Budget annee]</span> )</code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Erreur backtest modele</span><span class="mesure-role">Ce que le modèle avait prévu pour janvier–septembre 2026, comparé à ce qui s'est vraiment vendu. La même mesure existe pour le forecast.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-mot">VAR</span> fin = <span class="dax-ref">[Dernier mois complet]</span>
+<span class="dax-mot">VAR</span> reel = <span class="dax-fonction">CALCULATE</span> ( <span class="dax-ref">[Gross Sales]</span>, <span class="dax-fonction">REMOVEFILTERS</span> ( Calendrier ),
+    <span class="dax-fonction">DATESBETWEEN</span> ( <span class="dax-colonne">Calendrier[Date]</span>, <span class="dax-fonction">DATE</span> ( <span class="dax-fonction">YEAR</span> ( fin ), <span class="dax-nombre">1</span>, <span class="dax-nombre">1</span> ), fin ) )
+<span class="dax-mot">VAR</span> prev = <span class="dax-fonction">CALCULATE</span> ( <span class="dax-fonction">SUM</span> ( <span class="dax-colonne">prevision_produit[Prevision]</span> ),
+    <span class="dax-colonne">prevision_produit[Type]</span> = <span class="dax-chaine">"Backtest"</span>, <span class="dax-fonction">REMOVEFILTERS</span> ( Calendrier ) )
+<span class="dax-mot">RETURN</span> <span class="dax-fonction">DIVIDE</span> ( <span class="dax-fonction">ABS</span> ( prev - reel ), reel )</code></pre>
+          </details>
+        </div>
+      </div>
+      <div class="famille">
+        <p class="famille-nom">Risque client<span>Les cliniques à rappeler et ce qu'elles pèsent</span></p>
+        <div class="famille-mesures">
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">Cliniques risque eleve</span><span class="mesure-role">Le nombre de cliniques que le modèle classe en risque élevé, au-delà de 40&#8239;% de probabilité de perte.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">CALCULATE</span> ( <span class="dax-fonction">COUNTROWS</span> ( score_clients ), <span class="dax-colonne">score_clients[Niveau_risque]</span> = <span class="dax-chaine">"Élevé"</span> )</code></pre>
+          </details>
+          <details class="mesure">
+            <summary><svg class="icone-mesure" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="1.5" width="11" height="13" rx="1.5"/><path d="M5 4.5h6M5 8h1M7.5 8h1M10 8h1M5 10.5h1M7.5 10.5h1M10 10.5h1"/></svg><span class="mesure-nom">CA a risque</span><span class="mesure-role">Ce que ces cliniques ont acheté sur douze mois, autrement dit la perte possible en euros.</span><span class="mesure-bascule">Formule</span></summary>
+            <pre><code><span class="dax-fonction">CALCULATE</span> ( <span class="dax-fonction">SUM</span> ( <span class="dax-colonne">score_clients[CA_12_mois]</span> ), <span class="dax-colonne">score_clients[Niveau_risque]</span> = <span class="dax-chaine">"Élevé"</span> )</code></pre>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <div class="histoire-mail" role="region" aria-labelledby="hm-titre">
+    <div class="hm-wrap">
+      <header class="hm-tete">
+        <h2 id="hm-titre">Mesurer l'effet d'une action marketing</h2>
+        <p class="hm-lead">Le 15 avril, le laboratoire envoie un mail aux vétérinaires pour Parasitop Chat, son antiparasitaire pour chat. Trois mois plus tard, les ventes ont pris +50&#8239;%. Le mail a-t-il vraiment fait vendre&#8239;?</p>
+      </header>
+
+      <div class="hm-methodes">
+        <p class="hm-onglets-titre" id="hm-onglets-titre">Méthode de comparaison</p>
+        <div class="hm-onglets" role="tablist" aria-labelledby="hm-onglets-titre">
+          <button type="button" role="tab" id="hm-onglet-1" aria-controls="hm-panneau-1" aria-selected="true">Avant / après</button>
+          <button type="button" role="tab" id="hm-onglet-2" aria-controls="hm-panneau-2" aria-selected="false" tabindex="-1">Contre l'an dernier</button>
+          <button type="button" role="tab" id="hm-onglet-3" aria-controls="hm-panneau-3" aria-selected="false" tabindex="-1">Contre un groupe témoin</button>
+        </div>
+        <div class="hm-scene" role="tabpanel" id="hm-panneau-1" aria-labelledby="hm-onglet-1" tabindex="0">
+          <div class="hm-texte">
+            <h3>Erreur courante</h3>
+            <p>Comparer les 3 mois avant le mail aux 3 mois après est la méthode la plus courante. C'est pourtant une erreur, car elle mélange l'effet du mail avec tout ce qui a changé entre les deux périodes.</p>
+            <p>Ici, les ventes prennent +50&#8239;% et on a envie de tout attribuer au mail. Sauf que les antiparasitaires se vendent toujours plus au printemps. Puces et tiques reviennent chaque année à cette période, mail ou pas.</p>
+          </div>
+          <div class="hm-figure">
+            <svg viewBox="0 0 400 290" role="img" aria-label="Ventes avant le mail, 10 000 euros. Après, 15 000 euros, soit plus 50 %, que la comparaison avant / après attribue entièrement au mail.">
+              <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
+              <rect x="40" y="115" width="90" height="125" class="f-base"/>
+              <text x="85" y="105" class="val" text-anchor="middle">10 000 €</text>
+              <rect x="190" y="52.5" width="90" height="187.5" class="f-mail"/>
+              <text x="235" y="42" class="val" text-anchor="middle">15 000 €</text>
+              <text x="160" y="88" class="gros" text-anchor="middle">+50 %</text>
+              <text x="292" y="150" class="lab">« Tout ça,</text>
+              <text x="292" y="165" class="lab">c'est le mail »</text>
+              <text x="85" y="259" class="lab" text-anchor="middle">Avant le mail</text>
+              <text x="85" y="275" class="lab-m" text-anchor="middle">15 janv. – 14 avr.</text>
+              <text x="235" y="259" class="lab" text-anchor="middle">Après le mail</text>
+              <text x="235" y="275" class="lab-m" text-anchor="middle">15 avr. – 14 juil.</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="hm-scene" role="tabpanel" id="hm-panneau-2" aria-labelledby="hm-onglet-2" tabindex="0" hidden>
+          <div class="hm-texte">
+            <h3>Comparer à la même période, l'année d'avant</h3>
+            <p>En 2025, à la même période, il n'y avait pas de mail. Les ventes ont pourtant pris +40&#8239;%. C'est l'effet du printemps tout seul.</p>
+            <p>En 2026, avec le mail, elles prennent +50&#8239;%. Si le printemps pèse autant chaque année, le mail n'explique que l'écart entre les deux.</p>
+            <p>Cette méthode suppose que 2026 ressemble à 2025. Cependant, d'une année à l'autre, la météo, les prix ou les concurrents changent. Si le printemps 2026 a été plus chaud, il y a eu plus de puces, et une partie des 10 points vient de là.</p>
+          </div>
+          <div class="hm-figure">
+            <svg viewBox="0 0 400 295" role="img" aria-label="2025 sans mail, de 10 000 à 14 000 euros, soit plus 40 %. 2026 avec mail, de 10 000 à 15 000 euros, soit plus 50 %.">
+              <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
+              <rect x="30" y="115" width="60" height="125" class="f-base"/>
+              <rect x="100" y="115" width="60" height="125" class="f-base"/>
+              <rect x="100" y="65" width="60" height="50" class="f-saison"/>
+              <text x="130" y="55" class="gros" text-anchor="middle" style="font-size:17px">+40 %</text>
+              <rect x="230" y="115" width="60" height="125" class="f-base"/>
+              <rect x="300" y="115" width="60" height="125" class="f-base"/>
+              <rect x="300" y="65" width="60" height="50" class="f-saison"/>
+              <rect x="300" y="52.5" width="60" height="12.5" class="f-mail"/>
+              <text x="330" y="42" class="gros" text-anchor="middle" style="font-size:17px">+50 %</text>
+              <line x1="160" y1="65" x2="300" y2="65" class="tirets"/>
+              <text x="166" y="81" class="lab-m">niveau attendu sans mail</text>
+              <text x="60" y="256" class="lab-m" text-anchor="middle">avant</text>
+              <text x="130" y="256" class="lab-m" text-anchor="middle">après</text>
+              <text x="260" y="256" class="lab-m" text-anchor="middle">avant</text>
+              <text x="330" y="256" class="lab-m" text-anchor="middle">après</text>
+              <text x="95" y="280" class="lab" text-anchor="middle" style="font-weight:600">2025 · sans mail</text>
+              <text x="295" y="280" class="lab" text-anchor="middle" style="font-weight:600">2026 · avec mail</text>
+            </svg>
+            <p class="hm-encart"><strong>Effet du mail = 50&#8239;% − 40&#8239;% = +10 points.</strong> Cinq fois moins que ce qu'on croyait.</p>
+          </div>
+        </div>
+
+        <div class="hm-scene" role="tabpanel" id="hm-panneau-3" aria-labelledby="hm-onglet-3" tabindex="0" hidden>
+          <div class="hm-texte">
+            <h3>Le test A/B, tirer au sort qui reçoit le mail</h3>
+            <p>Pour écarter ces différences entre années, on compare deux groupes <strong>au même moment</strong>. Ils vivent la même météo, les mêmes prix et les mêmes concurrents.</p>
+            <p><strong>Qui reçoit le mail&#8239;?</strong> Si on l'envoie aux meilleures clientes, elles auraient de toute façon acheté plus. On tire donc au sort, pour que les deux groupes se ressemblent en tout, sauf le mail.</p>
+            <p><strong>Combien de cliniques&#8239;?</strong> Avec trop peu, une seule grosse commande suffit à fausser le résultat. On calcule avant l'envoi combien il en faut pour obtenir une réponse fiable, ici environ 100 par groupe.</p>
+            <p><strong>Quelle confiance dans le résultat&#8239;?</strong> Avec d'autres cliniques tirées au sort, on n'aurait pas trouvé exactement +100&#8239;€. On calcule donc une fourchette autour du résultat. Elle se resserre quand il y a plus de cliniques et que leurs ventes sont régulières.</p>
+          </div>
+          <div class="hm-figure">
+            <svg viewBox="0 0 400 295" role="img" aria-label="Ventes moyennes par clinique. Groupe A, de 500 à 800 euros, soit plus 300. Groupe B, de 500 à 700 euros, soit plus 200. Effet du mail, plus 100 euros par clinique.">
+              <line x1="20" y1="240" x2="390" y2="240" class="axe"/>
+              <rect x="30" y="128.9" width="60" height="111.1" class="f-base"/>
+              <text x="60" y="120" class="val" text-anchor="middle">500 €</text>
+              <rect x="100" y="128.9" width="60" height="111.1" class="f-base"/>
+              <rect x="100" y="84.4" width="60" height="44.5" class="f-saison"/>
+              <rect x="100" y="62.2" width="60" height="22.2" class="f-mail"/>
+              <text x="130" y="53" class="val" text-anchor="middle">800 €</text>
+              <text x="130" y="35" class="gros" text-anchor="middle" style="font-size:16px">+300 €</text>
+              <rect x="230" y="128.9" width="60" height="111.1" class="f-base"/>
+              <text x="260" y="120" class="val" text-anchor="middle">500 €</text>
+              <rect x="300" y="128.9" width="60" height="111.1" class="f-base"/>
+              <rect x="300" y="84.4" width="60" height="44.5" class="f-saison"/>
+              <text x="330" y="75" class="val" text-anchor="middle">700 €</text>
+              <text x="330" y="57" class="gros" text-anchor="middle" style="font-size:16px">+200 €</text>
+              <text x="60" y="256" class="lab-m" text-anchor="middle">avant</text>
+              <text x="130" y="256" class="lab-m" text-anchor="middle">après</text>
+              <text x="260" y="256" class="lab-m" text-anchor="middle">avant</text>
+              <text x="330" y="256" class="lab-m" text-anchor="middle">après</text>
+              <text x="95" y="280" class="lab" text-anchor="middle" style="font-weight:600">Groupe A · mail</text>
+              <text x="295" y="280" class="lab" text-anchor="middle" style="font-weight:600">Groupe B · témoin</text>
+            </svg>
+            <p class="hm-encart"><strong>Effet du mail = (+300 €) − (+200 €) = +100 € par clinique</strong> sur 3 mois.</p>
+            <svg viewBox="0 0 400 134" role="img" aria-label="Fourchette du gain par clinique. Avec 100 cliniques par groupe, de 31 à 169 euros, au-dessus de zéro. Avec 20 cliniques par groupe, de moins 54 à 254 euros, elle passe par zéro.">
+              <line x1="15" y1="100" x2="385" y2="100" class="axe"/>
+              <line x1="86.7" y1="14" x2="86.7" y2="100" class="tirets"/>
+              <text x="121.8" y="24" class="lab">100 cliniques par groupe, de 31 à 169 €</text>
+              <line x1="121.8" y1="38" x2="278.2" y2="38" class="intervalle"/>
+              <line x1="121.8" y1="31" x2="121.8" y2="45" class="borne"/>
+              <line x1="278.2" y1="31" x2="278.2" y2="45" class="borne"/>
+              <circle cx="200" cy="38" r="6" class="f-mail"/>
+              <text x="95" y="64" class="lab-m">20 cliniques par groupe, de −54 à 254 €</text>
+              <line x1="25.5" y1="78" x2="374.5" y2="78" class="intervalle-large"/>
+              <line x1="25.5" y1="71" x2="25.5" y2="85" class="borne-large"/>
+              <line x1="374.5" y1="71" x2="374.5" y2="85" class="borne-large"/>
+              <circle cx="200" cy="78" r="6" class="point-large"/>
+              <line x1="86.7" y1="100" x2="86.7" y2="105" class="axe"/>
+              <line x1="200" y1="100" x2="200" y2="105" class="axe"/>
+              <line x1="313.3" y1="100" x2="313.3" y2="105" class="axe"/>
+              <text x="86.7" y="117" class="lab-m" text-anchor="middle">0 €</text>
+              <text x="86.7" y="130" class="lab-m" text-anchor="middle">aucun effet</text>
+              <text x="200" y="117" class="lab-m" text-anchor="middle">100 €</text>
+              <text x="313.3" y="117" class="lab-m" text-anchor="middle">200 €</text>
+              <text x="385" y="130" class="lab-m" text-anchor="end">gain par clinique dû au mail</text>
+            </svg>
+            <p class="hm-note">Les ventes d'une clinique varient beaucoup d'un mois à l'autre. Avec 20 cliniques par groupe, la fourchette est si large qu'elle passe par 0, et on ne peut rien conclure. Avec 100, elle se resserre et reste au-dessus de 0. Le mail rapporte vraiment.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</main>
+  </div>
+</div>
+
+<dialog id="agrandissement" aria-label="Capture agrandie">
+  <button class="fermer" type="button" aria-label="Fermer">×</button>
+  <img alt="">
+</dialog>
+
+<script src="../../projet.js?v=6"></script>
+</body>
+</html>
